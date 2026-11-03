@@ -3,7 +3,10 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import scenario from "../data/scenarios/primary.json" with { type: "json" };
 import { chunkById } from "../lib/data.ts";
-import { allControlResults, allOutcomes, classify, emptyState, runStep, type StepResult } from "../lib/engine.ts";
+import { allControlResults, allOutcomes, classify, emptyState, rules, runStep, type StepResult } from "../lib/engine.ts";
+import { GENESIS } from "../lib/audit.ts";
+import { stepToLines } from "../lib/step-log.ts";
+import { verifyQuote } from "../lib/verify.ts";
 import { evidenceMarkdown, nonDataRows, pipelineRows, supportingRows } from "../lib/evidence.ts";
 import { discardReason, modelConfigured, modelNarrative } from "../lib/llm.ts";
 import { CANDIDATE, NO_GLOBAL_EXAMPLE, NOT_ADDRESSED, PIPELINE } from "../lib/types.ts";
@@ -23,7 +26,9 @@ function displayedQuotes(step: StepResult): { chunk_id: string; quote: string }[
     ...step.rule_findings.map((f) => ({ chunk_id: f.citation.chunk_id, quote: f.citation.quote })),
     ...step.retrieved.map((f) => ({ chunk_id: f.chunk_id, quote: f.quote })),
     ...step.controls.flatMap((c) => (c.nearest ? [{ chunk_id: c.nearest.chunk_id, quote: c.nearest.quote }] : [])),
-    ...(step.decision?.actions.map((a) => ({ chunk_id: a.citation.chunk_id, quote: a.citation.quote })) ?? []),
+    ...(step.decision?.actions.flatMap((a) => [{ chunk_id: a.citation.chunk_id, quote: a.citation.quote }, ...a.supporting.map((x) => ({ chunk_id: x.chunk_id, quote: x.quote }))]) ?? []),
+    ...(step.decision?.conflicts.flatMap((c) => [c.winner, c.loser].map((x) => ({ chunk_id: x.chunk_id, quote: x.quote }))) ?? []),
+    ...step.rule_findings.flatMap((f) => f.supporting.map((x) => ({ chunk_id: x.chunk_id, quote: x.quote }))),
     ...(step.decision?.outcomes.flatMap((o) => [...o.citations, ...o.nearest].map((c) => ({ chunk_id: c.citation.chunk_id, quote: c.citation.quote }))) ?? []),
   ];
 }
@@ -61,17 +66,49 @@ describe("main scenario with the model variables unset", () => {
     expect(pop < con && con < dec && dec < esc && esc < dec2).toBe(true);
     const steps = run();
     expect(steps[pop].rule_findings.map((f) => f.rule_id)).toContain("PR-03");
-    expect(steps[dec].decision!.actions.map((a) => a.rule_id)).toContain("PR-04");
-    expect(steps[dec2].decision!.actions.map((a) => a.rule_id)).toEqual(expect.arrayContaining(["PR-11", "PR-12", "PR-14", "PR-15"]));
+    expect(steps[con].rule_findings.map((f) => f.rule_id)).toEqual(expect.arrayContaining(["TL-04", "TL-08", "TL-11"]));
+    expect(steps[dec].decision!.actions.map((a) => a.rule_id)).toEqual(expect.arrayContaining(["TL-04", "TL-11", "PR-04"]));
+    expect(steps[dec].decision!.outcomes).toHaveLength(0);
+    expect(steps[dec2].decision!.actions.map((a) => a.rule_id)).toEqual(expect.arrayContaining(["TL-12", "TL-13", "TL-19", "PR-11", "PR-14"]));
     expect(steps[dec2].decision!.outcomes).toHaveLength(4);
   });
 
-  it("reports the template outcomes the text does not support as not addressed", () => {
+  it("the KB decides the controversy with PA-01 and shows both quotes", () => {
+    const steps = run();
+    const dec = steps[scenario.events.findIndex((e) => e.beat === "KB decides")].decision!;
+    expect(dec.conflicts.map((c) => c.id)).toEqual(["C-01", "C-02"]);
+    expect(dec.conflicts[0].winner.document).toContain("CPR");
+    expect(dec.conflicts[0].loser.document).toContain("Strategy");
+    expect(dec.conflicts[1].loser.document).toContain("Ethics");
+    expect(dec.conflicts[1].loser.quote).toContain("should be used");
+    expect(dec.conflicts[1].winner.quote).toContain("must obtain");
+    expect(steps[scenario.events.findLastIndex((e) => e.beat === "KB decides")].decision!.conflicts).toHaveLength(0);
+  });
+
+  it("telecom provisions lead the decisions", () => {
+    const steps = run();
+    for (const s of steps) if (s.decision?.actions.length) expect(s.decision.actions.some((a) => a.rank <= 2)).toBe(true);
+    const e6 = steps[5].decision!.actions;
+    expect(e6[0].rule_id).toBe("TL-12");
+  });
+
+  it("records the template outcomes as read from the text, each with its limit", () => {
     const by = Object.fromEntries(allOutcomes().map((o) => [o.id, o]));
-    expect(by.purpose_limitation.status).toBe(NOT_ADDRESSED);
-    expect(by.purpose_limitation.citations).toHaveLength(0);
-    expect(by.oversight_referral.unsupported).toMatch(/outside the organization/);
-    expect(by.prohibit.unsupported).toMatch(/binding/);
+    expect(by.consent.verdict).toBe("supported");
+    expect(by.prohibit.verdict).toBe("partly");
+    expect(by.purpose_limitation.verdict).toBe("partly");
+    expect(by.oversight_referral.verdict).toBe("partly");
+    expect(by.oversight_referral.unsupported).toMatch(/duty on a Licensee to refer or report/);
+    expect(by.consent.unsupported).toMatch(/Data Protection Law/);
+    for (const o of allOutcomes()) expect(o.citations.length, o.id).toBeGreaterThan(0);
+  });
+
+  it("emergency traffic stays scoped to what the text says", () => {
+    const e9 = run()[8];
+    const tl = e9.rule_findings.find((f) => f.rule_id === "TL-28")!;
+    expect(tl.analogy_note).toMatch(/non-payment/);
+    expect(tl.action).toMatch(/does not speak to ML throttling/);
+    expect(e9.controls.find((c) => c.id === "G-10")!.addressed).toBe(false);
   });
 
   it("every displayed quote is in its chunk, for every event and view", () => {
@@ -99,8 +136,11 @@ describe("main scenario with the model variables unset", () => {
     expect(r.headline).toContain(NOT_ADDRESSED);
   });
 
-  it("an interception event is marked not addressed, with review flag and no global example", () => {
-    const c = runStep("A request arrives to intercept communications").controls.find((x) => x.id === "G-01")!;
+  it("an interception event cites the law and still marks the ML pipeline question not addressed", () => {
+    const r = runStep("A request arrives to intercept communications");
+    expect(r.rule_findings.map((f) => f.rule_id)).toContain("TL-30");
+    expect(r.controls.find((x) => x.id === "A-04")!.addressed).toBe(true);
+    const c = r.controls.find((x) => x.id === "G-01")!;
     expect(c.status).toBe(NOT_ADDRESSED);
     expect(c.review_flag).toBe(CANDIDATE);
     expect(c.global_example).toBe(NO_GLOBAL_EXAMPLE);
@@ -127,11 +167,42 @@ describe("evidence export", () => {
 
   it("states the KB's limits and marks analogy", () => {
     const md = evidenceMarkdown();
-    expect(md).toContain("no binding telecom sector law");
-    expect(md).toContain("Telecom Law");
+    expect(md).not.toContain("no binding telecom sector law");
+    expect(md).toContain("the document says the Arabic version prevails");
     expect(md).toContain("PDPL");
+    expect(md).toContain("HTTP 403");
     expect(md).toContain("applied by analogy");
     expect(md).toContain(NO_GLOBAL_EXAMPLE);
+    expect(md).toContain("PA-01");
+  });
+
+  it("the audit log records the precedence decision", () => {
+    let state = emptyState();
+    let lines: string[] = [];
+    for (const e of scenario.events.slice(0, 4)) {
+      const r = runStep(e.text, state);
+      state = r.state;
+      lines = stepToLines(r, { session: "t", seq: 0, prevHash: GENESIS, eventId: e.id, scenarioId: scenario.id }).lines;
+    }
+    expect(lines.join("\n")).toContain("C-01");
+    expect(lines.join("\n")).toContain("PA-01");
+  });
+});
+
+describe("verify action", () => {
+  it("re-finds a quote in its chunk and in the stored text of its file", () => {
+    const r = rules.find((x) => x.id === "TL-12")!;
+    const v = verifyQuote(r.citation.chunk_id, r.citation.quote);
+    expect(v.found).toBe(true);
+    expect(v.file).toBe("tdra-consumer-protection-regulations-v2.0-2023.pdf");
+    expect(v.page).toBe(60);
+    expect(v.sha256).toBe("7e8dad214b44d11b2cb4268ef883f51af24b90128240d44ecb9d52b3e6f7a4bc");
+  });
+
+  it("does not find an altered quote", () => {
+    const r = rules.find((x) => x.id === "TL-12")!;
+    expect(verifyQuote(r.citation.chunk_id, r.citation.quote.replace("must", "may")).found).toBe(false);
+    expect(verifyQuote("no-such-chunk", "x").found).toBe(false);
   });
 });
 
@@ -166,10 +237,24 @@ describe("product text", () => {
   const files = ["app", "components", "lib", "data"].flatMap((d) => walk(join(ROOT, d))).filter((f) => /\.(tsx?|json|css)$/.test(f));
   const text = files.map((f) => [f, readFileSync(f, "utf8")] as const);
 
-  it("never says the text or the law is silent, and states no article of an uningested law", () => {
+  it("never says the text or the law is silent", () => {
     for (const [f, t] of [...text, ["README", readFileSync(join(ROOT, "README.md"), "utf8")] as const]) {
-      expect(/text silent|law is silent(?! on)/i.test(t.replace("does not mean UAE\n        law is silent", "")), f).toBe(false);
-      expect(/\bArticle\s+\d+/.test(t), f).toBe(false);
+      expect(/text silent/i.test(t), f).toBe(false);
+    }
+  });
+
+  it("no longer says the KB lacks telecom law, in the product or the README", () => {
+    const stale = /no binding telecom sector law|KB has no (binding )?telecom|exactly four|four documents|four UAE documents|these four files|was not ingested|were not ingested/i;
+    for (const [f, t] of [...text, ["README", readFileSync(join(ROOT, "README.md"), "utf8")] as const]) {
+      if (/kb\/|extracted/.test(f)) continue;
+      expect(stale.test(t), f).toBe(false);
+    }
+  });
+
+  it("says nothing of the Data Protection Law's content beyond its name and the CPR's deference to it", () => {
+    for (const [f, t] of text) {
+      if (/kb\/|extracted/.test(f)) continue;
+      expect(/(PDPL|Data Protection Law|DPL) (requires|prohibits|says that|obliges|mandates)/.test(t), f).toBe(false);
     }
   });
 

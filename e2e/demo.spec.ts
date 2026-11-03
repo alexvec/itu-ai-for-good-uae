@@ -22,13 +22,17 @@ test("demo path", async ({ page, request }) => {
 
   // Step 1: the knowledge base and its limits.
   await page.goto("/kb");
-  await expect(page.getByTestId("limits-banner")).toContainText("no binding telecom sector law");
-  await expect(page.getByTestId("kb-table").locator("tbody tr")).toHaveCount(4);
-  await expect(page.getByTestId("kb-table")).toContainText("79e05c502d1fc1247165fc744205984675d6422a490a70201dc4c05bf9aed693");
-  await expect(page.getByTestId("not-ingested")).toContainText("Telecom Law");
-  await expect(page.getByTestId("not-ingested")).toContainText("PDPL");
+  await expect(page.getByTestId("limits-banner")).toContainText("Arabic version prevails");
+  await expect(page.getByTestId("kb-table").locator("tbody tr")).toHaveCount(9);
+  await expect(page.getByTestId("kb-row-law")).toContainText("secondary host");
+  await expect(page.getByTestId("kb-row-cpr")).toContainText("7e8dad214b44d11b2cb4268ef883f51af24b90128240d44ecb9d52b3e6f7a4bc");
+  await expect(page.getByTestId("attempts")).toContainText("HTTP 403");
+  await expect(page.getByTestId("attempts")).toContainText("HTTP 202");
   await expect(page.getByTestId("term-counts")).toContainText("telecom");
+  await expect(page.getByTestId("licence-status")).toContainText("All rights reserved");
   expect(await checkQuotes(page, kb)).toBeGreaterThan(0);
+  await page.getByTestId("quote-verify").first().click();
+  await expect(page.getByTestId("quote-verify-result").first()).toContainText("Found");
 
   // Step 2: the scenario, one event at a time.
   await page.goto("/");
@@ -40,13 +44,22 @@ test("demo path", async ({ page, request }) => {
     await expect(page.getByTestId(`event-${id}`)).toBeVisible();
     await expect(page.getByTestId(`event-${id}`).getByTestId("headline")).not.toBeEmpty();
     if (id === "e2") await expect(page.getByTestId("event-e2")).toContainText("PR-03");
-    if (id === "e4") await expect(page.getByTestId("event-e4").getByTestId("decision")).toContainText("crowd challenge");
+    if (id === "e3") await expect(page.getByTestId("event-e3")).toContainText("TL-11");
+    if (id === "e4") {
+      const decision = page.getByTestId("event-e4").getByTestId("decision");
+      await expect(decision.getByTestId("conflict")).toHaveCount(2);
+      await expect(decision.getByTestId("conflict").first()).toContainText("settled by PA-01");
+      await expect(decision).toContainText("non-human agents");
+      await expect(decision).toContainText("Consumer Complaints");
+    }
     if (id === "e6") {
       const decision = page.getByTestId("event-e6").getByTestId("decision");
       await expect(decision.getByTestId("outcomes")).toContainText("Requires purpose limitation");
-      await expect(decision.getByTestId("outcomes")).toContainText("not addressed in the ingested documents");
-      await expect(decision).toContainText("by analogy");
+      await expect(decision.getByTestId("outcomes")).toContainText("partly supported");
+      await expect(decision.getByTestId("outcomes")).toContainText("Data Protection Law");
+      await expect(decision).toContainText("must obtain");
     }
+    if (id === "e9") await expect(page.getByTestId("event-e9")).toContainText("dunning");
   }
   await expect(page.getByTestId("release")).toBeDisabled();
   await checkQuotes(page, kb);
@@ -66,8 +79,10 @@ test("demo path", async ({ page, request }) => {
 
   // Step 5: the evidence table, in template order.
   await page.goto("/evidence");
-  const nodes = await page.getByTestId("evidence-table").locator("tbody tr td:first-child").allInnerTexts();
+  const nodes = await page.getByTestId("evidence-table").locator("tbody tr td:first-child .tag.node").allInnerTexts();
   expect(nodes.map((n) => n.trim())).toEqual(["SRC", "C", "PP", "M", "P", "D", "SINK"]);
+  await expect(page.getByTestId("precedence")).toContainText("design choice");
+  await expect(page.getByTestId("outcomes-table")).toContainText("Requires consent");
   await expect(page.getByTestId("non-data-table")).toContainText("Strategy alignment");
   await expect(page.getByTestId("non-data-table")).toContainText("Interface design");
   await expect(page.getByTestId("non-data-table")).toContainText("Collaboration between AI and a human");

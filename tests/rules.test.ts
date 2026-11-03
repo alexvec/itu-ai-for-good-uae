@@ -1,9 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { chunkById } from "../lib/data.ts";
-import { controls, dimensions, nodeMapping, rules, templateOutcomes, eventClasses } from "../lib/engine.ts";
+import { chunkById, docById } from "../lib/data.ts";
+import { allConflicts, applyPrecedence, conflicts, controls, dimensions, nodeMapping, precedence, readiness, resolveCitation, rules, templateOutcomes, eventClasses, y3172Nodes } from "../lib/engine.ts";
+import { strengthProblem } from "../lib/strength.ts";
 import { nonDataRows, pipelineRows, supportingRows } from "../lib/evidence.ts";
 
 const norm = (s: string) => s.replace(/\s+/g, " ");
+// Quotes may be combined only if each is shown, so a rule's force is read from all the quotes it displays.
+const shownWith = (r: (typeof rules)[number]) => [r.citation.quote, ...(r.supporting ?? []).map((c) => c.quote)].join(" ");
 
 describe("pre-agreed rules", () => {
   it("every rule's quote resolves to a real chunk, verbatim", () => {
@@ -18,11 +21,78 @@ describe("pre-agreed rules", () => {
   });
 
   it("no rule rests on OCR-derived text", () => {
-    for (const r of rules) expect(chunkById.get(r.citation.chunk_id)!.extraction, r.id).toBe("text-layer");
+    for (const r of rules) expect(chunkById.get(r.citation.chunk_id)!.extraction, r.id).not.toBe("ocr");
   });
 
   it("the strength stated for a rule is the word the quote uses", () => {
-    for (const r of rules) if (r.modal) expect(norm(r.citation.quote), r.id).toContain(r.modal);
+    for (const r of rules) if (r.modal) expect(norm(shownWith(r)).toLowerCase(), r.id).toContain(r.modal);
+  });
+
+  it("every rule's action keeps its source's modal force", () => {
+    for (const r of rules) {
+      expect(r.strength_check, r.id).toBeDefined();
+      expect(strengthProblem(r.action, shownWith(r), r.strength_check), r.id).toBeNull();
+    }
+  });
+
+  it("the modal-force check catches overreach", () => {
+    const sc = (text_modal: string, action_verb: string) => ({ text_modal, action_verb, result: "pass" as const });
+    expect(strengthProblem("Must avoid it.", "any entity should avoid it", sc("should", "Must"))).toMatch(/stronger/);
+    expect(strengthProblem("Shall do it.", "it could consider this", sc("could consider", "Shall"))).toMatch(/stronger/);
+    expect(strengthProblem("Check it, then stop the system.", "it should be reviewed", sc("should", "Check"))).toMatch(/stop/);
+    expect(strengthProblem("Check it. It must be done.", "it may be reviewed", sc("may be", "Check"))).toMatch(/must or shall/);
+    expect(strengthProblem("Check it before any further use.", "Algorithmic systems require assessments", sc("require", "Check"))).toMatch(/further use/);
+    expect(strengthProblem("Must do it.", "Licensees must do it", sc("must", "Must"))).toBeNull();
+  });
+
+  it("quotes begin at a word boundary and have no lost-ligature character at their edges", () => {
+    for (const r of rules) {
+      for (const c of [r.citation, ...(r.supporting ?? [])]) {
+        const text = chunkById.get(c.chunk_id)!.text;
+        const at = text.indexOf(c.quote);
+        expect(/[A-Za-z0-9]/.test(text[at - 1] ?? " ") && /^[A-Za-z0-9]/.test(c.quote), `${r.id} start`).toBe(false);
+        const after = text[at + c.quote.length] ?? " ";
+        expect(/[A-Za-z0-9]/.test(after) && /[A-Za-z0-9]$/.test(c.quote), `${r.id} end`).toBe(false);
+        expect(c.quote.includes("\ufffd"), r.id).toBe(false);
+        expect(text[at - 1] === "\ufffd" || after === "\ufffd", r.id).toBe(false);
+      }
+    }
+  });
+
+  it("article numbers on citations are printed in the cited chunk", () => {
+    for (const r of rules) {
+      const c = r.citation;
+      if (!c.article) continue;
+      const text = chunkById.get(c.chunk_id)!.text;
+      const chunk = chunkById.get(c.chunk_id)!;
+      const label = c.article.replace(/, footnote.*/, "");
+      expect(text.includes(label) || chunk.article?.startsWith(label), `${r.id} ${c.article}`).toBe(true);
+    }
+  });
+
+  it("supporting quotes resolve too, each shown with its own source", () => {
+    for (const r of rules) for (const c of r.supporting ?? []) expect(resolveCitation(c).quote, r.id).toBe(c.quote);
+  });
+
+  it("a rule that supports another points at a rule from a telecom text", () => {
+    const ids = new Map(rules.map((r) => [r.id, r]));
+    for (const r of rules) {
+      if (!r.supports) continue;
+      const t = ids.get(r.supports);
+      expect(t, r.id).toBeDefined();
+      expect(docById.get(t!.citation.doc_id)!.rank, r.id).toBeLessThanOrEqual(2);
+    }
+  });
+
+  it("the rules named for repair no longer overreach", () => {
+    const by = new Map(rules.map((r) => [r.id, r]));
+    expect(by.has("PR-12")).toBe(false);
+    expect(by.has("PR-25")).toBe(false);
+    expect(by.has("PR-18")).toBe(false);
+    expect(by.get("PR-11")!.action).not.toMatch(/^Stop/);
+    expect(by.get("PR-19")!.action).not.toMatch(/further use/);
+    expect(by.get("PR-26")!.action).not.toMatch(/^Hold/);
+    expect(by.get("PR-30")!.action).toMatch(/^Confirm a shut-down path/);
   });
 
   it("anything cited from the government-services guideline is flagged as analogy", () => {
@@ -44,12 +114,61 @@ describe("pre-agreed rules", () => {
   });
 });
 
+describe("PA-01 precedence", () => {
+  it("is labelled as the author's design choice", () => {
+    expect(precedence.status).toMatch(/design choice/);
+    expect(precedence.status).toMatch(/not a statement of UAE legal hierarchy/);
+  });
+
+  it("settles each conflict by the ranks in the documents file, showing both quotes", () => {
+    expect(conflicts.length).toBeGreaterThan(0);
+    for (const c of allConflicts()) {
+      expect(c.winner.rank, c.id).toBeLessThan(c.loser.rank);
+      expect(chunkById.get(c.winner.chunk_id)!.text).toContain(c.winner.quote);
+      expect(chunkById.get(c.loser.chunk_id)!.text).toContain(c.loser.quote);
+    }
+  });
+
+  it("an equal rank is not resolved", () => {
+    const e = rules.find((r) => r.citation.doc_id === "ethics")!.citation;
+    const g = rules.find((r) => r.citation.doc_id === "charter")!.citation;
+    expect(applyPrecedence(e, g)).toBeNull();
+  });
+
+  it("ranks law and regulation over policy, guidance and framework", () => {
+    const rank = (id: string) => docById.get(id)!.rank;
+    expect(rank("law")).toBe(rank("cpr"));
+    expect(rank("cpr")).toBeLessThan(rank("uec"));
+    expect(rank("uec")).toBeLessThan(rank("ethics"));
+    expect(rank("ethics")).toBeLessThan(rank("y3172"));
+  });
+});
+
 describe("framework data", () => {
-  it("has the 13 dimensions from the reference repo", () => {
+  it("reads 6 factors and 13 dimensions from the Readiness report, verbatim", () => {
+    expect(readiness.factors).toHaveLength(6);
     expect(dimensions.map((d) => d.id)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
+    for (const f of readiness.factors) expect(chunkById.get(f.chunk_id)!.text, f.name).toContain(f.quote);
+    for (const d of dimensions) {
+      expect(chunkById.get(d.factor.chunk_id)!.text, d.name).toContain(d.factor.quote);
+      expect(chunkById.get(d.heading_chunk)!.text.replace(/\s+/g, " "), d.name).toContain(`Dimension ${d.id}: ${d.name}`);
+    }
+  });
+
+  it("quotes every node definition verbatim from Y.3172", () => {
+    for (const [n, c] of Object.entries(y3172Nodes)) {
+      expect(c.doc_id, n).toBe("y3172");
+      expect(chunkById.get(c.chunk_id)!.text, n).toContain(c.quote);
+    }
   });
 
   it("each evidence row uses a dimension the framework maps to that node", () => {
     for (const r of [...pipelineRows, ...supportingRows, ...nonDataRows]) expect(nodeMapping.node_to_dimensions[r.node], r.node).toContain(r.dimension_id);
+  });
+
+  it("a row keeps an AI or framework document only where it says no telecom text applies", () => {
+    for (const r of [...pipelineRows, ...supportingRows]) {
+      if (docById.get(r.citation!.doc_id)!.rank > 2) expect(r.no_telecom_text, r.node).toBeTruthy();
+    }
   });
 });
