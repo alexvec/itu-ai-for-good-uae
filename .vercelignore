@@ -1,0 +1,15 @@
+node_modules
+.next
+.env
+.env.*
+.claude-session.json
+*.sh
+tests
+e2e
+test-results
+playwright-report
+AGENTS.md
+CLAUDE.md
+NEEDS.md
+STATE.md
+docs

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "strategy",
+    "file": "uae-ai-strategy-2031.pdf",
+    "title": "UAE National Strategy for Artificial Intelligence 2031",
+    "short": "AI Strategy 2031",
+    "instrument_type": "National strategy",
+    "source_type": "national_strategy",
+    "document_category": "strategy",
+    "source_url": "https://ai.gov.ae/wp-content/uploads/2021/07/UAE-National-Strategy-for-Artificial-Intelligence-2031.pdf",
+    "source_note": "",
+    "retrieved_on": "2026-11-03",
+    "analogy_note": null,
+    "status_note": "A strategy document. Its text does not state a legal force of its own, so this product does not describe it as binding.",
+    "self_description": null,
+    "chunk_prefix": "strategy",
+    "heading_pattern": "^(OBJECTIVE \\d+:|[A-Z][A-Z &,’'-]{9,})\\s*$",
+    "non_retrievable_pages": [1, 3, 23, 24, 25],
+    "not_ingested_pages": [],
+    "reading_notes": [
+      "Page 1 (cover) and page 25 (back cover) have no text layer and are OCR-derived.",
+      "Page 23 holds the conclusion and the reference list in one text run, so it is stored but excluded from retrieval, as are the cover, contents and back pages."
+    ]
+  },
+  {
+    "id": "charter",
+    "file": "uae-ai-charter-methaq.pdf",
+    "title": "The UAE Charter for the Development and Use of Artificial Intelligence (July 2024)",
+    "short": "AI Charter 2024",
+    "instrument_type": "Charter of general principles",
+    "source_type": "policy_document",
+    "document_category": "charter",
+    "source_url": "https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/policies/Ai/The-UAE-Charter-for-the-Development-and-Use-of-Artificial-Intelligence",
+    "source_note": "PDF saved from the research pass. The URL is the public page, not the PDF address (see sources/README.md).",
+    "retrieved_on": "2026-11-03",
+    "analogy_note": null,
+    "status_note": "A charter of general principles. Its own text calls it a guiding framework, so this product does not describe it as binding.",
+    "self_description": { "page": 2, "quote": "serves as a guiding framework" },
+    "chunk_prefix": "charter",
+    "heading_pattern": "^(\\d{1,2}\\. .+:|Relation to the UAE AI Strategy:|General Principles of the Charter:|Introduction)\\s*$",
+    "non_retrievable_pages": [1, 6],
+    "not_ingested_pages": [],
+    "reading_notes": [
+      "The text layer does not map the 'Th' and 'ff' ligature glyphs. They are stored as U+FFFD, not repaired. Rendered pages were checked by eye: 'The UAE' appears in the PDF where the stored text has a replacement character.",
+      "On page 3 the text layer places some principle headings after their paragraphs. Section labels on Charter citations were confirmed against the rendered page."
+    ]
+  },
+  {
+    "id": "ethics",
+    "file": "uae-ai-ethics-principles-2022.pdf",
+    "title": "Artificial Intelligence Ethics: Principles and Guidelines (December 2022)",
+    "short": "AI Ethics Principles 2022",
+    "instrument_type": "Ethics principles and guidelines",
+    "source_type": "policy_document",
+    "document_category": "ethics",
+    "source_url": "https://assets.u.ae/api/public/content/893c940c21c4403ea8df7faad66a889e?v=b2f9c1a1",
+    "source_note": "",
+    "retrieved_on": "2026-11-03",
+    "analogy_note": null,
+    "status_note": "Guidance. Its own text says the guidelines are non-binding and non-mandatory. It covers public and private sectors and only systems that make or inform significant decisions.",
+    "self_description": { "page": 3, "quote": "The guidelines are non-binding" },
+    "chunk_prefix": "ethics",
+    "heading_pattern": "^(\\d(\\.\\d ?)+\\.? ?.*)$",
+    "non_retrievable_pages": [1, 2, 23, 24, 25],
+    "not_ingested_pages": [],
+    "reading_notes": [
+      "Published under CC BY 4.0 per its section 1.5: credit to the UAE AI and Blockchain Council as owner, and no suggestion of endorsement by the Minister of State office.",
+      "Each PDF page is a two-page spread, so one PDF page carries two printed page numbers. Citations use the PDF page index.",
+      "The text layer often separates headings and list letters from their paragraphs. Section labels on rule citations were confirmed against the rendered page. Page-level headings on other chunks only say which headings occur on that page.",
+      "Pages 23 and 24 (bibliography) and the table of contents are stored but excluded from retrieval, because a bibliography entry is not a provision."
+    ]
+  },
+  {
+    "id": "guideline",
+    "file": "uae-ai-adoption-guideline-government-services.pdf",
+    "title": "AI Adoption Guideline in Government Services (Ministry of Cabinet Affairs)",
+    "short": "Adoption Guideline (government services)",
+    "instrument_type": "Government-services guidance",
+    "source_type": "policy_document",
+    "document_category": "guidance",
+    "source_url": "https://assets.u.ae/api/public/content/efd38f961c104415a22db5e177a73e02?v=57989b9e",
+    "source_note": "",
+    "retrieved_on": "2026-11-03",
+    "analogy_note": "This guideline is about government services and this track is telecom. Applied here by analogy only.",
+    "status_note": "A guideline addressed to government and agencies delivering public sector services. It does not address telecom operators, and this product does not describe it as binding.",
+    "self_description": { "page": 7, "quote": "The target audience of this document is the UAE Government and any agency \nengaged in delivering public sector services." },
+    "chunk_prefix": "guideline",
+    "heading_pattern": "^((Figure \\d+.*)|(AI Risk Management)|(Execution)|(Operations)|(Discovery)|(Initiation)|(Governance:)|(Data:)|(People:)|(Privacy:))\\s*$",
+    "non_retrievable_pages": [1, 3, 4, 5, 19, 29, 59, 62, 65],
+    "not_ingested_pages": [
+      { "page": 2, "reason": "Image only. Decorative binary-digit artwork; no words to ingest." }
+    ],
+    "reading_notes": [
+      "Page 36 (Figure 12) and page 56 (maturity table continuation) have their content only in images and are OCR-derived. The OCR output is noisy and out of order. No pre-agreed rule rests on it.",
+      "Each PDF page is a two-page spread. Citations use the PDF page index."
+    ]
+  }
+]
