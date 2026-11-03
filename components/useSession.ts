@@ -35,11 +35,12 @@ export function useSession() {
       const res = await fetch("/api/step", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ ...payload, state: data.state, prev_hash: data.head, seq: data.seq, session: data.session }),
+        // Typed events run on their own rule state, so they cannot change what the scenario fires next.
+        body: JSON.stringify({ ...payload, state: payload.event_id ? data.state : undefined, prev_hash: data.head, seq: data.seq, session: data.session }),
       });
       if (!res.ok) throw new Error(`The server returned ${res.status}.`);
       const out = await res.json();
-      save({ ...data, lines: [...data.lines, ...out.lines], head: out.head, seq: out.seq, state: out.step.state, modelConfigured: out.model_configured, entries: [...data.entries, { ...meta, step: out.step }] });
+      save({ ...data, lines: [...data.lines, ...out.lines], head: out.head, seq: out.seq, state: payload.event_id ? out.step.state : data.state, modelConfigured: out.model_configured, entries: [...data.entries, { ...meta, step: out.step }] });
     } catch (e) {
       setError((e as Error).message);
     } finally {

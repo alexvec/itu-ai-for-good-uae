@@ -28,6 +28,10 @@ export function ScenarioRunner({ title, disclaimer, events }: { title: string; d
         <h2 style={{ marginTop: 0 }}>{title}</h2>
         <p><span className="synthetic" data-testid="synthetic">SYNTHETIC SCENARIO</span></p>
         <p className="cite">{disclaimer}</p>
+        <div className="row">
+          <button onClick={release} disabled={!next || busy || !data} data-testid="release">{next ? (shown.length ? "Release next event" : "Release first event") : "All events released"}</button>
+          <button className="secondary" onClick={reset} disabled={busy} data-testid="reset">Reset</button>
+        </div>
         <ol className="steps" data-testid="steps">
           {events.map((e) => (
             <li key={e.id} className={done.has(e.id) ? "done" : e.id === next?.id ? "next" : ""}>
@@ -35,10 +39,6 @@ export function ScenarioRunner({ title, disclaimer, events }: { title: string; d
             </li>
           ))}
         </ol>
-        <div className="row">
-          <button onClick={release} disabled={!next || busy || !data} data-testid="release">{next ? (shown.length ? "Release next event" : "Release first event") : "All events released"}</button>
-          <button className="secondary" onClick={reset} disabled={busy} data-testid="reset">Reset</button>
-        </div>
         <label className="cite"><input type="checkbox" checked={auto} onChange={(e) => setAuto(e.target.checked)} /> Release every 6 seconds</label>
         {data && (
           <div className="card cite" data-testid="running-state">
