@@ -55,7 +55,7 @@ export function ScenarioRunner({ title, disclaimer, events }: { title: string; d
       <section>
         {shown.length === 0 && (
           <div className="card">
-            <p><strong>Nine events, released one at a time.</strong> For each one the agent classifies the event to Y.3172 nodes, fires pre-agreed rules, retrieves from the KB and says what the four documents leave open.</p>
+            <p><strong>Nine events, released one at a time.</strong> For each one the agent classifies the event to Y.3172 nodes, fires pre-agreed rules, retrieves from the KB and says what the ingested documents leave open. Conflicts between sources are settled by the pre-agreed rule PA-01, shown on screen.</p>
             <p className="cite">Press &quot;Release first event&quot; to begin.</p>
           </div>
         )}

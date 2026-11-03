@@ -67,3 +67,9 @@ textarea, input[type="text"], select { font: inherit; width: 100%; padding: .45r
 details summary { cursor: pointer; font-weight: 600; font-size: .88rem; }
 pre.raw { white-space: pre-wrap; word-break: break-word; font: .76rem/1.4 var(--mono); background: #f0eee6; border: 1px solid var(--line); padding: .5rem; border-radius: 4px; max-height: 340px; overflow: auto; }
 .pass { color: var(--ok); font-weight: 600; } .fail { color: var(--gap); font-weight: 600; }
+
+.linklike { background: none; border: 0; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit; min-height: 0; width: auto; }
+.tag.rank { background: #eef2ff; color: #1e3a8a; }
+.conflict { border-left: 4px solid #b45309; }
+.conflict .side { margin: .4rem 0; }
+.conflict .won { font-weight: 600; }

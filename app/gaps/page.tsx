@@ -12,13 +12,13 @@ export default function Page() {
     <>
       <h1>Candidate gaps</h1>
       <p className="lede">
-        Each question comes from a Y.3172 node. A question counts as answered only if its search terms actually occur in
-        a retrievable chunk, checked live. &quot;{NOT_ADDRESSED}&quot; describes these four files. It does not mean UAE
-        law is silent: the Telecom Law and the PDPL exist and were not ingested. A person with legal training must review
-        every row.
+        Each question comes from a Y.3172 node. It counts as answered only if its search terms occur in a retrievable
+        chunk of the documents it searches, checked live. &quot;{NOT_ADDRESSED}&quot; describes these files. It does not
+        mean UAE law is silent: the Data Protection Law returned HTTP 403 and was not read, the CPR annexes are not in the
+        saved file, and no licence is in the KB. A person with legal training must review every row.
       </p>
       <div className="card" data-testid="global-note">
-        <strong>Global examples: {NO_GLOBAL_EXAMPLE}.</strong> No foreign instrument was ingested and none is written from memory. The UAE documents mention some foreign practice in passing; those passages are not offered as global examples, because no foreign source was ingested to check them against.
+        <strong>Global examples: {NO_GLOBAL_EXAMPLE}.</strong> The GDPR and the EU AI Act were attempted on EUR-Lex and returned HTTP 202 with an empty body and a challenge header, so neither was retrieved. None is written from memory. The UAE documents mention some foreign practice in passing; those passages are not offered as global examples.
       </div>
       <h2>Candidates by Readiness dimension</h2>
       {byDim.map((d) => (

@@ -9,7 +9,7 @@ const KEY = "y3172-session";
 const GENESIS = "0".repeat(64);
 const fresh = (): SessionData => ({
   session: `s-${Date.now().toString(36)}`, lines: [], head: GENESIS, seq: 0, modelConfigured: false,
-  state: { fired_rules: [], pending_rules: [], classes_seen: [], events_seen: 0 }, entries: [],
+  state: { fired_rules: [], pending_rules: [], pending_conflicts: [], classes_seen: [], events_seen: 0 }, entries: [],
 });
 
 export function useSession() {

@@ -1,4 +1,4 @@
-import type { StepResult, OutcomeResult, ControlResult } from "../lib/engine.ts";
+import type { StepResult, OutcomeResult, ControlResult, ConflictResult, DecisionAction } from "../lib/engine.ts";
 import { NOT_ADDRESSED, PIPELINE } from "../lib/types.ts";
 import { Quote } from "./Quote.tsx";
 
@@ -29,10 +29,11 @@ export function ControlRow({ c }: { c: ControlResult }) {
       {c.addressed ? <p className="pass">{c.status}</p> : (
         <p><span className="not-addressed" data-testid="not-addressed">{NOT_ADDRESSED}</span> · <em>{c.review_flag}</em> · {c.global_example}</p>
       )}
+      <div className="cite">Searched: {c.searched.join("; ")}. Terms: {(c.addressed ? c.found_terms : c.terms).join(", ")}. Word search, not a legal reading.</div>
       {c.nearest && (
         <>
           <div className="cite">{c.addressed ? "Text found:" : "Nearest text found (it does not answer the question):"}</div>
-          <Quote quote={c.nearest.quote} chunkId={c.nearest.chunk_id} page={c.nearest.page} short={c.nearest.document} ocr={c.nearest.ocr} />
+          <Quote quote={c.nearest.quote} chunkId={c.nearest.chunk_id} where={c.nearest.where} short={c.nearest.document} ocr={c.nearest.ocr} caveat={c.nearest.caveat} />
           {c.nearest.analogy_note && <div><span className="tag analogy">by analogy</span><span className="cite">{c.nearest.analogy_note}</span></div>}
         </>
       )}
@@ -52,7 +53,7 @@ function Outcomes({ outcomes }: { outcomes: OutcomeResult[] }) {
               <tr key={o.id}>
                 <td>{o.template_outcome}</td>
                 <td className={o.verdict === "not_addressed" ? "not-addressed" : ""}>{o.status}</td>
-                <td>{o.supported || "Nothing stated."} {o.citations.map((c) => <span key={c.rule_id} className="tag">{c.rule_id}</span>)}</td>
+                <td>{o.supported || "Nothing stated."} {o.citations.map((c) => <span key={c.rule_id} className="tag" title={c.where}>{c.rule_id}</span>)}</td>
                 <td><span className="not-addressed">{NOT_ADDRESSED}:</span> {o.unsupported} {o.nearest.map((c) => <span key={c.rule_id} className="tag">nearest {c.rule_id}</span>)}</td>
               </tr>
             ))}
@@ -60,6 +61,44 @@ function Outcomes({ outcomes }: { outcomes: OutcomeResult[] }) {
         </table>
       </div>
     </>
+  );
+}
+
+function ConflictCard({ c }: { c: ConflictResult }) {
+  return (
+    <div className="card conflict" data-testid="conflict">
+      <div><span className="tag">{c.id}</span><span className="tag rank">settled by {c.rule_id}</span></div>
+      <p><strong>{c.title}.</strong> {c.tension}</p>
+      <div className="side won">
+        <span className="tag ok">outranks: {c.winner.rank_label}</span>
+        <Quote quote={c.winner.quote} chunkId={c.winner.chunk_id} where={c.winner.where} short={c.winner.document} heading={c.winner.section} caveat={c.winner.caveat} />
+      </div>
+      <div className="side">
+        <span className="tag">outranked: {c.loser.rank_label}</span>
+        <Quote quote={c.loser.quote} chunkId={c.loser.chunk_id} where={c.loser.where} short={c.loser.document} heading={c.loser.section} caveat={c.loser.caveat} />
+      </div>
+      <p data-testid="conflict-outcome"><strong>Outcome.</strong> {c.outcome}</p>
+      <p className="cite">{c.honesty}</p>
+    </div>
+  );
+}
+
+function ActionRow({ a }: { a: DecisionAction }) {
+  return (
+    <div data-testid="decision-action" style={{ marginBottom: ".7rem" }}>
+      <div><strong>{a.order}. {a.action}</strong></div>
+      <div>
+        <span className="tag">{a.rule_id}</span>
+        <span className="tag rank">{a.rank_label}</span>
+        {a.nodes.map((n) => <span key={n} className="tag node">{n}</span>)}
+        <span className="tag dim">{a.dimension}</span>
+        {a.modal && <span className="tag">text says: {a.modal}</span>}
+        {a.analogy_note && <span className="tag analogy">by analogy</span>}
+      </div>
+      <Quote quote={a.citation.quote} chunkId={a.citation.chunk_id} where={a.where} short={a.document} heading={a.citation.section} caveat={a.caveat} />
+      {a.supporting.map((s) => <Quote key={s.quote} quote={s.quote} chunkId={s.chunk_id} where={s.where} short={s.document} caveat={s.caveat} />)}
+      {a.analogy_note && <div className="cite">{a.analogy_note}</div>}
+    </div>
   );
 }
 
@@ -77,20 +116,20 @@ export function StepView({ step }: { step: StepResult }) {
         <div className="card decision" data-testid="decision">
           <h3 style={{ marginTop: 0 }}>Corrective action, from the pre-agreed rules</h3>
           <p className="cite">{step.decision.basis}</p>
-          {step.decision.actions.map((a) => (
-            <div key={a.rule_id} data-testid="decision-action" style={{ marginBottom: ".7rem" }}>
-              <div><strong>{a.order}. {a.action}</strong></div>
-              <div>
-                <span className="tag">{a.rule_id}</span>
-                {a.nodes.map((n) => <span key={n} className="tag node">{n}</span>)}
-                <span className="tag dim">{a.dimension}</span>
-                {a.modal && <span className="tag">text says: {a.modal}</span>}
-                {a.analogy_note && <span className="tag analogy">by analogy</span>}
-              </div>
-              <Quote quote={a.citation.quote} chunkId={a.citation.chunk_id} page={a.citation.page} short={a.document} heading={a.citation.section} />
-              {a.analogy_note && <div className="cite">{a.analogy_note}</div>}
-            </div>
-          ))}
+          {step.decision.conflicts.length > 0 && (
+            <>
+              <h3>Sources that pull different ways</h3>
+              {step.decision.conflicts.map((c) => <ConflictCard key={c.id} c={c} />)}
+            </>
+          )}
+          <h3>From telecom law, regulation and regulator policy</h3>
+          {step.decision.actions.filter((a) => a.rank <= 2).map((a) => <ActionRow key={a.rule_id} a={a} />)}
+          {step.decision.actions.some((a) => a.rank > 2) && (
+            <details>
+              <summary>Supporting guidance and framework text ({step.decision.actions.filter((a) => a.rank > 2).length}). These recommend; they do not compel.</summary>
+              {step.decision.actions.filter((a) => a.rank > 2).map((a) => <ActionRow key={a.rule_id} a={a} />)}
+            </details>
+          )}
           {step.decision.outcomes.length > 0 && <Outcomes outcomes={step.decision.outcomes} />}
         </div>
       )}
@@ -104,10 +143,14 @@ export function StepView({ step }: { step: StepResult }) {
                 <span className="tag">{f.rule_id}</span>
                 {f.nodes.map((n) => <span key={n} className="tag node">{n}</span>)}
                 <span className="tag dim">D{f.dimension_id} {f.dimension}</span>
+                <span className="tag rank">{f.rank_label}</span>
+                {f.modal && <span className="tag">text says: {f.modal}</span>}
+                {f.supports && <span className="tag">supports {f.supports}</span>}
                 {f.analogy_note && <span className="tag analogy">by analogy</span>}
               </div>
               <p><strong>{f.title}.</strong> {f.action}</p>
-              <Quote quote={f.citation.quote} chunkId={f.citation.chunk_id} page={f.citation.page} short={f.document} heading={f.citation.section} ocr={f.ocr} />
+              <Quote quote={f.citation.quote} chunkId={f.citation.chunk_id} where={f.where} short={f.document} heading={f.citation.section} ocr={f.ocr} caveat={f.caveat} />
+              {f.supporting.map((s) => <Quote key={s.quote} quote={s.quote} chunkId={s.chunk_id} where={s.where} short={s.document} caveat={s.caveat} />)}
               {f.analogy_note && <div className="cite">{f.analogy_note}</div>}
             </div>
           ))}
@@ -127,7 +170,7 @@ export function StepView({ step }: { step: StepResult }) {
           {step.retrieved.map((r) => (
             <div className="card" key={r.chunk_id} data-testid="retrieved">
               <div><span className="tag node">{r.node}</span><span className="tag">score {r.score}</span>{r.analogy_note && <span className="tag analogy">by analogy</span>}</div>
-              <Quote quote={r.quote} chunkId={r.chunk_id} page={r.page} short={r.document} ocr={r.ocr} />
+              <Quote quote={r.quote} chunkId={r.chunk_id} where={r.where} short={r.document} ocr={r.ocr} caveat={r.caveat} />
               <div className="cite">{r.why}</div>
               {r.analogy_note && <div className="cite">{r.analogy_note}</div>}
             </div>

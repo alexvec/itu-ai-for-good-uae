@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 
 export const metadata = {
   title: "Y.3172 Incident Counsel",
-  description: "Policy and legal adviser agent for ML functions in a telecom network, keyed to ITU-T Y.3172, with a KB of four UAE documents. Not legal advice.",
+  description: "Policy and legal adviser agent for ML functions in a telecom network, keyed to ITU-T Y.3172, with a KB of UAE telecom law, regulator text and AI guidance. Not legal advice.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -26,11 +26,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </div>
         <div className="limits" data-testid="limits-banner">
           <div className="inner">
-            <strong>Not legal advice.</strong> The KB holds four UAE documents: a strategy, a charter, ethics
-            guidance and government-services guidance. It has <strong>no binding telecom sector law</strong>. The
-            Telecom Law (Federal Law by Decree No. 3 of 2003) and the PDPL exist and were not ingested. &quot;Not
-            addressed in the ingested documents&quot; says nothing about what UAE law requires. Runs with no model and
-            no API key.
+            <strong>Not legal advice.</strong> The KB holds the Telecom Law (English text from a secondary host; the
+            document says the Arabic version prevails), TDRA regulator text, UAE AI guidance and two ITU framework
+            documents. The Data Protection Law returned HTTP 403 and is <strong>not in the KB</strong>. &quot;Not
+            addressed in the ingested documents&quot; says nothing about what UAE law requires outside these files. Runs
+            with no model and no API key.
           </div>
         </div>
         <main>{children}</main>
