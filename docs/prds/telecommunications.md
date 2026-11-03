@@ -2,6 +2,102 @@
 
 Working title: Y.3172 Incident Counsel. Status: ready to build. Owner: alexvec, solo.
 
+## Rebuild amendments (2026-11-03, second)
+
+Supersedes every earlier part of this file, including the first "Amendments (2026-11-03)", wherever they conflict. Reason: the first build had four general AI documents and no telecom text, so most telecom questions came back "not addressed" and no global example existed. Track stays Telecommunications. Evidence for the plan is in docs/competition.md (Telecom sources: candidate list) and docs/win-plan.md. Nothing below has been run; the builder confirms every claim about a document by reading the saved bytes.
+
+### A. KB source plan (telecom first)
+
+Rules that apply to every file:
+- The builder downloads with a shell (curl with a browser user agent where a plain fetch fails), saves the bytes, takes the SHA-256, and adds a row to sources/README.md (file, what it is, URL, retrieval date, SHA-256, language, publisher, status such as primary or secondary host). That row is what makes it ingestible under CLAUDE.md. A file with no row is not ingested. The prebuild check fails on any ingested file without a row or with a hash mismatch.
+- Nothing is quoted, cited or described unless it is a verbatim slice of a retrieved file. If a document cannot be opened, the document and every claim about its content are removed from the UI, the report, the rules and the docs. No secondary copy of a law is used unless it is labelled secondary on screen, and none is planned.
+- Download and extraction go in new, empty directories; scripts live elsewhere; run any Python with `-I`. Delete temp copies after hashing (disk is at 98%).
+- Scanned PDFs: text layer first, tesseract only where there is none. OCR-derived pages are flagged in the KB, no rule rests on an OCR page unless the page was checked by eye (render and view it).
+- Candidate numbers below are rows in docs/competition.md "Telecom sources: candidate list". Statuses there come from a summarising tool.
+
+Priority order (stop and decide at the end of Wed 4 Nov):
+
+| Pri | Row | Document | Plan | If it fails |
+|---|---|---|---|---|
+| 1 | 1, 2 | Federal Law by Decree No. 3 of 2003 on the Organisation of the Telecommunication Sector, English courtesy text on WIPO Lex | The fetch of ae025en.pdf returned an HTML page whose body holds the whole law inline (Articles 1 to 84 as reported; builder checks). Ingest from the saved HTML: hash the HTML bytes, extract the text deterministically into a second file, hash that too, list both in sources/README.md, and run the verbatim-slice check against the extracted text. Mark it "secondary host, English courtesy text; the Arabic version prevails in case of discrepancy" (the page says so) on /kb, in the report and beside every quote. Chunk on "Article N" boundaries and fill the article field from the text. Read the footnotes and do not state later amendments or in-force status beyond what the saved text says. Also try the Arabic PDF (row 3) and, if it opens, hash and list it as the prevailing text, not retrieved from, because Arabic retrieval is out of scope. | If the text is not actually inline, drop the law and every claim about it. The report then says plainly there is no telecom statute in the KB. |
+| 2 | 6 | TDRA Consumer Protection Regulations Version 2.0 (issued 25/07/2023 per the index), 74 pages | Primary publisher. Chunk by heading or clause number as printed. Confirm the issue date and version from the first pages. Check what it says about complaints and escalation to the regulator, use of consumer information and any annexes, then decide rows 7 to 9 below. | If it will not download or has no readable text, drop it. |
+| 3 | 10 | TDRA Unsolicited Electronic Communications regulatory policy, 19 pages | Relevant to the marketing-dashboard step. Confirm date and whether it is in force from its own text. | Drop. |
+| 4 | 14 | Federal Decree-Law No. 45 of 2021 (PDPL) from uaelegislation.gov.ae | Try the page and the `/download` URL with a browser user agent. Check the language of the file: if only Arabic is available it cannot support English quotes and is not ingested (no translation by the builder). | Drop it. All content claims about the PDPL go with it. The only remaining statement allowed is that the PDPL is named in an ingested document (the Ethics Principles mention "Personal Data Protection" on p. 24 per REVIEW.md; the builder re-verifies the page). PR-18 is reworded to match. No secondary copy (row 15, u.ae summary) is ingested. |
+| 5 | 16 | Decree-Law establishing the Emirates Data Office | Try only after rows 1 to 4. Ingest if it opens as readable English and helps the "refer to an oversight body" step; use only what it says. | Drop. The oversight-referral outcome stays as supported by whatever the other texts say. |
+| 6 | 7 (and 8, 9) | Consumer Dispute Procedure annex (2014, refers to V1.0); marketing complaints annex; 2010 complaints handling policy | Ingest only if V2.0's own text says the annex continues to apply, or the annex itself shows it is current. Otherwise leave out and do not cite it. | Leave out. |
+| skip | 11, 12, 13, 15 | SIM-registration policies, TDRA consumer hub pages, u.ae data protection pointer | Not used by the scenario. Not ingested. | n/a |
+
+The four existing UAE AI documents stay (strategy, Charter, Ethics Principles, adoption guideline). They remain labelled non-binding guidance unless their own text says otherwise; none does. Where a telecom provision answers an event, it leads and the AI document is supporting. The PRD's earlier rule "u.ae pointer pages are not ingested" stands.
+
+### B. Framework documents: Y.3172 and the Readiness Framework 2.0
+
+Yes, retrieve and read both. In my pass the Readiness PDF (https://www.itu.int/dms_pub/itu-t/opb/ai4g/T-AI4G-AI4GOOD-2025-6-PDF-E.pdf) downloaded as a 1.1 MB PDF and the Y.3172 PDF (https://www.itu.int/rec/dologin_pub.asp?lang=e&id=T-REC-Y.3172-201906-I!!PDF-E&type=items) downloaded as a 34 page PDF with no login prompt. I could not read either body (binary), so I cannot say what they contain. The builder extracts, reads them in full and:
+- hashes both and lists them in sources/README.md under a separate heading, category `framework`, never presented as UAE policy or as binding;
+- quotes node definitions (SRC, C, PP, M, P, D, SINK, MLFO, sandbox) verbatim from Y.3172 in the Y.3172 mapping table, replacing the reference repo's summary text;
+- takes factor and dimension names, numbering and counts from the Readiness PDF. If they differ from the reference repo's dimensions.json (6 factors, 13 dimensions), the PDF wins and the report says the repo differs;
+- records the licence or copyright status as stated in the files (the ITU page shows a copyright notice and no free-use terms; ITU-T Y.3172 reuse terms unverified). Quotes stay short.
+They count as framework or KB documents only once retrieved and hashed. If either fails to open, the report keeps its current admission that it was not read and the table stays on the reference repo's mapping.
+
+### C. Global examples: decision
+
+Add at most two foreign documents, and only if retrieved and hashed. The criteria call relevance of gaps and accuracy of global examples critical, and the UAE documents alone cannot supply any. Priority:
+1. EU General Data Protection Regulation, Regulation (EU) 2016/679, from EUR-Lex. Its text on purpose limitation, data minimisation and consent speaks to the template's escalation outcome (consent, purpose limitation) that the UAE AI documents support only partly.
+2. EU AI Act, Regulation (EU) 2024/1689, from EUR-Lex (Official Journal text). Its text on human oversight and on critical digital infrastructure speaks to the policy node and the emergency-traffic step.
+My own fetch of both EUR-Lex URLs returned an empty page, so neither is opened and neither is confirmed retrievable. The builder tries a shell fetch with a browser user agent, records which publication version it saved, and does not check later amendments.
+Use is limited to what the text says. The gap view shows: "Example from another jurisdiction: [instrument], Article N: '<verbatim slice>'. Not an obligation in the UAE. No claim is made about adoption, enforcement or effect, and no recommendation to copy it." No examples from memory, no summaries of foreign law, no named foreign cases.
+If neither document can be retrieved, keep "no global example in KB" on /gaps, in the report and in the demo, and do not add any. The NIST AI RMF is not planned (it is SANAD's reference standard and its metadata on retrieval looked wrong; not worth the time). Bring up a third only if the first two land by Wed 4 Nov and time remains.
+
+### D. Rules, scenario and node table against telecom text
+
+Order of work: read the retrieved telecom texts first, then rewrite. The scenario remains synthetic and the author's design; the report must not present it as evidence of coverage.
+
+1. Retire analogy. Wherever a retrieved telecom provision answers an event, the rule cites it and the guideline-by-analogy rule is removed or demoted to a supporting line. Rules that rest on the government-services guideline (PR-11, PR-26) keep an analogy label if they stay at all. PR-25 ("binding law sits outside this KB") and PR-18 are rewritten or deleted according to what was retrieved; they must never say a law is absent when it is now in the KB, and must never describe the PDPL unless its text was retrieved.
+2. An action must not be stronger than its quote. Test for every rule: the action's verb is no stronger than the quote's modal (may, could consider, should consider, should, shall or must as printed). No "stop", "hold", "shut down now" or "before any further use" unless the quote says it. Two or more telecom quotes may be combined only if each is shown. Specific fixes from REVIEW.md:
+   - PR-11: "should avoid" cannot become "Stop". Rewrite to "Avoid ... or record which of the text's exceptions applies" and keep the analogy label unless a telecom provision replaces it.
+   - PR-12: the quote is about surveillance technologies and was applied to marketing without a label. Replace with the telecom provision on use of subscriber information (CPR V2.0 or the unsolicited communications policy) if the text supports it; otherwise add the analogy label and a note, or delete the rule and show "not addressed".
+   - PR-19: remove "before any further use of this data"; the quote says only that algorithmic systems require adequate privacy impact assessments. Action: ensure an adequate assessment exists or record that it does not.
+   - PR-26: the quote describes a testing stage. Action: "Check that evaluation against acceptance criteria is recorded before deployment, as the guideline describes the sequence (analogy: government services)". Replace if a telecom provision covers change control.
+   - PR-30: "should always be possible to shut down" supports "confirm a shut-down path exists and who can use it", not "shut down now". Replace or supplement with any telecom provision on emergency or critical traffic if the retrieved text has one.
+   - Same test on every other rule. The builder lists the result in the rules file as a field `strength_check` per rule (text modal, action verb, pass/fail).
+3. Required template steps stay, in this order: (1) deployment, (2) popular, (3) controversy, (4) KB decides, (5) escalation from a consumer issue to a data-privacy breach (the template's twist), (6) KB decides, then (7) regulator request, (8) push without sandbox, (9) emergency or critical traffic. The popular step keeps the Ethics p. 8 example as a labelled analogy unless a telecom text speaks to it. The controversy step is now a real consumer matter: subscribers complain about the throttle, and the complaint route is taken from CPR V2.0 if its text supplies one.
+4. Pre-agreed rule for the controversy ("KB decides"). Add a precedence rule PA-01, written before the scenario runs and shown on screen: when two sources conflict, the one the retrieved text itself marks as law or regulation outranks regulator policy, which outranks national guidance, which outranks framework documents. Rank is read from each document's own text, not assumed, and PA-01 is labelled as the author's design choice, for human legal review, not as a statement of UAE legal hierarchy. The scenario includes a point where an Ethics "should" and a telecom provision pull different ways, and the agent applies PA-01 and shows both quotes. Do not engineer the conflict to invent a provision; if the texts do not conflict, say so and pick the closest real tension found, or report that none was found.
+5. Template outcomes (prohibit use, require consent, purpose limitation, refer to oversight body): each is decided by reading the retrieved text, then recorded as supported, partly supported or not addressed, with the quote. This PRD does not pre-decide them. Where a foreign text speaks to an outcome it appears as the labelled foreign example, not as support.
+6. Node table (SRC, C, PP, M, P, D, SINK, in that order). Per node: use case, one Readiness dimension (from the Readiness PDF if read), one policy document with chunk id and verbatim quote, plus strategy alignment, interface design and collaboration between AI and a human. Prefer a telecom document where its text speaks to the node. Keep an AI document only where no telecom text applies, and say which. Y.3172 node definitions are quoted from the Y.3172 PDF. The Sandbox row stays weak unless a retrieved text says more; do not stretch it.
+7. Quote hygiene: every quote begins at a word boundary and ends at a clause end; no quote from a chunk that contains the lost-ligature character (U+FFFD) at the quote's edge; PR-10, PR-25, PR-29 and the P-node evidence quote are rechecked for this.
+8. Regenerate data/evidence-map.json, the /evidence page, the report tables and the slides from the same data. Update the tests so they fail if a rule's citation is not a slice of its chunk or if `strength_check` fails.
+
+### E. "The required capability runs on real input" at this event
+
+No commercial sponsor API is named and the event has no partner track (docs/competition.md). Sandbox credits have no published claim route, so none are assumed and nothing depends on them. The required capability here is the thing the event asks for: an AI agent that works over a real country knowledge base built from the country's documents, mapped to ITU-T Y.3172 and the AI Readiness Framework 2.0, with audit logging and reasoning traces, run against a released sequence of events. It counts as real when:
+- the KB is built from the retrieved files, not fixtures, and each row in sources/README.md has a hash that the build re-checks;
+- every quote shown is a verbatim slice of its chunk, which is a slice of a retrieved file, and a "verify" action on screen re-finds it;
+- the scenario runs with no model key, so the output is the agent's, not a hidden prompt's;
+- the log is hash-chained and exportable, and a one-byte change fails verification.
+A judge checks it by opening /kb (files, hashes, failures), running the scenario at / (nodes, quotes, "not addressed"), reading /gaps, exporting the log on /audit and running the verify step, and comparing /evidence with the report table. The KB also exports as JSONL in the reference repo's schema, so it can be loaded into the Sandbox if access is ever granted. A labelled mock of any of this does not count.
+
+### F. Report deliverable and page-count method
+
+Deliverable: docs/technical-report.docx, a filled copy of sources/submission-template.docx. Keep the template's styles, headings and the node table structure, replace the sample (smart-pen) content, and keep the eight sections in the template-shape order. Not a paste of Markdown.
+
+Build: unzip a copy of the template into a new empty directory, edit word/document.xml with a Node script kept outside that directory (Node is installed), zip back with the Content Types part first (`zip -X`), and keep the docx produced this way as the deliverable. Do not re-save it from Pages, which can change the styles.
+
+Measurement: LibreOffice and pandoc are not installed.
+1. Open the docx in Pages.app and export it to PDF with AppleScript (`osascript` with Pages' `export ... to POSIX file ... as PDF`).
+2. Count the pages of the exported PDF. Primary: `mdls -name kMDItemNumberOfPages file.pdf` (Spotlight may need a moment). Fallback: count page objects with `grep -a -c '/Type */Page[^s]'`, which can undercount, so confirm by eye.
+3. View the PDF pages with the Read tool using its `pages` parameter on pages 1 to 6, to see layout and to confirm there is no sixth page, no table cut off, no text missing. A tesseract pass over page images confirms the text is present if in doubt.
+4. Pages and Word paginate differently, and judges may use Word. Pass bar: at most 5 pages in the Pages render, with the last page no more than half full, so a different renderer is unlikely to push it to 6. If at least 5 GB of disk is free, installing LibreOffice with Homebrew and rendering with `soffice --headless --convert-to pdf` is a stronger second check; otherwise do not install it.
+5. Record the method, renderer, date and the page count in REVIEW.md. If the count cannot be measured, say "page count unmeasured" and do not claim it.
+Trim in this order: table quotes (still verbatim), the section 6 table, prose in sections 1 to 3. Fonts missing on this machine can change pagination; note any substitution.
+
+### G. Acceptance additions
+
+- sources/README.md lists every ingested file with a hash and the build fails otherwise; both HTML and extracted text for the Telecom Law are listed.
+- /kb shows each source's publisher, language, status (primary, secondary host, framework, foreign), hash and chunk count, and lists every candidate that failed, with the error.
+- No sentence anywhere describes the content of a document that was not retrieved.
+- Every rule has a passing `strength_check`; no rule is flagged analogy where a telecom provision exists and was not used.
+- The report states: Arabic prevails for the Telecom Law; global examples included or "none in KB"; Y.3172 and Readiness read or not read; no accuracy figure.
+- REVIEW.md is rewritten by an independent pass after the rebuild. The previous REVIEW.md describes the four-document build and does not count as a pass.
+
 ## Amendments (2026-11-03)
 
 This PRD predates the source pack. CLAUDE.md and the operator's brief of 2026-11-03 override it where they differ. The text below these amendments is unchanged and is superseded where listed here.
