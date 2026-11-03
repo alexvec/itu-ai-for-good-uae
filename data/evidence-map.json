@@ -1,0 +1,165 @@
+{
+ "use_case": "A licensed telecom operator (synthetic) runs an ML model that predicts congestion and applies automated traffic shaping to service classes. The agent advises the operator's governance lead when something goes wrong.",
+ "pipeline": [
+  {
+   "node": "SRC",
+   "use_case": "Network elements and subscriber devices produce counters and usage records.",
+   "dimension_id": 13,
+   "why_dimension": "Devices and connectivity that generate the data.",
+   "citation": {
+    "chunk_id": "ethics-p21-c2",
+    "doc_id": "ethics",
+    "page": 21,
+    "section": "3.8.2.2",
+    "quote": "This includes the information initially provided by the user, as well as the \ninformation generated about the user over the course of their interaction with the system"
+   }
+  },
+  {
+   "node": "C",
+   "use_case": "Collectors pull those records, including call-detail data, and set their granularity.",
+   "dimension_id": 1,
+   "why_dimension": "Whether and how data is shared with vendors and others.",
+   "citation": {
+    "chunk_id": "ethics-p21-c1",
+    "doc_id": "ethics",
+    "page": 21,
+    "section": "3.8.2.2",
+    "quote": "Establish an oversight mechanism for data collection, storage and processing and use across \nyour organization"
+   }
+  },
+  {
+   "node": "PP",
+   "use_case": "The pre-processor joins network and customer records and builds features.",
+   "dimension_id": 3,
+   "why_dimension": "Correlating data across domains.",
+   "citation": {
+    "chunk_id": "ethics-p21-c1",
+    "doc_id": "ethics",
+    "page": 21,
+    "section": "3.8.2.1",
+    "quote": "Use measures to enhance privacy such as encryption, anonymization and aggregation."
+   }
+  },
+  {
+   "node": "M",
+   "use_case": "The model predicts congestion and is retrained, partly with a vendor.",
+   "dimension_id": 9,
+   "why_dimension": "Humans who train, tune and adopt the model.",
+   "citation": {
+    "chunk_id": "ethics-p12-c2",
+    "doc_id": "ethics",
+    "page": 12,
+    "section": "3.2.2.2",
+    "quote": "AI Operators should subject AI systems informing significant decisions to quality checks \nat least as stringent as those that would be required of a human being taking the same \ndecision."
+   }
+  },
+  {
+   "node": "P",
+   "use_case": "The policy node turns predictions into throttling decisions, with human override.",
+   "dimension_id": 8,
+   "why_dimension": "Collaboration between AI and a human.",
+   "citation": {
+    "chunk_id": "charter-p04-c1",
+    "doc_id": "charter",
+    "page": 4,
+    "section": "6. Human Oversight",
+    "quote": "Charter emphasizes the irreplaceable value of human judgment and human \noversight over AI, aligning with ethical values and social standards to correct \nany errors or biases that may arise."
+   }
+  },
+  {
+   "node": "D",
+   "use_case": "The distributor sends the decision to the right service classes and regions.",
+   "dimension_id": 12,
+   "why_dimension": "Adapting AI outcomes to subsets of users.",
+   "citation": {
+    "chunk_id": "ethics-p10-c2",
+    "doc_id": "ethics",
+    "page": 10,
+    "section": "3.1.2.3",
+    "quote": "When evaluating the fairness of an AI system, AI developers and AI operators should \nconsider whether AI subjects in the same circumstances receive equal treatment."
+   }
+  },
+  {
+   "node": "SINK",
+   "use_case": "Network functions apply the throttle. Subscribers and staff see the effect.",
+   "dimension_id": 6,
+   "why_dimension": "How people meet and interact with the outcome.",
+   "citation": {
+    "chunk_id": "ethics-p15-c1",
+    "doc_id": "ethics",
+    "page": 15,
+    "section": "3.3.2.2",
+    "quote": "AI operators should inform AI subjects when a significant decision affecting them has been \nmade by an AI system."
+   }
+  }
+ ],
+ "supporting": [
+  {
+   "node": "MLFO",
+   "use_case": "The orchestrator manages the pipeline from the operator's ML intent.",
+   "dimension_id": 7,
+   "why_dimension": "Coordination across the pipeline against strategy.",
+   "citation": {
+    "chunk_id": "strategy-p22-c2",
+    "doc_id": "strategy",
+    "page": 22,
+    "section": "Objective 8, National Governance Review",
+    "quote": "the Council will ultimately \noversee the implementation of the AI \nStrategy in the UAE."
+   }
+  },
+  {
+   "node": "Sandbox",
+   "use_case": "Retrained models would be validated on a simulated underlay before going live.",
+   "dimension_id": 10,
+   "why_dimension": "Policy experimentation and readiness.",
+   "citation": {
+    "chunk_id": "strategy-p06-c1",
+    "doc_id": "strategy",
+    "page": 6,
+    "section": "Where the UAE has opportunities to lead",
+    "quote": "Governance frameworks will \nbe evaluated by testing them in the \nUAE’s industry pilots."
+   }
+  }
+ ],
+ "non_data": [
+  {
+   "item": "Strategy alignment",
+   "node": "MLFO",
+   "dimension_id": 7,
+   "note": "Telecom is not among the strategy's listed priority sectors, so alignment rests on this general statement.",
+   "citation": {
+    "chunk_id": "strategy-p06-c1",
+    "doc_id": "strategy",
+    "page": 6,
+    "section": "1. Industry Assets & Emerging Sectors",
+    "quote": "This does not mean that the UAE will \nstop working on AI solutions in other \nsectors where AI can deliver other \nbenefits to society."
+   }
+  },
+  {
+   "item": "Interface design",
+   "node": "SINK",
+   "dimension_id": 6,
+   "note": "Applied to the operator's care and governance screens.",
+   "citation": {
+    "chunk_id": "guideline-p40-c1",
+    "doc_id": "guideline",
+    "page": 40,
+    "section": "Execution",
+    "quote": "Designing the UX and UI for the AI use case is also a key step throughout execution to ensure \nthat it gets easily adopted by target users."
+   }
+  },
+  {
+   "item": "Collaboration between AI and a human",
+   "node": "P",
+   "dimension_id": 8,
+   "note": "The agent advises. A named person decides and can override.",
+   "citation": {
+    "chunk_id": "ethics-p19-c1",
+    "doc_id": "ethics",
+    "page": 19,
+    "section": "3.6.2.3",
+    "quote": "Humanity should retain the power to govern itself and make the final decision, with AI in an \nassisting role."
+   }
+  }
+ ]
+}

@@ -1,0 +1,732 @@
+[
+ {
+  "id": "PR-01",
+  "title": "Is the telecom an \"AI operator\" under the Ethics document?",
+  "classes": [
+   "automated_network_action"
+  ],
+  "priority": 10,
+  "group": "applicability",
+  "action": "Treat the operator as an AI operator organization for this assessment, because it uses the model to provide a service.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p06-c1",
+   "doc_id": "ethics",
+   "page": 6,
+   "section": "2.2 AI operator organization",
+   "quote": "uses an AI system to provide a service to an AI subject;"
+  }
+ },
+ {
+  "id": "PR-02",
+  "title": "Scope gate: significant decisions",
+  "classes": [
+   "automated_network_action"
+  ],
+  "priority": 11,
+  "group": "applicability",
+  "action": "Record the scope test: the Ethics document only applies if the throttle makes or informs significant decisions. A human confirms the answer.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p04-c1",
+   "doc_id": "ethics",
+   "page": 4,
+   "section": "1.2 Scope",
+   "quote": "This document is applicable only to those AI systems which make or inform \n‘significant decisions’"
+  }
+ },
+ {
+  "id": "PR-03",
+  "title": "Popularity changes the classification",
+  "classes": [
+   "adoption_at_scale"
+  ],
+  "priority": 12,
+  "group": "applicability",
+  "action": "Reclassify the network-wide throttle as a candidate set of significant-at-scale decisions and apply the Ethics guidelines from this step on. The source example is a website, so this is a reading by analogy for a human to confirm.",
+  "nodes": [
+   "D",
+   "SINK"
+  ],
+  "dimension_id": 12,
+  "modal": "may be",
+  "analogy": true,
+  "analogy_note": "The source example is a website choosing content, not a network. Applied by analogy.",
+  "citation": {
+   "chunk_id": "ethics-p08-c1",
+   "doc_id": "ethics",
+   "page": 8,
+   "section": "2.10 Set of significant-at-scale decisions, example",
+   "quote": "if the website is popular then the AI \nsystem may be making a set of significant-at-scale decisions, because any biases in the \nsystem will affect a large number of users."
+  }
+ },
+ {
+  "id": "PR-04",
+  "title": "Complaints trigger an investigation",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 20,
+  "group": "controversy",
+  "action": "Open an investigation into the fairness and accuracy of the throttling process as a whole.",
+  "nodes": [
+   "P",
+   "MLFO"
+  ],
+  "dimension_id": 8,
+  "modal": "could consider",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p13-c1",
+   "doc_id": "ethics",
+   "page": 13,
+   "section": "3.2.2.4",
+   "quote": "AI operators could consider “crowd challenge” mechanisms whereby a critical number of \ncomplaints triggers an investigation into the fairness and/or accuracy of a decision-making \nprocess as a whole."
+  }
+ },
+ {
+  "id": "PR-05",
+  "title": "Fair-treatment test across plans",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 21,
+  "group": "controversy",
+  "action": "Test whether subscribers in the same circumstances get equal treatment across plans, and record the result.",
+  "nodes": [
+   "D"
+  ],
+  "dimension_id": 12,
+  "modal": "should consider",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p10-c2",
+   "doc_id": "ethics",
+   "page": 10,
+   "section": "3.1.2.3",
+   "quote": "When evaluating the fairness of an AI system, AI developers and AI operators should \nconsider whether AI subjects in the same circumstances receive equal treatment."
+  }
+ },
+ {
+  "id": "PR-06",
+  "title": "Give subscribers a way to challenge",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 22,
+  "group": "controversy",
+  "action": "Provide a procedure by which an affected subscriber can challenge a specific throttling decision.",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 6,
+  "modal": "should provide",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p12-c1",
+   "doc_id": "ethics",
+   "page": 12,
+   "section": "3.2.2.4",
+   "quote": "AI operators using AI systems to inform significant decisions should provide procedures by \nwhich affected AI subjects can challenge a specific decision concerning them."
+  }
+ },
+ {
+  "id": "PR-07",
+  "title": "Human review of challenges",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 23,
+  "group": "controversy",
+  "action": "Assign human case evaluators who can overturn a challenged decision.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 8,
+  "modal": "should consider",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p12-c1",
+   "doc_id": "ethics",
+   "page": 12,
+   "section": "3.2.2.4",
+   "quote": "AI operators should consider employing human case evaluators to review any such \nchallenges and, when appropriate, overturn the challenged decision."
+  }
+ },
+ {
+  "id": "PR-08",
+  "title": "Tell subscribers an AI system decided",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 24,
+  "group": "controversy",
+  "action": "Tell affected subscribers that an AI system made the decision affecting them.",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 6,
+  "modal": "should inform",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p15-c1",
+   "doc_id": "ethics",
+   "page": 15,
+   "section": "3.3.2.2",
+   "quote": "AI operators should inform AI subjects when a significant decision affecting them has been \nmade by an AI system."
+  }
+ },
+ {
+  "id": "PR-09",
+  "title": "Designated people can override",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 25,
+  "group": "controversy",
+  "action": "Name the individuals who can override the throttle or reverse its decisions while the investigation runs.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 8,
+  "modal": "should be able",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p17-c2",
+   "doc_id": "ethics",
+   "page": 17,
+   "section": "3.5.2.4",
+   "quote": "Such systems should be able to be overridden or their decisions reversed by designated \nindividuals."
+  }
+ },
+ {
+  "id": "PR-10",
+  "title": "Human oversight corrects errors and bias",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 26,
+  "group": "controversy",
+  "action": "Keep human oversight on the policy node so errors or bias can be corrected.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 8,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "charter-p04-c1",
+   "doc_id": "charter",
+   "page": 4,
+   "section": "6. Human Oversight",
+   "quote": "Charter emphasizes the irreplaceable value of human judgment and human \noversight over AI, aligning with ethical values and social standards to correct \nany errors or biases that may arise."
+  }
+ },
+ {
+  "id": "PR-11",
+  "title": "Avoid models that expose personal data",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 30,
+  "group": "privacy",
+  "action": "Stop per-subscriber predictions reaching the marketing dashboard. The text's exceptions are public interest with government-service outcomes, or consent in line with national regulations; neither is shown here.",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 6,
+  "modal": "should avoid",
+  "analogy": true,
+  "analogy_note": "This guideline is about government services and this track is telecom. Applied by analogy.",
+  "citation": {
+   "chunk_id": "guideline-p48-c1",
+   "doc_id": "guideline",
+   "page": 48,
+   "section": "AI Risk Management, Privacy",
+   "quote": "any \nentity should avoid AI models that are exposing personal data \nunless there is a matter of public interest and targeted government \nservices outcomes or consent in line with national regulations."
+  }
+ },
+ {
+  "id": "PR-12",
+  "title": "Do not deploy beyond accepted privacy standards",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 31,
+  "group": "privacy",
+  "action": "Do not extend the model to the marketing use while it is unassessed against accepted privacy standards.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "should not be deployed",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p21-c1",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.1 Principle",
+   "quote": "Surveillance or other AI-driven technologies should not be deployed to the extent \nof violating internationally and/or UAE’s accepted standards of privacy and human \ndignity and people rights."
+  }
+ },
+ {
+  "id": "PR-13",
+  "title": "Minimum intrusion",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 32,
+  "group": "privacy",
+  "action": "Cut the data used back to the minimum intrusion necessary for congestion prediction.",
+  "nodes": [
+   "SRC",
+   "C"
+  ],
+  "dimension_id": 13,
+  "modal": "should respect",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p21-c1",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.1 Principle",
+   "quote": "AI systems should respect privacy and use the minimum intrusion necessary."
+  }
+ },
+ {
+  "id": "PR-14",
+  "title": "Review consent logging and revocation",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 33,
+  "group": "privacy",
+  "action": "Review the system for proper consent logging and whether subscribers can revoke permission.",
+  "nodes": [
+   "SRC",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "should review",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p21-c1",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.2.1",
+   "quote": "AI Operators should review the system for proper consent logging, ability of users to revoke \npermission whenever applicable."
+  }
+ },
+ {
+  "id": "PR-15",
+  "title": "Take the case to an internal oversight mechanism",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 34,
+  "group": "privacy",
+  "action": "Put the case before the organization's oversight mechanism for data collection, storage, processing and use. Create one if none exists.",
+  "nodes": [
+   "C",
+   "P"
+  ],
+  "dimension_id": 8,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p21-c1",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.2.2",
+   "quote": "Establish an oversight mechanism for data collection, storage and processing and use across \nyour organization"
+  }
+ },
+ {
+  "id": "PR-16",
+  "title": "Data Protection Officer role",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 35,
+  "group": "privacy",
+  "action": "Assign the Data Protection Officer responsibility for this case.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 8,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p21-c1",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.2.2",
+   "quote": "Assign specific responsibilities and role for Data Protection Officers."
+  }
+ },
+ {
+  "id": "PR-17",
+  "title": "Restrict access to those who need it",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 36,
+  "group": "privacy",
+  "action": "Remove access for anyone without the competence and need, including marketing users and the vendor.",
+  "nodes": [
+   "C",
+   "D"
+  ],
+  "dimension_id": 1,
+  "modal": "should be allowed",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p21-c2",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.2.2",
+   "quote": "Only duly qualified personnel \nwith the competence and need to access individual’s data should be allowed to do so."
+  }
+ },
+ {
+  "id": "PR-18",
+  "title": "The text defers to national privacy legislation",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 37,
+  "group": "privacy",
+  "action": "Send the question to human counsel: the Ethics document points to national privacy legislation, and that legislation is not in this KB.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "should be put in place",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p21-c2",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.2.2",
+   "quote": "data protocols governing data access should be put in place in line with \nnational privacy legislation (be these universal or sector-specific)."
+  }
+ },
+ {
+  "id": "PR-19",
+  "title": "Privacy impact assessment",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 38,
+  "group": "privacy",
+  "action": "Run a privacy impact assessment before any further use of this data.",
+  "nodes": [
+   "P",
+   "PP"
+  ],
+  "dimension_id": 10,
+  "modal": "require",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p22-c1",
+   "doc_id": "ethics",
+   "page": 22,
+   "section": "3.8.2.2",
+   "quote": "Algorithmic systems require adequate privacy impact assessments"
+  }
+ },
+ {
+  "id": "PR-20",
+  "title": "Retrain with minimal personal data",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 39,
+  "group": "privacy",
+  "action": "Retrain without identifiers where possible.",
+  "nodes": [
+   "M"
+  ],
+  "dimension_id": 9,
+  "modal": "Consider",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p21-c1",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.2.1",
+   "quote": "Consider training AI model without or with minimal user of potentially sensitive or personal \ndata."
+  }
+ },
+ {
+  "id": "PR-21",
+  "title": "Privacy-enhancing measures in pre-processing",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 40,
+  "group": "privacy",
+  "action": "Apply encryption, anonymization or aggregation at the pre-processor before any data leaves it.",
+  "nodes": [
+   "PP"
+  ],
+  "dimension_id": 3,
+  "modal": "Use",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p21-c1",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.2.1",
+   "quote": "Use measures to enhance privacy such as encryption, anonymization and aggregation."
+  }
+ },
+ {
+  "id": "PR-22",
+  "title": "Investigate and redress harm",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 41,
+  "group": "privacy",
+  "action": "Investigate the harm to affected subscribers and provide redress.",
+  "nodes": [
+   "SINK",
+   "MLFO"
+  ],
+  "dimension_id": 8,
+  "modal": "should ensure",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p14-c1",
+   "doc_id": "ethics",
+   "page": 14,
+   "section": "3.3.2.1",
+   "quote": "Organizations should ensure that harms caused through AI systems are investigated and \nredressed,"
+  }
+ },
+ {
+  "id": "PR-23",
+  "title": "Privacy is a stated priority of the Charter",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 42,
+  "group": "privacy",
+  "action": "Put subscriber privacy ahead of the model's data appetite when the two conflict.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 7,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "charter-p03-c1",
+   "doc_id": "charter",
+   "page": 3,
+   "section": "4. Data Privacy",
+   "quote": "while data is essential for AI \ndevelopment, supporting and promoting innovation in AI, the privacy of \ncommunity members remains a top priority."
+  }
+ },
+ {
+  "id": "PR-24",
+  "title": "Keep traceable records",
+  "classes": [
+   "regulator_request"
+  ],
+  "priority": 50,
+  "group": "records",
+  "action": "Preserve the decision logs and this audit trail so the response can show what the system did.",
+  "nodes": [
+   "P",
+   "MLFO"
+  ],
+  "dimension_id": 10,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p12-c2",
+   "doc_id": "ethics",
+   "page": 12,
+   "section": "3.2.2.3",
+   "quote": "Facilitate traceability and auditability of AI systems, particularly in critical contexts or \nsituations."
+  }
+ },
+ {
+  "id": "PR-25",
+  "title": "Binding law sits outside this KB",
+  "classes": [
+   "regulator_request",
+   "interception_access",
+   "licensing_authorization"
+  ],
+  "priority": 51,
+  "group": "records",
+  "action": "Refer the question to human legal counsel. The Charter points to treaties and local laws, and no such law is in this KB.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "charter-p05-c1",
+   "doc_id": "charter",
+   "page": 5,
+   "section": "12. Commitment to Treaties and Applicable Laws",
+   "quote": "emphasizes the importance of complying with international treaties \nand local laws in the development and use of AI."
+  }
+ },
+ {
+  "id": "PR-26",
+  "title": "Evaluate before deploying",
+  "classes": [
+   "model_change"
+  ],
+  "priority": 60,
+  "group": "change",
+  "action": "Hold the push to production until the retrained model has been evaluated against acceptance criteria.",
+  "nodes": [
+   "M",
+   "MLFO"
+  ],
+  "dimension_id": 5,
+  "modal": null,
+  "analogy": true,
+  "analogy_note": "This guideline is about government services and this track is telecom. Applied by analogy.",
+  "citation": {
+   "chunk_id": "guideline-p40-c1",
+   "doc_id": "guideline",
+   "page": 40,
+   "section": "Execution",
+   "quote": "Once your model is ready for testing, you evaluate against acceptance criteria to confirm \nreadiness for model deployment."
+  }
+ },
+ {
+  "id": "PR-27",
+  "title": "Quality checks at human level",
+  "classes": [
+   "model_change"
+  ],
+  "priority": 61,
+  "group": "change",
+  "action": "Apply quality checks at least as stringent as a human decision-maker would face.",
+  "nodes": [
+   "M"
+  ],
+  "dimension_id": 9,
+  "modal": "should subject",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p12-c2",
+   "doc_id": "ethics",
+   "page": 12,
+   "section": "3.2.2.2",
+   "quote": "AI Operators should subject AI systems informing significant decisions to quality checks \nat least as stringent as those that would be required of a human being taking the same \ndecision."
+  }
+ },
+ {
+  "id": "PR-28",
+  "title": "Tested fall back plan",
+  "classes": [
+   "model_change"
+  ],
+  "priority": 62,
+  "group": "change",
+  "action": "Define and test a fall back plan before the new model goes live.",
+  "nodes": [
+   "P",
+   "MLFO"
+  ],
+  "dimension_id": 7,
+  "modal": "should define",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p17-c1",
+   "doc_id": "ethics",
+   "page": 17,
+   "section": "3.5.2.2",
+   "quote": "AI operators should define a suitable fall back plan and test it to maintain readiness in \nunexpected situations and in high safety risks level"
+  }
+ },
+ {
+  "id": "PR-29",
+  "title": "Modify or remove systems that pose risks",
+  "classes": [
+   "emergency_critical"
+  ],
+  "priority": 70,
+  "group": "safety",
+  "action": "Modify the throttle so it cannot touch this traffic, or remove it from service.",
+  "nodes": [
+   "P",
+   "D"
+  ],
+  "dimension_id": 5,
+  "modal": "encourages",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "charter-p03-c1",
+   "doc_id": "charter",
+   "page": 3,
+   "section": "2. Safety",
+   "quote": "country encourages modifying or \nremoving systems that pose risks."
+  }
+ },
+ {
+  "id": "PR-30",
+  "title": "Shut-down must be possible",
+  "classes": [
+   "emergency_critical"
+  ],
+  "priority": 71,
+  "group": "safety",
+  "action": "Shut the throttle down now if it cannot be limited at once.",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 13,
+  "modal": "should always be possible",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p19-c1",
+   "doc_id": "ethics",
+   "page": 19,
+   "section": "3.6.2.3",
+   "quote": "In the most extreme cases it should always be possible to shut down harmful AI system."
+  }
+ },
+ {
+  "id": "PR-31",
+  "title": "Human verification where life is at stake",
+  "classes": [
+   "emergency_critical"
+  ],
+  "priority": 72,
+  "group": "safety",
+  "action": "Require human verification for any automated action that could touch this traffic. Whether this is a life and death decision in the text's sense is a human call.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 8,
+  "modal": "should be supported",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p12-c2",
+   "doc_id": "ethics",
+   "page": 12,
+   "section": "3.2.2.3",
+   "quote": "In the case that critical decision are life and death decisions, these decisions should be \nsupported by further validation and verification via a human operator."
+  }
+ }
+]

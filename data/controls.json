@@ -1,0 +1,254 @@
+[
+ {
+  "id": "G-01",
+  "class": "interception_access",
+  "question": "Does the text set a procedure for lawful access to or interception of communications?",
+  "nodes": [
+   "SRC",
+   "C",
+   "P"
+  ],
+  "dimension_id": 10,
+  "terms": [
+   "interception",
+   "intercept",
+   "wiretap",
+   "lawful access"
+  ],
+  "query": "access to communications surveillance lawful"
+ },
+ {
+  "id": "G-02",
+  "class": "licensing_authorization",
+  "question": "Does the text set licence or authorization conditions for ML functions run by a telecom operator?",
+  "nodes": [
+   "P",
+   "MLFO"
+  ],
+  "dimension_id": 10,
+  "terms": [
+   "telecom",
+   "licensee",
+   "licensed operator"
+  ],
+  "query": "licensing operator authorization regulation"
+ },
+ {
+  "id": "G-03",
+  "class": "regulator_request",
+  "question": "Does the text say how a telecom operator answers a sector regulator's information request about an ML function?",
+  "nodes": [
+   "SINK",
+   "MLFO",
+   "P"
+  ],
+  "dimension_id": 10,
+  "terms": [
+   "telecom",
+   "sector regulator",
+   "information request"
+  ],
+  "query": "regulatory scrutiny regulators audit public release",
+  "nearest_pin": {
+   "chunk_id": "ethics-p12-c2",
+   "quote": "Facilitate traceability and auditability of AI systems, particularly in critical contexts or \nsituations."
+  }
+ },
+ {
+  "id": "G-04",
+  "class": "personal_data_exposure",
+  "question": "Does the text set a breach-notification duty or timeline?",
+  "nodes": [
+   "SINK",
+   "P"
+  ],
+  "dimension_id": 10,
+  "terms": [
+   "data breach",
+   "breach notification",
+   "notification of a breach",
+   "notify the regulator"
+  ],
+  "query": "personal data disclosed exceptional damage security"
+ },
+ {
+  "id": "G-05",
+  "class": "personal_data_exposure",
+  "question": "Does the text state purpose limitation for personal data?",
+  "nodes": [
+   "C",
+   "PP"
+  ],
+  "dimension_id": 1,
+  "terms": [
+   "purpose limitation",
+   "purpose-limitation",
+   "compatible purpose",
+   "only for the purpose"
+  ],
+  "query": "data relevance purpose use minimum intrusion"
+ },
+ {
+  "id": "G-06",
+  "class": "personal_data_exposure",
+  "question": "Does the text set rules for handing subscriber or personal data to an external vendor for training?",
+  "nodes": [
+   "C",
+   "M"
+  ],
+  "dimension_id": 1,
+  "terms": [
+   "subscriber",
+   "data processor",
+   "third-party processor",
+   "transfer of personal data",
+   "cross-border"
+  ],
+  "query": "vendors historical data train models operator sharing"
+ },
+ {
+  "id": "G-07",
+  "class": "personal_data_exposure",
+  "question": "Does the text name a body outside the organization to which a privacy case is referred?",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 10,
+  "terms": [
+   "refer the case",
+   "referral",
+   "supervisory authority",
+   "data protection authority",
+   "ombudsman"
+  ],
+  "query": "oversight council committee external governance data protection",
+  "nearest_pin": {
+   "chunk_id": "strategy-p22-c2",
+   "quote": "the Council will ultimately \noversee the implementation of the AI \nStrategy in the UAE."
+  }
+ },
+ {
+  "id": "G-08",
+  "class": "automated_network_action",
+  "question": "Does the text address automated traffic management in a telecom network?",
+  "nodes": [
+   "P",
+   "D",
+   "SINK"
+  ],
+  "dimension_id": 12,
+  "terms": [
+   "network traffic",
+   "throttl",
+   "quality of service",
+   "net neutrality",
+   "traffic shaping"
+  ],
+  "query": "automated decisions groups different treatment"
+ },
+ {
+  "id": "G-09",
+  "class": "model_change",
+  "question": "Does the text call for an ML sandbox on a simulated network before a model affects a live network?",
+  "nodes": [
+   "M",
+   "Sandbox"
+  ],
+  "dimension_id": 10,
+  "terms": [
+   "sandbox",
+   "simulated underlay",
+   "simulated network"
+  ],
+  "query": "development testing production environments deployment"
+ },
+ {
+  "id": "G-10",
+  "class": "emergency_critical",
+  "question": "Does the text protect emergency calls or critical numbers from automated network action?",
+  "nodes": [
+   "D",
+   "SINK"
+  ],
+  "dimension_id": 13,
+  "terms": [
+   "emergency call",
+   "emergency number",
+   "emergency service",
+   "emergency"
+  ],
+  "query": "critical infrastructure safety wellbeing harm"
+ },
+ {
+  "id": "G-11",
+  "class": "adoption_at_scale",
+  "question": "Is telecom a listed priority sector in the national strategy?",
+  "nodes": [
+   "MLFO"
+  ],
+  "dimension_id": 7,
+  "terms": [
+   "telecom"
+  ],
+  "query": "current priority sectors",
+  "nearest_pin": {
+   "chunk_id": "strategy-p06-c1",
+   "quote": "The UAE has set priority sectors – these \nwill be the focus of initial activities."
+  }
+ },
+ {
+  "id": "A-01",
+  "class": "service_complaint",
+  "question": "Does the text give affected people a way to challenge an automated decision?",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 6,
+  "terms": [
+   "challenge a specific decision"
+  ],
+  "query": "challenge specific decision procedures"
+ },
+ {
+  "id": "A-02",
+  "class": "service_complaint",
+  "question": "Does the text call for human override of an AI system?",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 8,
+  "terms": [
+   "overridden",
+   "overturn"
+  ],
+  "query": "overridden decisions reversed designated individuals"
+ },
+ {
+  "id": "A-03",
+  "class": "personal_data_exposure",
+  "question": "Does the text address consent logging or revocation?",
+  "nodes": [
+   "SRC",
+   "P"
+  ],
+  "dimension_id": 10,
+  "terms": [
+   "consent logging"
+  ],
+  "query": "consent logging revoke permission"
+ },
+ {
+  "id": "A-04",
+  "class": "model_change",
+  "question": "Does the text call for a fall back plan?",
+  "nodes": [
+   "P",
+   "MLFO"
+  ],
+  "dimension_id": 7,
+  "terms": [
+   "fall back plan"
+  ],
+  "query": "fall back plan readiness unexpected"
+ }
+]

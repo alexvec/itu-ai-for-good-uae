@@ -2,6 +2,20 @@
 
 Working title: Y.3172 Incident Counsel. Status: ready to build. Owner: alexvec, solo.
 
+## Amendments (2026-11-03)
+
+This PRD predates the source pack. CLAUDE.md and the operator's brief of 2026-11-03 override it where they differ. The text below these amendments is unchanged and is superseded where listed here.
+
+1. **KB contents (section 6 superseded).** Exactly four files: the UAE AI Strategy 2031, the July 2024 AI Charter, the December 2022 AI Ethics Principles and the government-services adoption guideline, each checked against `sources/README.md` at build time. The submission template is not chunked.
+2. **Removed from the KB.** No Telecom Law, no PDPL, no u.ae pointer pages, no repo reference texts, no other fetched documents. No article, provision or quote from them appears in the product. References below to Telecom Law provisions, articles or data pages do not apply.
+3. **Wording of absence (R3, section 5).** "Text silent" is replaced by "not addressed in the ingested documents". The product must not imply UAE telecom law is silent. It states that the KB has no binding telecom sector law, that the Telecom Law and PDPL exist and were not ingested, and that the guideline is applied to telecom by analogy. No document is called binding unless its text says so. None does. The silence test on "binding instruments" is replaced by a check that a control's terms occur in the ingested text.
+4. **Global examples (R4).** None are treated as being in the KB. The gap view shows "no global example in KB". None are written from memory.
+5. **Scenarios (section 7).** Scenario A is rebuilt as the template's numbered sequence: deployment, popular, controversy, KB decides, escalation from a consumer issue to a data-privacy breach, KB decides, then follow-on events carrying the regulator request, the push without sandbox and the emergency traffic. Scenario B is dropped, because it was built on Telecom Law provisions. Corrective actions follow pre-agreed rules in `data/rules.json`, each citing a chunk id and a verbatim quote. Template outcomes the text does not support are shown as not addressed.
+6. **Evidence (R7).** The export is the template's table: one row per node in the order SRC, C, PP, M, P, D, SINK, with use case, one Readiness dimension and one policy document with chunk id, plus strategy alignment, interface design and collaboration between AI and a human.
+7. **Framework data (section 3).** The node and dimension mapping comes from `simulation/server/agents/usecase.py` in the reference repo (the PRD's path `agents/usecase.py` is short by two folders), used as taxonomy with the licence notice kept. It is not KB content.
+8. **Chunking (section 3, section 6).** The documents have no articles. Chunks split on pages first, then to about 256 words with about 30 overlap on line boundaries. Citations give PDF page and heading. Article field is null.
+9. **Non-functional (N2, section 8, section 12).** The Arabic-prevails caveat applied to the Telecom Law, which is not ingested, so it is dropped from the banner. No accuracy number, and no invented names, metrics, testimonials, outcomes, operators or incidents.
+
 ## 1. User
 
 A governance, risk or regulatory-affairs lead at a licensed telecom operator in the UAE who is accountable for machine-learning functions running inside the network (anomaly detection, traffic management, customer-impact prediction). Secondary user: a regulator-side or standards analyst reviewing how a sector law copes with ML in the network. Both are personas for design; none has been interviewed and no operator has been consulted.
