@@ -1,0 +1,77 @@
+{
+ "source_doc": "y3172",
+ "nodes": {
+  "SRC": {
+   "chunk_id": "y3172-p20-c1",
+   "doc_id": "y3172",
+   "page": 20,
+   "section": "Clause 8.1",
+   "article": null,
+   "quote": "SRC (source): This node is the source of data that can be used as input to the ML pipeline."
+  },
+  "C": {
+   "chunk_id": "y3172-p20-c1",
+   "doc_id": "y3172",
+   "page": 20,
+   "section": "Clause 8.1",
+   "article": null,
+   "quote": "C (collector): This node is responsible for collecting data from one or more SRC nodes."
+  },
+  "PP": {
+   "chunk_id": "y3172-p21-c1",
+   "doc_id": "y3172",
+   "page": 21,
+   "section": "Clause 8.1",
+   "article": null,
+   "quote": "PP (preprocessor): This node is responsible for cleaning data, aggregating data or performing \nany other preprocessing needed for the data to be in a suitable form so that the ML model \ncan consume it."
+  },
+  "M": {
+   "chunk_id": "y3172-p21-c1",
+   "doc_id": "y3172",
+   "page": 21,
+   "section": "Clause 8.1",
+   "article": null,
+   "quote": "M (model): This is a machine learning model, in a form which is usable in a machine learning \npipeline."
+  },
+  "P": {
+   "chunk_id": "y3172-p21-c1",
+   "doc_id": "y3172",
+   "page": 21,
+   "section": "Clause 8.1",
+   "article": null,
+   "quote": "P (policy): This node enables the application of policies to the output of the model node."
+  },
+  "D": {
+   "chunk_id": "y3172-p21-c1",
+   "doc_id": "y3172",
+   "page": 21,
+   "section": "Clause 8.1",
+   "article": null,
+   "quote": "D (distributor): This node is responsible for identifying the SINK(s) and distributing the \noutput of the M node to the corresponding SINK nodes."
+  },
+  "SINK": {
+   "chunk_id": "y3172-p21-c1",
+   "doc_id": "y3172",
+   "page": 21,
+   "section": "Clause 8.1",
+   "article": null,
+   "quote": "SINK: This node is the target of the ML output on which it takes action."
+  },
+  "MLFO": {
+   "chunk_id": "y3172-p21-c2",
+   "doc_id": "y3172",
+   "page": 21,
+   "section": "Clause 8.1",
+   "article": null,
+   "quote": "an MLFO is a logical node with functionalities that manage and orchestrate \nthe nodes of ML pipelines based on ML Intent and/or dynamic network conditions."
+  },
+  "Sandbox": {
+   "chunk_id": "y3172-p21-c3",
+   "doc_id": "y3172",
+   "page": 21,
+   "section": "Clause 8.1",
+   "article": null,
+   "quote": "An ML sandbox is an isolated domain which allows the hosting of separate ML pipelines to train, test \nand evaluate them before deploying them in a live network."
+  }
+ }
+}

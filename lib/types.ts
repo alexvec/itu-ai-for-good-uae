@@ -16,14 +16,14 @@ export interface Chunk {
   ingested_at: string;
   document_category: string;
   // Additive fields
-  article: null;
+  article: string | null;
   source_url: string;
   retrieved_on: string;
   sha256: string;
   page: number;
   char_start: number;
   char_end: number;
-  extraction: "text-layer" | "ocr";
+  extraction: "text-layer" | "ocr" | "html-text";
   retrievable: boolean;
   page_headings: string[];
   y3172_nodes: NodeId[];
@@ -50,4 +50,22 @@ export interface DocumentMeta {
   non_retrievable_pages: number[];
   not_ingested_pages: { page: number; reason: string }[];
   reading_notes: string[];
+  /** How the document is cut: "page" (slices of a page), "clauses" (numbered sub-articles), "articles" (Article (N) headings). */
+  chunker: "page" | "clauses" | "articles";
+  /** Clause chunker only: everything up to the end of this match is the running page header. */
+  page_header_end?: string;
+  /** Clause chunker only: pages at or after this number carry this prefix on their clause labels. */
+  clause_prefix?: { from_page: number; prefix: string };
+  /** primary | secondary host | framework | national guidance | foreign */
+  status: "primary" | "secondary host" | "framework" | "national guidance" | "foreign";
+  publisher: string;
+  language: string;
+  extraction_method: string;
+  page_label: string;
+  /** PA-01 rank, lower outranks higher. Read from the document's own text; the quote is in rank_basis. */
+  rank: number;
+  rank_label: string;
+  rank_basis: { page: number; quote: string };
+  caveat: string | null;
+  license_status: string;
 }

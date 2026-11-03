@@ -2,10 +2,11 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { buildChunks, assertChunksVerbatim } from "../lib/kb-build.ts";
-import { ROOT, documents, loadExtracted, readJson, verifySourceHashes } from "./kb-io.ts";
+import { ROOT, documents, loadExtracted, readJson, verifyLawExtraction, verifySourceHashes } from "./kb-io.ts";
 
 try {
   const hashes = verifySourceHashes();
+  verifyLawExtraction();
   const extracted = loadExtracted();
   const stored = readFileSync(join(ROOT, "kb/chunks.json"), "utf8");
   const chunks = JSON.parse(stored);

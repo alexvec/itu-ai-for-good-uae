@@ -1,28 +1,211 @@
 {
   "note": "Keyword tags for retrieval boosting and the node filter. Machine-applied by scripts/build-kb.ts, not a reading of the document. Terms are matched case-insensitively at word starts.",
   "nodes": {
-    "SRC": ["data generated", "information initially provided", "sources", "sensor", "digital records", "personal data", "personal information", "individuals’ data"],
-    "C": ["data collection", "collect", "sourcing", "data gathering", "access data", "data access", "data sharing", "ingest"],
-    "PP": ["anonymization", "aggregation", "encryption", "cleansing", "annotat", "feature engineering", "pre-process", "data quality", "representative", "synthetic data"],
-    "M": ["training", "model", "algorithm", "tune", "retrain", "acceptance criteria", "bias", "testing"],
-    "P": ["oversight", "accountab", "governance", "safeguard", "fall back", "fallback", "overridden", "human control", "policies", "ethical"],
-    "D": ["equal treatment", "fair", "deployment", "distribut", "non-operational bias", "subset", "user groups"],
-    "SINK": ["inform ai subjects", "challenge", "appeal", "opt out", "opt-out", "redress", "end user", "end-user", "explanation", "ux", "significant decision"],
-    "MLFO": ["orchestrat", "mlops", "lifecycle", "life cycle", "governance model", "monitor"],
-    "Sandbox": ["test bed", "testbed", "pilot", "proof-of-concept", "experiment", "testing environment"]
+    "SRC": [
+      "data generated",
+      "information initially provided",
+      "sources",
+      "sensor",
+      "digital records",
+      "personal data",
+      "personal information",
+      "individuals’ data",
+      "subscriber information",
+      "call records",
+      "service usage",
+      "message records",
+      "user equipment"
+    ],
+    "C": [
+      "data collection",
+      "collect",
+      "sourcing",
+      "data gathering",
+      "access data",
+      "data access",
+      "data sharing",
+      "ingest",
+      "sharing any subscriber",
+      "disclose subscriber",
+      "collecting data",
+      "collector"
+    ],
+    "PP": [
+      "anonymization",
+      "aggregation",
+      "encryption",
+      "cleansing",
+      "annotat",
+      "feature engineering",
+      "pre-process",
+      "data quality",
+      "representative",
+      "synthetic data",
+      "preprocess",
+      "aggregating data"
+    ],
+    "M": [
+      "training",
+      "model",
+      "algorithm",
+      "tune",
+      "retrain",
+      "acceptance criteria",
+      "bias",
+      "testing",
+      "ml model",
+      "machine learning model",
+      "sandbox"
+    ],
+    "P": [
+      "oversight",
+      "accountab",
+      "governance",
+      "safeguard",
+      "fall back",
+      "fallback",
+      "overridden",
+      "human control",
+      "policies",
+      "ethical",
+      "fair use",
+      "licensee shall",
+      "licensees shall",
+      "prior consent",
+      "competent body",
+      "prohibited",
+      "supreme committee"
+    ],
+    "D": [
+      "equal treatment",
+      "fair",
+      "deployment",
+      "distribut",
+      "non-operational bias",
+      "subset",
+      "user groups",
+      "non-discrimination",
+      "restrictions on the speed",
+      "disconnection",
+      "distributor"
+    ],
+    "SINK": [
+      "inform ai subjects",
+      "challenge",
+      "appeal",
+      "opt out",
+      "opt-out",
+      "redress",
+      "end user",
+      "end-user",
+      "explanation",
+      "ux",
+      "significant decision",
+      "consumer complaint",
+      "consumer dispute",
+      "emergency",
+      "restore",
+      "interrupted or impaired"
+    ],
+    "MLFO": [
+      "orchestrat",
+      "mlops",
+      "lifecycle",
+      "life cycle",
+      "governance model",
+      "monitor",
+      "tdra may",
+      "shall maintain records",
+      "on demand",
+      "the authority"
+    ],
+    "Sandbox": [
+      "test bed",
+      "testbed",
+      "pilot",
+      "proof-of-concept",
+      "experiment",
+      "testing environment",
+      "sandbox",
+      "simulated"
+    ]
   },
   "dimensions": {
-    "1": ["data sharing", "marketplace", "open data", "data partners"],
-    "3": ["cross-domain", "correlation", "combination of"],
-    "4": ["regional", "local needs", "community"],
-    "5": ["workflow", "integrat", "operations", "deployment"],
-    "6": ["ux", "user-friendly", "interface", "user journeys", "understandable"],
-    "7": ["strategy", "strategic alignment", "aligned", "alignment"],
-    "8": ["human-machine", "human operator", "human judgment", "human oversight", "human case evaluators", "assisting role", "collaboration"],
-    "9": ["talent", "experts", "personnel", "upskill", "training programs"],
-    "10": ["regulation", "policies", "legislation", "governance", "guidelines"],
-    "11": ["inclusi", "accessib", "discriminat", "equitable"],
-    "12": ["priority sectors", "subsets", "user groups", "priorit"],
-    "13": ["infrastructure", "computing", "connectivity", "cloud"]
+    "1": [
+      "data sharing",
+      "marketplace",
+      "open data",
+      "data partners"
+    ],
+    "3": [
+      "cross-domain",
+      "correlation",
+      "combination of"
+    ],
+    "4": [
+      "regional",
+      "local needs",
+      "community"
+    ],
+    "5": [
+      "workflow",
+      "integrat",
+      "operations",
+      "deployment"
+    ],
+    "6": [
+      "ux",
+      "user-friendly",
+      "interface",
+      "user journeys",
+      "understandable"
+    ],
+    "7": [
+      "strategy",
+      "strategic alignment",
+      "aligned",
+      "alignment"
+    ],
+    "8": [
+      "human-machine",
+      "human operator",
+      "human judgment",
+      "human oversight",
+      "human case evaluators",
+      "assisting role",
+      "collaboration"
+    ],
+    "9": [
+      "talent",
+      "experts",
+      "personnel",
+      "upskill",
+      "training programs"
+    ],
+    "10": [
+      "regulation",
+      "policies",
+      "legislation",
+      "governance",
+      "guidelines"
+    ],
+    "11": [
+      "inclusi",
+      "accessib",
+      "discriminat",
+      "equitable"
+    ],
+    "12": [
+      "priority sectors",
+      "subsets",
+      "user groups",
+      "priorit"
+    ],
+    "13": [
+      "infrastructure",
+      "computing",
+      "connectivity",
+      "cloud"
+    ]
   }
 }

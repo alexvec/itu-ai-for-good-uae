@@ -8,7 +8,7 @@ export const INGESTED_AT = "2026-11-03";
 
 export interface ExtractedPage {
   page: number;
-  method: "text-layer" | "ocr" | "none";
+  method: "text-layer" | "ocr" | "html-text" | "none";
   text: string;
 }
 export interface Extracted {
@@ -45,6 +45,74 @@ export function slicePage(text: string): { start: number; end: number }[] {
   return out;
 }
 
+export interface Slice { start: number; end: number; article: string | null }
+
+function capToWords(text: string, from: number, to: number, article: string | null): Slice[] {
+  return slicePage(text.slice(from, to)).map((s, i) => ({
+    start: from + s.start,
+    end: from + s.end,
+    article: i === 0 || !article ? article : `${article} (continued)`,
+  }));
+}
+
+/** Cuts one page at numbered sub-articles printed at the start of a line, such as "24.6." State carries the open clause across pages. */
+export function sliceClauses(text: string, doc: DocumentMeta, page: number, state: { label: string | null }): Slice[] {
+  const prefix = doc.clause_prefix && page >= doc.clause_prefix.from_page ? doc.clause_prefix.prefix : "";
+  let from = 0;
+  if (doc.page_header_end) {
+    const m = new RegExp(doc.page_header_end, "m").exec(text);
+    if (m) from = m.index + m[0].length;
+  }
+  const marks: { at: number; label: string | null }[] = [];
+  let pos = 0;
+  let heading: number | null = null;
+  for (const raw of text.split("\n")) {
+    if (pos >= from) {
+      const line = raw.trim();
+      const clause = /^(\d{1,2}\.\d{1,2})\.(\s|$)/.exec(line);
+      if (clause) {
+        marks.push({ at: heading ?? pos, label: prefix + clause[1] });
+        heading = null;
+      } else if (/^\d{1,2}\.\s*[A-Z]/.test(line) && !/\.{4,}/.test(line) && line.length < 90) {
+        heading = pos;
+      } else if (/^\d{1,2}\.\s*$/.test(line)) {
+        heading = pos;
+      }
+    }
+    pos += raw.length + 1;
+  }
+  const out: Slice[] = [];
+  const firstAt = marks.length ? marks[0].at : text.length;
+  if (text.slice(from, firstAt).trim()) out.push(...capToWords(text, from, firstAt, state.label ? `${state.label} (continued)` : null));
+  marks.forEach((m, i) => {
+    out.push(...capToWords(text, m.at, i + 1 < marks.length ? marks[i + 1].at : text.length, m.label));
+    state.label = m.label;
+  });
+  return out;
+}
+
+/** Cuts one page of the law at "Article (N)" headings. Only N = previous + 1 counts, so articles of an older law quoted inside Article (80) are not mistaken for this law's articles. */
+export function sliceArticles(text: string, state: { next: number; label: string | null }): Slice[] {
+  const marks: { at: number; label: string }[] = [];
+  let pos = 0;
+  for (const raw of text.split("\n")) {
+    const m = /^Article \((\d+)\)\s*$/.exec(raw.trim());
+    if (m && Number(m[1]) === state.next) {
+      marks.push({ at: pos, label: `Article (${m[1]})` });
+      state.next++;
+    }
+    pos += raw.length + 1;
+  }
+  const out: Slice[] = [];
+  const firstAt = marks.length ? marks[0].at : text.length;
+  if (text.slice(0, firstAt).trim()) out.push(...capToWords(text, 0, firstAt, state.label ? `${state.label} (continued)` : null));
+  marks.forEach((m, i) => {
+    out.push(...capToWords(text, m.at, i + 1 < marks.length ? marks[i + 1].at : text.length, m.label));
+    state.label = m.label;
+  });
+  return out;
+}
+
 export function termMatches(textLower: string, term: string): boolean {
   let at = textLower.indexOf(term);
   while (at !== -1) {
@@ -62,13 +130,19 @@ export function buildChunks(
   const headingRe = new RegExp(doc.heading_pattern);
   const notIngested = new Set(doc.not_ingested_pages.map((p) => p.page));
   const partial: Omit<Chunk, "chunk_index" | "total_chunks">[] = [];
+  const clauseState = { label: null as string | null };
+  const articleState = { next: 1, label: null as string | null };
   for (const page of extracted.pages) {
     if (notIngested.has(page.page) || page.method === "none") continue;
     const headings = page.text
       .split("\n")
       .map((l) => l.trim())
       .filter((l) => l.length < 110 && headingRe.test(l));
-    slicePage(page.text).forEach((s, idx) => {
+    const slices: Slice[] =
+      doc.chunker === "clauses" ? sliceClauses(page.text, doc, page.page, clauseState)
+      : doc.chunker === "articles" ? sliceArticles(page.text, articleState)
+      : slicePage(page.text).map((s) => ({ ...s, article: null }));
+    slices.forEach((s, idx) => {
       const text = page.text.slice(s.start, s.end);
       const lower = text.toLowerCase().replace(/\s+/g, " ");
       partial.push({
@@ -79,14 +153,14 @@ export function buildChunks(
         country: "UAE",
         ingested_at: INGESTED_AT,
         document_category: doc.document_category,
-        article: null,
+        article: s.article,
         source_url: doc.source_url,
         retrieved_on: doc.retrieved_on,
         sha256: extracted.sha256,
         page: page.page,
         char_start: s.start,
         char_end: s.end,
-        extraction: page.method as "text-layer" | "ocr",
+        extraction: page.method as "text-layer" | "ocr" | "html-text",
         retrievable: !doc.non_retrievable_pages.includes(page.page),
         page_headings: [...new Set(headings)],
         y3172_nodes: Object.entries(tags.nodes)

@@ -1,98 +1,431 @@
 [
-  {
-    "id": "strategy",
-    "file": "uae-ai-strategy-2031.pdf",
-    "title": "UAE National Strategy for Artificial Intelligence 2031",
-    "short": "AI Strategy 2031",
-    "instrument_type": "National strategy",
-    "source_type": "national_strategy",
-    "document_category": "strategy",
-    "source_url": "https://ai.gov.ae/wp-content/uploads/2021/07/UAE-National-Strategy-for-Artificial-Intelligence-2031.pdf",
-    "source_note": "",
-    "retrieved_on": "2026-11-03",
-    "analogy_note": null,
-    "status_note": "A strategy document. Its text does not state a legal force of its own, so this product does not describe it as binding.",
-    "self_description": null,
-    "chunk_prefix": "strategy",
-    "heading_pattern": "^(OBJECTIVE \\d+:|[A-Z][A-Z &,’'-]{9,})\\s*$",
-    "non_retrievable_pages": [1, 3, 23, 24, 25],
-    "not_ingested_pages": [],
-    "reading_notes": [
-      "Page 1 (cover) and page 25 (back cover) have no text layer and are OCR-derived.",
-      "Page 23 holds the conclusion and the reference list in one text run, so it is stored but excluded from retrieval, as are the cover, contents and back pages."
-    ]
+ {
+  "id": "law",
+  "file": "uae-telecom-law-2003-wipo-en-extracted.txt",
+  "title": "Federal Law by Decree No. 3 of 2003 Regarding the Organisation of the Telecommunication Sector (English text, WIPO Lex copy)",
+  "short": "Telecom Law 2003 (English, WIPO Lex copy)",
+  "instrument_type": "Federal law by decree, English text on a secondary host",
+  "source_type": "law",
+  "document_category": "law",
+  "source_url": "https://www.wipo.int/wipolex/en/legislation/details/13893",
+  "source_note": "Text extracted deterministically from the saved WIPO Lex HTML (sources/uae-telecom-law-2003-wipo-en.html). The direct ae025en.pdf URL 301-redirects to this page. The English and Arabic PDFs the page links are saved and hashed, not chunked.",
+  "retrieved_on": "2026-11-03",
+  "analogy_note": null,
+  "status_note": "A federal law by decree, read from a secondary host. Its own text says the Arabic version prevails in case of any discrepancy. Footnotes mark some articles as amended by Federal Law by Decree No. (1) of 2005. No later amendment and no current in-force status was checked. The Arabic text was not read.",
+  "self_description": {
+   "page": 1,
+   "quote": "THE ARABIC VERSION OF THE TELECOMMUNICATIONS LAW SHALL PREVAIL IN CASE OF ANY DISCREPANCY"
   },
-  {
-    "id": "charter",
-    "file": "uae-ai-charter-methaq.pdf",
-    "title": "The UAE Charter for the Development and Use of Artificial Intelligence (July 2024)",
-    "short": "AI Charter 2024",
-    "instrument_type": "Charter of general principles",
-    "source_type": "policy_document",
-    "document_category": "charter",
-    "source_url": "https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/policies/Ai/The-UAE-Charter-for-the-Development-and-Use-of-Artificial-Intelligence",
-    "source_note": "PDF saved from the research pass. The URL is the public page, not the PDF address (see sources/README.md).",
-    "retrieved_on": "2026-11-03",
-    "analogy_note": null,
-    "status_note": "A charter of general principles. Its own text calls it a guiding framework, so this product does not describe it as binding.",
-    "self_description": { "page": 2, "quote": "serves as a guiding framework" },
-    "chunk_prefix": "charter",
-    "heading_pattern": "^(\\d{1,2}\\. .+:|Relation to the UAE AI Strategy:|General Principles of the Charter:|Introduction)\\s*$",
-    "non_retrievable_pages": [1, 6],
-    "not_ingested_pages": [],
-    "reading_notes": [
-      "The text layer does not map the 'Th' and 'ff' ligature glyphs. They are stored as U+FFFD, not repaired. Rendered pages were checked by eye: 'The UAE' appears in the PDF where the stored text has a replacement character.",
-      "On page 3 the text layer places some principle headings after their paragraphs. Section labels on Charter citations were confirmed against the rendered page."
-    ]
+  "chunk_prefix": "law",
+  "heading_pattern": "^(CHAPTER .+|Part \\d+ . .+)$",
+  "non_retrievable_pages": [
+   1,
+   3,
+   31,
+   32,
+   33
+  ],
+  "not_ingested_pages": [],
+  "reading_notes": [
+   "Page numbers are the printed numbers carried in the saved text. Printed page 2 does not occur in it.",
+   "Article numbers come from the text. Article (80) quotes articles of Federal Law No. (1) of 1991; those are not counted as articles of this law."
+  ],
+  "chunker": "articles",
+  "status": "secondary host",
+  "publisher": "Telecommunications Regulatory Authority copyright notice; hosted by WIPO Lex",
+  "language": "English (Arabic prevails, per the document)",
+  "extraction_method": "Saved HTML parsed as text by lib/law-html.ts; re-run and compared at build",
+  "page_label": "printed p.",
+  "rank": 1,
+  "rank_label": "Law",
+  "rank_basis": {
+   "page": 3,
+   "quote": "have issued the following Federal Law by Decree:"
   },
-  {
-    "id": "ethics",
-    "file": "uae-ai-ethics-principles-2022.pdf",
-    "title": "Artificial Intelligence Ethics: Principles and Guidelines (December 2022)",
-    "short": "AI Ethics Principles 2022",
-    "instrument_type": "Ethics principles and guidelines",
-    "source_type": "policy_document",
-    "document_category": "ethics",
-    "source_url": "https://assets.u.ae/api/public/content/893c940c21c4403ea8df7faad66a889e?v=b2f9c1a1",
-    "source_note": "",
-    "retrieved_on": "2026-11-03",
-    "analogy_note": null,
-    "status_note": "Guidance. Its own text says the guidelines are non-binding and non-mandatory. It covers public and private sectors and only systems that make or inform significant decisions.",
-    "self_description": { "page": 3, "quote": "The guidelines are non-binding" },
-    "chunk_prefix": "ethics",
-    "heading_pattern": "^(\\d(\\.\\d ?)+\\.? ?.*)$",
-    "non_retrievable_pages": [1, 2, 23, 24, 25],
-    "not_ingested_pages": [],
-    "reading_notes": [
-      "Published under CC BY 4.0 per its section 1.5: credit to the UAE AI and Blockchain Council as owner, and no suggestion of endorsement by the Minister of State office.",
-      "Each PDF page is a two-page spread, so one PDF page carries two printed page numbers. Citations use the PDF page index.",
-      "The text layer often separates headings and list letters from their paragraphs. Section labels on rule citations were confirmed against the rendered page. Page-level headings on other chunks only say which headings occur on that page.",
-      "Pages 23 and 24 (bibliography) and the table of contents are stored but excluded from retrieval, because a bibliography entry is not a provision."
-    ]
+  "caveat": "Secondary host. The document says: THE ARABIC VERSION OF THE TELECOMMUNICATIONS LAW SHALL PREVAIL IN CASE OF ANY DISCREPANCY.",
+  "license_status": "The text carries: COPYRIGHT © 2005, TELECOMMUNICATIONS REGULATORY AUTHORITY, ALL RIGHTS RESERVED. No free-use terms stated."
+ },
+ {
+  "id": "cpr",
+  "file": "tdra-consumer-protection-regulations-v2.0-2023.pdf",
+  "title": "TDRA Consumer Protection Regulations, Version 2.0, issued 25 July 2023",
+  "short": "TDRA CPR v2.0 (2023)",
+  "instrument_type": "Regulations issued by the sector regulator",
+  "source_type": "regulation",
+  "document_category": "regulation",
+  "source_url": "https://tdra.gov.ae/-/media/About/regulations-and-ruling/EN/CONSUMER-PROTECTION-REGULATIONS-VERSION-20-ISSUED-2572023.ashx",
+  "source_note": "",
+  "retrieved_on": "2026-11-03",
+  "analogy_note": null,
+  "status_note": "Regulations. Its text says they are issued pursuant to the Telecommunications Law and the powers vested in the TDRA. The file lists Annexes 1 to 5 in its contents but does not contain them, so the TDRA's Consumer Dispute procedures in its Annex 1 are not in this KB. Article 24 defers to the Data Protection Law on any inconsistency, and that law is not in this KB.",
+  "self_description": {
+   "page": 4,
+   "quote": "These Regulations are issued pursuant to the provisions of the \nTelecommunications Law and the powers vested in the TDRA."
   },
-  {
-    "id": "guideline",
-    "file": "uae-ai-adoption-guideline-government-services.pdf",
-    "title": "AI Adoption Guideline in Government Services (Ministry of Cabinet Affairs)",
-    "short": "Adoption Guideline (government services)",
-    "instrument_type": "Government-services guidance",
-    "source_type": "policy_document",
-    "document_category": "guidance",
-    "source_url": "https://assets.u.ae/api/public/content/efd38f961c104415a22db5e177a73e02?v=57989b9e",
-    "source_note": "",
-    "retrieved_on": "2026-11-03",
-    "analogy_note": "This guideline is about government services and this track is telecom. Applied here by analogy only.",
-    "status_note": "A guideline addressed to government and agencies delivering public sector services. It does not address telecom operators, and this product does not describe it as binding.",
-    "self_description": { "page": 7, "quote": "The target audience of this document is the UAE Government and any agency \nengaged in delivering public sector services." },
-    "chunk_prefix": "guideline",
-    "heading_pattern": "^((Figure \\d+.*)|(AI Risk Management)|(Execution)|(Operations)|(Discovery)|(Initiation)|(Governance:)|(Data:)|(People:)|(Privacy:))\\s*$",
-    "non_retrievable_pages": [1, 3, 4, 5, 19, 29, 59, 62, 65],
-    "not_ingested_pages": [
-      { "page": 2, "reason": "Image only. Decorative binary-digit artwork; no words to ingest." }
-    ],
-    "reading_notes": [
-      "Page 36 (Figure 12) and page 56 (maturity table continuation) have their content only in images and are OCR-derived. The OCR output is noisy and out of order. No pre-agreed rule rests on it.",
-      "Each PDF page is a two-page spread. Citations use the PDF page index."
-    ]
-  }
+  "chunk_prefix": "cpr",
+  "heading_pattern": "^\\d{1,2}\\. [A-Z].+$",
+  "non_retrievable_pages": [
+   1,
+   2,
+   3
+  ],
+  "not_ingested_pages": [],
+  "reading_notes": [
+   "Chunks are cut at sub-article numbers as printed. Article labels are read from the text.",
+   "Article 30 says the Regulations enter into force one month after issue, with Articles 7 and 10 at four months. Later amendment was not checked."
+  ],
+  "chunker": "clauses",
+  "page_header_end": "\\(the “CPR”\\)\\s*$",
+  "status": "primary",
+  "publisher": "Telecommunications and Digital Government Regulatory Authority (TDRA)",
+  "language": "English",
+  "extraction_method": "PDF text layer (PyMuPDF)",
+  "page_label": "PDF p.",
+  "rank": 1,
+  "rank_label": "Regulation",
+  "rank_basis": {
+   "page": 4,
+   "quote": "These Regulations are issued pursuant to the provisions of the \nTelecommunications Law and the powers vested in the TDRA."
+  },
+  "caveat": null,
+  "license_status": "No licence or copyright notice found in the text. Remains the publisher's work; not under this project's MIT licence."
+ },
+ {
+  "id": "uec",
+  "file": "tdra-unsolicited-electronic-communications-policy-2009.pdf",
+  "title": "Regulatory Policy: Unsolicited Electronic Communications, Version 1.0, 30 December 2009, with Annex (1) Mobile Spam",
+  "short": "TRA Unsolicited Communications Policy 2009",
+  "instrument_type": "Regulatory policy of the sector regulator",
+  "source_type": "regulatory_policy",
+  "document_category": "regulatory_policy",
+  "source_url": "https://tdra.gov.ae/-/media/About/regulations-and-ruling/EN/Unsolicited-Elrctronic-Commuincations--pdf.ashx",
+  "source_note": "",
+  "retrieved_on": "2026-11-03",
+  "analogy_note": null,
+  "status_note": "A regulatory policy dated 2009, under the regulator's earlier name, the TRA. Its text says it is effective upon issue. Current status beyond that text was not checked. CPR v2.0's list of repealed instruments does not name it.",
+  "self_description": {
+   "page": 9,
+   "quote": "This Regulatory Policy shall be effective upon the date of its issuance"
+  },
+  "chunk_prefix": "uec",
+  "heading_pattern": "^\\d{1,2}\\.\\s*[A-Z].+$",
+  "non_retrievable_pages": [
+   1,
+   2,
+   3,
+   10,
+   11,
+   12
+  ],
+  "not_ingested_pages": [],
+  "reading_notes": [
+   "Chunks are cut at clause numbers as printed. Pages 10 to 19 are its Annex (1), whose clause numbers restart, so they carry the prefix Annex (1)."
+  ],
+  "chunker": "clauses",
+  "page_header_end": "Page \\d+ of \\d+\\s*$",
+  "clause_prefix": {
+   "from_page": 10,
+   "prefix": "Annex (1) "
+  },
+  "status": "primary",
+  "publisher": "Telecommunications Regulatory Authority (TRA), hosted by TDRA",
+  "language": "English",
+  "extraction_method": "PDF text layer (PyMuPDF)",
+  "page_label": "PDF p.",
+  "rank": 2,
+  "rank_label": "Regulator policy",
+  "rank_basis": {
+   "page": 9,
+   "quote": "This Regulatory Policy shall be effective upon the date of its issuance"
+  },
+  "caveat": null,
+  "license_status": "The text carries: Copyright ©2009 Telecommunications Regulatory Authority (TRA). All rights reserved."
+ },
+ {
+  "id": "strategy",
+  "file": "uae-ai-strategy-2031.pdf",
+  "title": "UAE National Strategy for Artificial Intelligence 2031",
+  "short": "AI Strategy 2031",
+  "instrument_type": "National strategy",
+  "source_type": "national_strategy",
+  "document_category": "strategy",
+  "source_url": "https://ai.gov.ae/wp-content/uploads/2021/07/UAE-National-Strategy-for-Artificial-Intelligence-2031.pdf",
+  "source_note": "",
+  "retrieved_on": "2026-11-03",
+  "analogy_note": null,
+  "status_note": "A strategy document. Its text does not state a legal force of its own, so this product does not describe it as binding.",
+  "self_description": null,
+  "chunk_prefix": "strategy",
+  "heading_pattern": "^(OBJECTIVE \\d+:|[A-Z][A-Z &,’'-]{9,})\\s*$",
+  "non_retrievable_pages": [
+   1,
+   3,
+   23,
+   24,
+   25
+  ],
+  "not_ingested_pages": [],
+  "reading_notes": [
+   "Page 1 (cover) and page 25 (back cover) have no text layer and are OCR-derived.",
+   "Page 23 holds the conclusion and the reference list in one text run, so it is stored but excluded from retrieval, as are the cover, contents and back pages."
+  ],
+  "chunker": "page",
+  "status": "national guidance",
+  "publisher": "UAE government (hosted on ai.gov.ae)",
+  "language": "English",
+  "extraction_method": "PDF text layer (pypdf); pages 1 and 25 OCR",
+  "page_label": "PDF p.",
+  "rank": 3,
+  "rank_label": "National guidance",
+  "rank_basis": {
+   "page": 5,
+   "quote": "The UAE sets a clear vision",
+   "note": "The document calls itself a strategy; its text states no legal force."
+  },
+  "caveat": null,
+  "license_status": "No licence stated in the parts read. Remains the publisher's work; not under this project's MIT licence."
+ },
+ {
+  "id": "charter",
+  "file": "uae-ai-charter-methaq.pdf",
+  "title": "The UAE Charter for the Development and Use of Artificial Intelligence (July 2024)",
+  "short": "AI Charter 2024",
+  "instrument_type": "Charter of general principles",
+  "source_type": "policy_document",
+  "document_category": "charter",
+  "source_url": "https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/policies/Ai/The-UAE-Charter-for-the-Development-and-Use-of-Artificial-Intelligence",
+  "source_note": "PDF saved from the research pass. The URL is the public page, not the PDF address (see sources/README.md).",
+  "retrieved_on": "2026-11-03",
+  "analogy_note": null,
+  "status_note": "A charter of general principles. Its own text calls it a guiding framework, so this product does not describe it as binding.",
+  "self_description": {
+   "page": 2,
+   "quote": "serves as a guiding framework"
+  },
+  "chunk_prefix": "charter",
+  "heading_pattern": "^(\\d{1,2}\\. .+:|Relation to the UAE AI Strategy:|General Principles of the Charter:|Introduction)\\s*$",
+  "non_retrievable_pages": [
+   1,
+   6
+  ],
+  "not_ingested_pages": [],
+  "reading_notes": [
+   "The text layer does not map the 'Th' and 'ff' ligature glyphs. They are stored as U+FFFD, not repaired. Rendered pages were checked by eye: 'The UAE' appears in the PDF where the stored text has a replacement character.",
+   "On page 3 the text layer places some principle headings after their paragraphs. Section labels on Charter citations were confirmed against the rendered page."
+  ],
+  "chunker": "page",
+  "status": "national guidance",
+  "publisher": "UAE government (u.ae)",
+  "language": "English",
+  "extraction_method": "PDF text layer (pypdf)",
+  "page_label": "PDF p.",
+  "rank": 3,
+  "rank_label": "National guidance",
+  "rank_basis": {
+   "page": 2,
+   "quote": "serves as a guiding framework"
+  },
+  "caveat": null,
+  "license_status": "No licence stated in the parts read. Remains the publisher's work; not under this project's MIT licence."
+ },
+ {
+  "id": "ethics",
+  "file": "uae-ai-ethics-principles-2022.pdf",
+  "title": "Artificial Intelligence Ethics: Principles and Guidelines (December 2022)",
+  "short": "AI Ethics Principles 2022",
+  "instrument_type": "Ethics principles and guidelines",
+  "source_type": "policy_document",
+  "document_category": "ethics",
+  "source_url": "https://assets.u.ae/api/public/content/893c940c21c4403ea8df7faad66a889e?v=b2f9c1a1",
+  "source_note": "",
+  "retrieved_on": "2026-11-03",
+  "analogy_note": null,
+  "status_note": "Guidance. Its own text says the guidelines are non-binding and non-mandatory. It covers public and private sectors and only systems that make or inform significant decisions.",
+  "self_description": {
+   "page": 3,
+   "quote": "The guidelines are non-binding"
+  },
+  "chunk_prefix": "ethics",
+  "heading_pattern": "^(\\d(\\.\\d ?)+\\.? ?.*)$",
+  "non_retrievable_pages": [
+   1,
+   2,
+   23,
+   24,
+   25
+  ],
+  "not_ingested_pages": [],
+  "reading_notes": [
+   "Published under CC BY 4.0 per its section 1.5: credit to the UAE AI and Blockchain Council as owner, and no suggestion of endorsement by the Minister of State office.",
+   "Each PDF page is a two-page spread, so one PDF page carries two printed page numbers. Citations use the PDF page index.",
+   "The text layer often separates headings and list letters from their paragraphs. Section labels on rule citations were confirmed against the rendered page. Page-level headings on other chunks only say which headings occur on that page.",
+   "Pages 23 and 24 (bibliography) and the table of contents are stored but excluded from retrieval, because a bibliography entry is not a provision."
+  ],
+  "chunker": "page",
+  "status": "national guidance",
+  "publisher": "UAE AI and Blockchain Council",
+  "language": "English",
+  "extraction_method": "PDF text layer (pypdf); page 25 OCR",
+  "page_label": "PDF p.",
+  "rank": 3,
+  "rank_label": "National guidance",
+  "rank_basis": {
+   "page": 3,
+   "quote": "The guidelines are non-binding"
+  },
+  "caveat": null,
+  "license_status": "CC BY 4.0 per its section 1.5, owner the UAE AI and Blockchain Council."
+ },
+ {
+  "id": "guideline",
+  "file": "uae-ai-adoption-guideline-government-services.pdf",
+  "title": "AI Adoption Guideline in Government Services (Ministry of Cabinet Affairs)",
+  "short": "Adoption Guideline (government services)",
+  "instrument_type": "Government-services guidance",
+  "source_type": "policy_document",
+  "document_category": "guidance",
+  "source_url": "https://assets.u.ae/api/public/content/efd38f961c104415a22db5e177a73e02?v=57989b9e",
+  "source_note": "",
+  "retrieved_on": "2026-11-03",
+  "analogy_note": "This guideline is about government services and this track is telecom. Applied here by analogy only.",
+  "status_note": "A guideline addressed to government and agencies delivering public sector services. It does not address telecom operators, and this product does not describe it as binding.",
+  "self_description": {
+   "page": 7,
+   "quote": "The target audience of this document is the UAE Government and any agency \nengaged in delivering public sector services."
+  },
+  "chunk_prefix": "guideline",
+  "heading_pattern": "^((Figure \\d+.*)|(AI Risk Management)|(Execution)|(Operations)|(Discovery)|(Initiation)|(Governance:)|(Data:)|(People:)|(Privacy:))\\s*$",
+  "non_retrievable_pages": [
+   1,
+   3,
+   4,
+   5,
+   19,
+   29,
+   59,
+   62,
+   65
+  ],
+  "not_ingested_pages": [
+   {
+    "page": 2,
+    "reason": "Image only. Decorative binary-digit artwork; no words to ingest."
+   }
+  ],
+  "reading_notes": [
+   "Page 36 (Figure 12) and page 56 (maturity table continuation) have their content only in images and are OCR-derived. The OCR output is noisy and out of order. No pre-agreed rule rests on it.",
+   "Each PDF page is a two-page spread. Citations use the PDF page index."
+  ],
+  "chunker": "page",
+  "status": "national guidance",
+  "publisher": "Ministry of Cabinet Affairs",
+  "language": "English",
+  "extraction_method": "PDF text layer (pypdf); pages 36 and 56 OCR",
+  "page_label": "PDF p.",
+  "rank": 3,
+  "rank_label": "National guidance",
+  "rank_basis": {
+   "page": 7,
+   "quote": "The target audience of this document is the UAE Government and any agency \nengaged in delivering public sector services."
+  },
+  "caveat": null,
+  "license_status": "No licence stated in the parts read. Remains the publisher's work; not under this project's MIT licence."
+ },
+ {
+  "id": "y3172",
+  "file": "itu-t-y3172-2019.pdf",
+  "title": "Recommendation ITU-T Y.3172 (06/2019), Architectural framework for machine learning in future networks including IMT-2020",
+  "short": "ITU-T Y.3172 (framework)",
+  "instrument_type": "International standard, framework document, not UAE policy",
+  "source_type": "standard",
+  "document_category": "framework",
+  "source_url": "https://www.itu.int/rec/dologin_pub.asp?lang=e&id=T-REC-Y.3172-201906-I!!PDF-E&type=items",
+  "source_note": "",
+  "retrieved_on": "2026-11-03",
+  "analogy_note": null,
+  "status_note": "A framework document, never UAE policy and never binding here. Its own text says compliance with this Recommendation is voluntary.",
+  "self_description": {
+   "page": 4,
+   "quote": "Compliance with this Recommendation is voluntary."
+  },
+  "chunk_prefix": "y3172",
+  "heading_pattern": "^\\d(\\.\\d)*\\s+[A-Z].+$",
+  "non_retrievable_pages": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "not_ingested_pages": [],
+  "reading_notes": [
+   "PDF pages 6, 32 and 33 have no text layer and are not ingested."
+  ],
+  "chunker": "page",
+  "status": "framework",
+  "publisher": "International Telecommunication Union (ITU)",
+  "language": "English",
+  "extraction_method": "PDF text layer (PyMuPDF)",
+  "page_label": "PDF p.",
+  "rank": 4,
+  "rank_label": "Framework",
+  "rank_basis": {
+   "page": 4,
+   "quote": "Compliance with this Recommendation is voluntary."
+  },
+  "caveat": "Framework document, voluntary by its own text. Not UAE policy.",
+  "license_status": "The text carries: ITU 2019. All rights reserved. No part of this publication may be reproduced, by any means whatsoever, without the prior written permission of ITU."
+ },
+ {
+  "id": "readiness",
+  "file": "itu-ai-readiness-framework-report-2.0-2026.pdf",
+  "title": "AI Ready: Analysis Towards a Standardized Readiness Framework, Report 2.0, January 2026",
+  "short": "ITU AI Readiness Report 2.0 (framework)",
+  "instrument_type": "ITU report, framework document, not UAE policy",
+  "source_type": "report",
+  "document_category": "framework",
+  "source_url": "https://www.itu.int/dms_pub/itu-t/opb/ai4g/T-AI4G-AI4GOOD-2025-6-PDF-E.pdf",
+  "source_note": "",
+  "retrieved_on": "2026-11-03",
+  "analogy_note": null,
+  "status_note": "A framework document, never UAE policy and never binding here. Its own disclaimer says it is for informational purposes only, and its FAQ says legal considerations are not within the scope of the study.",
+  "self_description": {
+   "page": 2,
+   "quote": "This document is intended for informational \npurposes only."
+  },
+  "chunk_prefix": "readiness",
+  "heading_pattern": "^Dimension \\d+: .+$",
+  "non_retrievable_pages": [
+   1,
+   2,
+   3,
+   5,
+   6,
+   7,
+   8,
+   9,
+   53,
+   54,
+   55
+  ],
+  "not_ingested_pages": [],
+  "reading_notes": [
+   "Factor and dimension names here are read from this report. They agree with the reference repo on 6 factors and 13 dimensions."
+  ],
+  "chunker": "page",
+  "status": "framework",
+  "publisher": "International Telecommunication Union (ITU)",
+  "language": "English",
+  "extraction_method": "PDF text layer (PyMuPDF)",
+  "page_label": "PDF p.",
+  "rank": 4,
+  "rank_label": "Framework",
+  "rank_basis": {
+   "page": 2,
+   "quote": "This document is intended for informational \npurposes only."
+  },
+  "caveat": "Framework document for informational purposes, by its own text. Not UAE policy.",
+  "license_status": "No licence stated. Its disclaimer says requests to reproduce extracts may be submitted to jur@itu.int."
+ }
 ]

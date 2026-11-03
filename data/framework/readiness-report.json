@@ -1,0 +1,187 @@
+{
+ "source_doc": "readiness",
+ "note": "Read from sources/itu-ai-readiness-framework-report-2.0-2026.pdf. Names and factor statements are as printed.",
+ "factors": [
+  {
+   "name": "Data",
+   "chunk_id": "readiness-p09-c1",
+   "page": 9,
+   "quote": "Data: Accessibility and quality of datasets for analysis of AI applications."
+  },
+  {
+   "name": "Research",
+   "chunk_id": "readiness-p09-c1",
+   "page": 9,
+   "quote": "Research: Collaboration between domain-specific and AI research communities."
+  },
+  {
+   "name": "Deployment Support",
+   "chunk_id": "readiness-p19-c2",
+   "page": 19,
+   "quote": "Deployment Support: Infrastructure and ecosystem readiness for AI deployment."
+  },
+  {
+   "name": "Standards",
+   "chunk_id": "readiness-p09-c1",
+   "page": 9,
+   "quote": "Standards: Ensuring trust, interoperability, and compliance."
+  },
+  {
+   "name": "Open source and Code",
+   "chunk_id": "readiness-p20-c1",
+   "page": 20,
+   "quote": "Open source and Code: Enabling rapid adoption through an open developer ecosystem."
+  },
+  {
+   "name": "Sandbox Environments",
+   "chunk_id": "readiness-p20-c1",
+   "page": 20,
+   "quote": "Sandbox Environments: Platforms for AI experimentation and validation."
+  }
+ ],
+ "dimensions": [
+  {
+   "id": 1,
+   "name": "Data/model Marketplace",
+   "heading_chunk": "readiness-p20-c2",
+   "page": 20,
+   "factor": {
+    "chunk_id": "readiness-p21-c1",
+    "page": 21,
+    "quote": "This dimension is mapped to the factor of open data and open source"
+   }
+  },
+  {
+   "id": 2,
+   "name": "Generated Content Marketplace",
+   "heading_chunk": "readiness-p21-c2",
+   "page": 21,
+   "factor": {
+    "chunk_id": "readiness-p22-c1",
+    "page": 22,
+    "quote": "This dimension is mapped to the open data and open-source factor"
+   }
+  },
+  {
+   "id": 3,
+   "name": "Cross-domain correlation analysis",
+   "heading_chunk": "readiness-p22-c1",
+   "page": 22,
+   "factor": {
+    "chunk_id": "readiness-p22-c2",
+    "page": 22,
+    "quote": "This dimension is mapped to open data and standards."
+   }
+  },
+  {
+   "id": 4,
+   "name": "Contextualization and Regional Impact",
+   "heading_chunk": "readiness-p23-c1",
+   "page": 23,
+   "factor": {
+    "chunk_id": "readiness-p23-c2",
+    "page": 23,
+    "quote": "This dimension is mapped to open data, research, and deployment."
+   }
+  },
+  {
+   "id": 5,
+   "name": "Level of Integration of AI in Workflows",
+   "heading_chunk": "readiness-p24-c1",
+   "page": 24,
+   "factor": {
+    "chunk_id": "readiness-p25-c1",
+    "page": 25,
+    "quote": "This dimension is mapped to the Standards factor."
+   }
+  },
+  {
+   "id": 6,
+   "name": "Human Interface",
+   "heading_chunk": "readiness-p25-c1",
+   "page": 25,
+   "factor": {
+    "chunk_id": "readiness-p25-c2",
+    "page": 25,
+    "quote": "This dimension is mapped to Standards and deployment factors."
+   }
+  },
+  {
+   "id": 7,
+   "name": "Strategy Alignment",
+   "heading_chunk": "readiness-p26-c1",
+   "page": 26,
+   "factor": {
+    "chunk_id": "readiness-p27-c1",
+    "page": 27,
+    "quote": "This dimension is mapped to the Standards factor"
+   }
+  },
+  {
+   "id": 8,
+   "name": "Collaboration with AI",
+   "heading_chunk": "readiness-p27-c2",
+   "page": 27,
+   "factor": {
+    "chunk_id": "readiness-p28-c1",
+    "page": 28,
+    "quote": "This dimension is mapped to the open-source and Standards factor."
+   }
+  },
+  {
+   "id": 9,
+   "name": "Impacts of Humans in AI Integration",
+   "heading_chunk": "readiness-p28-c2",
+   "page": 28,
+   "factor": {
+    "chunk_id": "readiness-p29-c1",
+    "page": 29,
+    "quote": "This dimension could be mapped with the Sandbox factor"
+   }
+  },
+  {
+   "id": 10,
+   "name": "AI & Policies",
+   "heading_chunk": "readiness-p30-c1",
+   "page": 30,
+   "factor": {
+    "chunk_id": "readiness-p30-c2",
+    "page": 30,
+    "quote": "This dimension is mapped to Sandbox and deployment factors."
+   }
+  },
+  {
+   "id": 11,
+   "name": "AI for Inclusion",
+   "heading_chunk": "readiness-p31-c2",
+   "page": 31,
+   "factor": {
+    "chunk_id": "readiness-p32-c2",
+    "page": 32,
+    "quote": "This dimension is mapped with the Sandbox factor"
+   }
+  },
+  {
+   "id": 12,
+   "name": "Granular Priorities",
+   "heading_chunk": "readiness-p34-c1",
+   "page": 34,
+   "factor": {
+    "chunk_id": "readiness-p34-c2",
+    "page": 34,
+    "quote": "This dimension is mapped to the deployment factor"
+   }
+  },
+  {
+   "id": 13,
+   "name": "Digital Infrastructure",
+   "heading_chunk": "readiness-p35-c1",
+   "page": 35,
+   "factor": {
+    "chunk_id": "readiness-p35-c1",
+    "page": 35,
+    "quote": "This dimension is mapped to deployment"
+   }
+  }
+ ]
+}

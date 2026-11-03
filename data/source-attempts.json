@@ -1,0 +1,100 @@
+[
+ {
+  "document": "Federal Law by Decree No. 3 of 2003 (Telecom Law), English",
+  "url": "https://www.wipo.int/wipolex/edocs/lexdocs/laws/en/ae/ae025en.pdf",
+  "result": "HTTP 301 to the WIPO Lex page; HTTP 200, HTML with the text inline",
+  "status": "ingested",
+  "note": "Secondary host. Also saved: the English PDF by the page’s own signed link (HTTP 200)."
+ },
+ {
+  "document": "Same law, Arabic PDF",
+  "url": "https://wipolex-res.wipo.int/edocs/lexdocs/laws/ar/ae/ae025ar.pdf",
+  "result": "Bare URL redirects to the same HTML page; the page’s own signed link gives HTTP 200, PDF",
+  "status": "saved, not read",
+  "note": "Listed as the prevailing text. Arabic retrieval is out of scope."
+ },
+ {
+  "document": "TDRA Consumer Protection Regulations v2.0",
+  "url": "https://tdra.gov.ae/-/media/About/regulations-and-ruling/EN/CONSUMER-PROTECTION-REGULATIONS-VERSION-20-ISSUED-2572023.ashx",
+  "result": "HTTP 200, PDF",
+  "status": "ingested",
+  "note": "The file lists Annexes 1 to 5 and does not contain them."
+ },
+ {
+  "document": "TRA Unsolicited Electronic Communications policy",
+  "url": "https://tdra.gov.ae/-/media/About/regulations-and-ruling/EN/Unsolicited-Elrctronic-Commuincations--pdf.ashx",
+  "result": "HTTP 200, PDF",
+  "status": "ingested",
+  "note": "Dated 30 December 2009."
+ },
+ {
+  "document": "ITU-T Y.3172 (06/2019)",
+  "url": "https://www.itu.int/rec/dologin_pub.asp?lang=e&id=T-REC-Y.3172-201906-I!!PDF-E&type=items",
+  "result": "HTTP 200, PDF",
+  "status": "ingested as framework",
+  "note": "Voluntary by its own text."
+ },
+ {
+  "document": "ITU AI Readiness Report 2.0",
+  "url": "https://www.itu.int/dms_pub/itu-t/opb/ai4g/T-AI4G-AI4GOOD-2025-6-PDF-E.pdf",
+  "result": "HTTP 200, PDF",
+  "status": "ingested as framework",
+  "note": "Informational by its own text."
+ },
+ {
+  "document": "Federal Decree-Law No. 45 of 2021 (PDPL), the Data Protection Law the CPR names",
+  "url": "https://uaelegislation.gov.ae/en/legislations/1972/download",
+  "result": "HTTP 403 (Cloudflare), page and download",
+  "status": "not retrieved",
+  "note": "Dropped. No law-firm or other secondary copy is used. Nothing here states what it says."
+ },
+ {
+  "document": "Decree-Law establishing the Emirates Data Office",
+  "url": "https://uaelegislation.gov.ae/en/legislations/2433/download",
+  "result": "HTTP 403 (Cloudflare)",
+  "status": "not retrieved",
+  "note": "Dropped."
+ },
+ {
+  "document": "EU GDPR, Regulation (EU) 2016/679",
+  "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679",
+  "result": "HTTP 202, empty body, x-amzn-waf-action: challenge (HTML and PDF forms)",
+  "status": "not retrieved",
+  "note": "Dropped. No global example from it."
+ },
+ {
+  "document": "EU AI Act, Regulation (EU) 2024/1689",
+  "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401689",
+  "result": "HTTP 202, empty body, x-amzn-waf-action: challenge (HTML and PDF forms)",
+  "status": "not retrieved",
+  "note": "Dropped. No global example from it."
+ },
+ {
+  "document": "CPR Annexe 1, Consumer Dispute Procedure, v1.0, 2014",
+  "url": "https://tdra.gov.ae/-/media/About/regulations-and-ruling/EN/Regulations-Annex1-Consumer-Dispute-Procedure-30Jan2014_EN-pdf.ashx",
+  "result": "HTTP 200, PDF",
+  "status": "opened, not ingested",
+  "note": "It refers to CPR v1.0. CPR v2.0 repeals v1.5 and its annexures and does not say this file continues."
+ },
+ {
+  "document": "CPR Annexe 2, Complaints regarding marketing, v1.0, 2014",
+  "url": "https://tdra.gov.ae/-/media/About/regulations-and-ruling/EN/Regulations-Annex2-Complaints-Regarding-Marketing-and-Communications-Practices-3.ashx",
+  "result": "HTTP 200, PDF",
+  "status": "opened, not ingested",
+  "note": "Same reason."
+ },
+ {
+  "document": "Complaints Handling Policy, AEDA-POL-013",
+  "url": "https://tdra.gov.ae/-/media/About/General-Policies/General-Policies-English/AEDAPOL013v11ComplaintsHandlingPolicy.ashx",
+  "result": "HTTP 200, PDF",
+  "status": "opened, not ingested",
+  "note": "It is a .ae Domain Administration policy, not a licensee complaints policy."
+ },
+ {
+  "document": "Executive Order of the Telecom Law (WIPO Lex AE026)",
+  "url": "https://www.wipo.int/wipolex/en/legislation/details/13894",
+  "result": "HTTP 200, HTML",
+  "status": "opened, not ingested",
+  "note": "Not in the source plan. Not read in full, so nothing is said about its content."
+ }
+]
