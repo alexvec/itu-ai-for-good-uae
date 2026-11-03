@@ -1,0 +1,54 @@
+[
+ {
+  "id": "C-01",
+  "title": "An AI chatbot for the complaints",
+  "classes": [
+   "complaint_automation"
+  ],
+  "tension": "The national strategy sets an objective of adopting AI across customer services. The CPR precludes non-human agents in conversations about Consumer Complaints.",
+  "a": {
+   "chunk_id": "strategy-p16-c2",
+   "doc_id": "strategy",
+   "page": 16,
+   "section": "Objective 4",
+   "article": null,
+   "quote": "OBJECTIVE 4: \nADOPT AI ACROSS CUSTOMER \nSERVICES TO IMPROVE \nLIVES AND GOVERNMENT"
+  },
+  "b": {
+   "chunk_id": "cpr-p65-c5",
+   "doc_id": "cpr",
+   "page": 65,
+   "section": "Sub-article 26.7.2 of Article 26",
+   "article": "26.7.2",
+   "quote": "preclude the use of non-human agents by Licensees in \nconversations with Consumers regarding Consumer Complaints."
+  },
+  "outcome": "Do not use an AI chatbot in conversations with consumers about these complaints. AI elsewhere in customer service is not decided by this conflict.",
+  "honesty": "The closest real tension is general against specific. The strategy objective does not mention complaints, and its discussion is largely about government."
+ },
+ {
+  "id": "C-02",
+  "title": "An outside auditor asks for each subscriber’s usage records",
+  "classes": [
+   "external_audit"
+  ],
+  "tension": "The Ethics guideline says external auditing should be used for critical decisions. The CPR says a Licensee must obtain prior consent before sharing Subscriber Information with third parties not directly involved in the ordered service.",
+  "a": {
+   "chunk_id": "ethics-p12-c2",
+   "doc_id": "ethics",
+   "page": 12,
+   "section": "3.2.2.2",
+   "article": null,
+   "quote": "When AI systems are used for critical decisions, external auditing of the AI systems in \nquestion should be used as a means to ensure meaningful standards of transparency and \naccountability are upheld."
+  },
+  "b": {
+   "chunk_id": "cpr-p60-c2",
+   "doc_id": "cpr",
+   "page": 60,
+   "section": "Sub-article 24.6 of Article 24",
+   "article": "24.6",
+   "quote": "Licensees must obtain a Subscriber’s prior consent 35 before sharing any \nSubscriber Information with its affiliates and/or other third parties not directly \ninvolved in the provision of the telecommunications services ordered by the \nSubscriber."
+  },
+  "outcome": "Must have prior consent before the auditor receives Subscriber Information, unless a person finds another ground applies. The audit itself is not ruled out: it can run on material that is not Subscriber Information.",
+  "honesty": "The two texts conflict only if the audit needs Subscriber Information. The Ethics text applies only to critical decisions, and it does not address what data an auditor receives."
+ }
+]

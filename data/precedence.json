@@ -1,0 +1,12 @@
+{
+ "id": "PA-01",
+ "title": "Pre-agreed precedence rule",
+ "text": "When two sources in this KB pull different ways, the one whose own text marks it as law or regulation outranks regulator policy, which outranks national guidance, which outranks framework documents. Rank is read from each document’s own text. Two sources of equal rank are not resolved here and go to a person.",
+ "status": "The author’s design choice, written before the scenario runs, for human legal review. It is not a statement of UAE legal hierarchy.",
+ "ranks": {
+  "1": "Law or regulation",
+  "2": "Regulator policy",
+  "3": "National guidance",
+  "4": "Framework"
+ }
+}

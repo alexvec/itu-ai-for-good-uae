@@ -1,6 +1,48 @@
 [
- {"id":"prohibit","template_outcome":"Prohibits a use","verdict":"partly","supported":"The text says a use \"should not be deployed\" past accepted privacy standards, and, by analogy from the government-services guideline, that an entity \"should avoid\" models exposing personal data.","unsupported":"A binding prohibition. The Ethics document calls its guidelines non-binding.","rule_ids":["PR-12","PR-11"]},
- {"id":"consent","template_outcome":"Requires consent","verdict":"partly","supported":"The text calls for reviewing consent logging and the ability to revoke permission. The guideline names consent as one exception to avoiding exposure, by analogy.","unsupported":"A general duty on a telecom operator to obtain consent for this use.","rule_ids":["PR-14","PR-11"]},
- {"id":"purpose_limitation","template_outcome":"Requires purpose limitation","verdict":"not_addressed","supported":"","unsupported":"Purpose limitation. The phrase and the concept as a stated duty are absent. Nearest text only: minimum intrusion and need-based access.","rule_ids":[],"nearest_rule_ids":["PR-13","PR-17"]},
- {"id":"oversight_referral","template_outcome":"Refers the case to an oversight body","verdict":"partly","supported":"The text calls for an oversight mechanism inside the organization and a Data Protection Officer role.","unsupported":"Referral to any body outside the organization. The Strategy says a Council oversees implementation of the Strategy; it gives no route for referring a case.","rule_ids":["PR-15","PR-16"]}
+ {
+  "id": "prohibit",
+  "template_outcome": "Prohibits a use",
+  "verdict": "partly",
+  "supported": "The CPR bars sharing Subscriber Information with uninvolved third parties unless prior consent is obtained (24.6). It strictly prohibits one use: interconnection data for other purposes, including marketing (24.7). The law punishes disclosing communication content without the right to do so (Article (72)).",
+  "unsupported": "A prohibition on a Licensee using its own subscribers’ information for marketing or model training. None was found in the ingested text.",
+  "rule_ids": [
+   "TL-12",
+   "TL-18",
+   "TL-22"
+  ]
+ },
+ {
+  "id": "consent",
+  "template_outcome": "Requires consent",
+  "verdict": "supported",
+  "supported": "The CPR says a Licensee must obtain prior consent before sharing Subscriber Information with third parties not directly involved in the ordered service (24.6). Its footnote allows contractual consent with a way to withdraw. The 2009 policy requires consent before a Licensee’s own marketing messages (5.5).",
+  "unsupported": "A consent rule specific to ML training. Any inconsistency with the Data Protection Law is decided by that law (24.1), which is not in this KB.",
+  "rule_ids": [
+   "TL-12",
+   "TL-20"
+  ]
+ },
+ {
+  "id": "purpose_limitation",
+  "template_outcome": "Requires purpose limitation",
+  "verdict": "partly",
+  "supported": "Third parties directly involved in supply are required to use the information only as required for providing the service (24.9). Interconnection data is limited to interconnection (24.7).",
+  "unsupported": "A general purpose-limitation duty on a Licensee’s own use. The phrase does not occur in the ingested telecom text.",
+  "rule_ids": [
+   "TL-13",
+   "TL-18"
+  ]
+ },
+ {
+  "id": "oversight_referral",
+  "template_outcome": "Refers the case to an oversight body",
+  "verdict": "partly",
+  "supported": "The law names the Authority the competent body to oversee Licensees (Article (12)). A consumer can take a complaint to the TDRA as a Consumer Dispute (2.1.8, 26.16). The TDRA may request Subscriber Information in writing (24.11).",
+  "unsupported": "A duty on a Licensee to refer or report a privacy breach to any body. None was found in the ingested text. The Data Protection Law and the Data Office decree returned HTTP 403 and were not read.",
+  "rule_ids": [
+   "TL-23",
+   "TL-07",
+   "TL-25"
+  ]
+ }
 ]

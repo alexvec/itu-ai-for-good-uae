@@ -2,16 +2,119 @@
  "id": "primary",
  "title": "From a popular network model to a data-privacy breach",
  "synthetic": true,
- "disclaimer": "Synthetic exercise written for this entry. It does not describe any real operator, incident, regulator action or outcome.",
+ "disclaimer": "Synthetic exercise written for this entry. It does not describe any real operator, incident, regulator action or outcome, and it is not evidence of coverage.",
  "events": [
-  {"id":"e1","release_order":1,"beat":"Deployment","label":"The model goes live","text":"A licensed telecom operator deploys an ML model in its core network. Collectors pull counters from network elements and subscriber usage records, a pre-processor builds features, the model predicts congestion, and the policy node applies an automated throttle to a service class without a human in the loop.","author_nodes":["SRC","C","PP","M","P","D","SINK"]},
-  {"id":"e2","release_order":2,"beat":"Popular","label":"The deployment is popular","text":"The deployment is popular. Care staff and subscribers in the pilot regions welcome fewer congested evenings, and management extends the model across the whole network.","author_nodes":["D","SINK"]},
-  {"id":"e3","release_order":3,"beat":"Controversy","label":"A controversy breaks out","text":"Subscribers on one low-cost prepaid plan complain that their service degrades every peak hour while other plans do not. Posts spread on social media. Customers ask why and find no way to challenge the automated decision.","author_nodes":["P","D","SINK"]},
-  {"id":"e4","release_order":4,"beat":"KB decides","label":"The knowledge base decides the action","text":"The governance lead asks what action to take on the controversy. Decide under the pre-agreed rules.","author_nodes":["P"]},
-  {"id":"e5","release_order":5,"beat":"Escalation","label":"Consumer issue becomes a data-privacy breach","text":"A review finds that subscriber call-detail records with identifiers were exported to an external vendor to train the model, and that per-subscriber predictions reached a marketing dashboard. No record of consent for those uses can be found.","author_nodes":["SRC","C","PP","SINK"]},
-  {"id":"e6","release_order":6,"beat":"KB decides","label":"The knowledge base decides the corrective action","text":"The governance lead asks what action to take on the breach. Decide under the pre-agreed rules.","author_nodes":["P"]},
-  {"id":"e7","release_order":7,"beat":"Follow-on","label":"The sector regulator asks questions","text":"The sector regulator sends an information request about the model and the vendor export.","author_nodes":["SINK","MLFO"]},
-  {"id":"e8","release_order":8,"beat":"Follow-on","label":"Pressure to ship the fix","text":"Operations proposes to push the new model straight to production without ML sandbox testing.","author_nodes":["M","Sandbox","MLFO"]},
-  {"id":"e9","release_order":9,"beat":"Follow-on","label":"Critical traffic was affected","text":"A later review finds the model also degraded traffic to emergency numbers.","author_nodes":["D","SINK"]}
+  {
+   "id": "e1",
+   "release_order": 1,
+   "beat": "Deployment",
+   "label": "The model goes live",
+   "text": "A licensed telecom operator deploys an ML model in its core network. Collectors pull counters from network elements and subscriber usage records, a pre-processor builds features, the model predicts congestion, and the policy node applies an automated throttle to a service class without a human in the loop.",
+   "author_nodes": [
+    "SRC",
+    "C",
+    "PP",
+    "M",
+    "P",
+    "D",
+    "SINK"
+   ]
+  },
+  {
+   "id": "e2",
+   "release_order": 2,
+   "beat": "Popular",
+   "label": "The deployment is popular",
+   "text": "The deployment is popular. Staff and subscribers in the pilot regions welcome fewer congested evenings, and management extends the model across the whole network.",
+   "author_nodes": [
+    "D",
+    "SINK"
+   ]
+  },
+  {
+   "id": "e3",
+   "release_order": 3,
+   "beat": "Controversy",
+   "label": "A controversy breaks out",
+   "text": "Subscribers on one low-cost prepaid plan complain that their service degrades every peak hour while other plans do not. Posts spread on social media. Customers ask why and find no way to challenge the automated decision. To cope with the volume, the care team proposes that an AI chatbot answers the complaints. An outside auditor offers to review the model and asks for the usage records of each subscriber on the plan.",
+   "author_nodes": [
+    "SRC",
+    "C",
+    "PP",
+    "P",
+    "D",
+    "SINK",
+    "MLFO"
+   ]
+  },
+  {
+   "id": "e4",
+   "release_order": 4,
+   "beat": "KB decides",
+   "label": "The knowledge base decides the action",
+   "text": "The governance lead asks what action to take on the controversy, including the chatbot and the auditor's request. Decide under the pre-agreed rules.",
+   "author_nodes": [
+    "P",
+    "SINK",
+    "MLFO"
+   ]
+  },
+  {
+   "id": "e5",
+   "release_order": 5,
+   "beat": "Escalation",
+   "label": "Consumer issue becomes a data-privacy breach",
+   "text": "A review finds that subscriber call-detail records with identifiers were exported to an external vendor to train the model, and that per-subscriber predictions reached a marketing dashboard. No record of consent for those uses can be found.",
+   "author_nodes": [
+    "SRC",
+    "C",
+    "PP",
+    "SINK"
+   ]
+  },
+  {
+   "id": "e6",
+   "release_order": 6,
+   "beat": "KB decides",
+   "label": "The knowledge base decides the corrective action",
+   "text": "The governance lead asks what action to take on the breach. Decide under the pre-agreed rules.",
+   "author_nodes": [
+    "P"
+   ]
+  },
+  {
+   "id": "e7",
+   "release_order": 7,
+   "beat": "Follow-on",
+   "label": "The sector regulator asks questions",
+   "text": "The sector regulator sends an information request about the model and the vendor export.",
+   "author_nodes": [
+    "SINK",
+    "MLFO"
+   ]
+  },
+  {
+   "id": "e8",
+   "release_order": 8,
+   "beat": "Follow-on",
+   "label": "Pressure to ship the fix",
+   "text": "Operations proposes to push the new model straight to production without ML sandbox testing.",
+   "author_nodes": [
+    "M",
+    "Sandbox",
+    "MLFO"
+   ]
+  },
+  {
+   "id": "e9",
+   "release_order": 9,
+   "beat": "Follow-on",
+   "label": "Critical traffic was affected",
+   "text": "A later review finds the model also degraded traffic to emergency numbers.",
+   "author_nodes": [
+    "D",
+    "SINK"
+   ]
+  }
  ]
 }

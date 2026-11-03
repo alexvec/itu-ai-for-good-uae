@@ -11,7 +11,7 @@ export function stepToLines(step: StepResult, ctx: { session: string; seq: numbe
     ["quote_check", { displayed: [...step.rule_findings.map((f) => ({ chunk_id: f.citation.chunk_id, quote: f.citation.quote })), ...step.retrieved.map((f) => ({ chunk_id: f.chunk_id, quote: f.quote }))], dropped: step.dropped_quotes }],
     ["gap_check", { controls: step.controls.map((c) => ({ id: c.id, addressed: c.addressed, status: c.status, found_terms: c.found_terms })) }],
   ];
-  if (step.decision) stages.push(["decision", { actions: step.decision.actions.map((a) => ({ order: a.order, rule_id: a.rule_id, chunk_id: a.citation.chunk_id })), outcomes: step.decision.outcomes.map((o) => ({ id: o.id, status: o.status })) }]);
+  if (step.decision) stages.push(["decision", { conflicts: step.decision.conflicts.map((c) => ({ id: c.id, rule: c.rule_id, winner: c.winner.chunk_id, winner_rank: c.winner.rank_label, loser: c.loser.chunk_id, loser_rank: c.loser.rank_label })), actions: step.decision.actions.map((a) => ({ order: a.order, rule_id: a.rule_id, chunk_id: a.citation.chunk_id })), outcomes: step.decision.outcomes.map((o) => ({ id: o.id, status: o.status })) }]);
   if (step.model_step) stages.push(["model-generated", step.model_step]);
   stages.push(["output", { headline: step.headline, narrative: step.narrative, not_addressed: step.not_addressed }]);
   const lines: string[] = [];

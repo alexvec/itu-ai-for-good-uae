@@ -2,7 +2,7 @@
  {
   "id": "G-01",
   "class": "interception_access",
-  "question": "Does the text set a procedure for lawful access to or interception of communications?",
+  "question": "Does the text address lawful access to data held or transformed inside an ML pipeline?",
   "nodes": [
    "SRC",
    "C",
@@ -10,33 +10,51 @@
   ],
   "dimension_id": 10,
   "terms": [
-   "interception",
-   "intercept",
-   "wiretap",
-   "lawful access"
+   "machine learning",
+   "pipeline",
+   "pre-processor",
+   "preprocess"
   ],
-  "query": "access to communications surveillance lawful"
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the text address lawful access to data held or transformed inside an ML pipeline?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p59-c4",
+   "quote": "made in response to a lawful request by law enforcement agencies \nto assist in the investigation of criminal activity;"
+  }
  },
  {
   "id": "G-02",
   "class": "licensing_authorization",
-  "question": "Does the text set licence or authorization conditions for ML functions run by a telecom operator?",
+  "question": "Does the text set licence or authorization conditions for ML functions run by a Licensee?",
   "nodes": [
    "P",
    "MLFO"
   ],
   "dimension_id": 10,
   "terms": [
-   "telecom",
-   "licensee",
-   "licensed operator"
+   "machine learning",
+   "ml function",
+   "algorithm"
   ],
-  "query": "licensing operator authorization regulation"
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the text set licence or authorization conditions for ML functions run by a Licensee?",
+  "nearest_pin": {
+   "chunk_id": "law-p15-c5",
+   "quote": "It is not permitted to conduct any Regulated Activity unless authorised by a Licence or exempted in accordance with the provision of this Federal Law by Decree or its Executive Order."
+  }
  },
  {
   "id": "G-03",
   "class": "regulator_request",
-  "question": "Does the text say how a telecom operator answers a sector regulator's information request about an ML function?",
+  "question": "Does the text say what an operator gives the regulator about an ML function, such as model documentation?",
   "nodes": [
    "SINK",
    "MLFO",
@@ -44,20 +62,26 @@
   ],
   "dimension_id": 10,
   "terms": [
-   "telecom",
-   "sector regulator",
-   "information request"
+   "model documentation",
+   "machine learning",
+   "algorithm",
+   "ai system"
   ],
-  "query": "regulatory scrutiny regulators audit public release",
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the text say what an operator gives the regulator about an ML function, such as model documentation?",
   "nearest_pin": {
-   "chunk_id": "ethics-p12-c2",
-   "quote": "Facilitate traceability and auditability of AI systems, particularly in critical contexts or \nsituations."
+   "chunk_id": "cpr-p11-c4",
+   "quote": "Licensees shall maintain records and shall provide copies of such records to \nthe TDRA on demand."
   }
  },
  {
   "id": "G-04",
   "class": "personal_data_exposure",
-  "question": "Does the text set a breach-notification duty or timeline?",
+  "question": "Does the text set a duty or timeline to notify anyone of a data-privacy breach?",
   "nodes": [
    "SINK",
    "P"
@@ -67,14 +91,30 @@
    "data breach",
    "breach notification",
    "notification of a breach",
-   "notify the regulator"
+   "notify the tdra",
+   "notify the authority",
+   "report the breach",
+   "security incident"
   ],
-  "query": "personal data disclosed exceptional damage security"
+  "scope": [
+   "law",
+   "cpr",
+   "uec",
+   "strategy",
+   "charter",
+   "ethics",
+   "guideline"
+  ],
+  "query": "Does the text set a duty or timeline to notify anyone of a data-privacy breach?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p59-c5",
+   "quote": "Licensees shall use reliable security measures against risks such as loss \nor unauthorised access, destruction, leakage, inappropriate use, modification \nand/or unauthorised disclosure."
+  }
  },
  {
   "id": "G-05",
   "class": "personal_data_exposure",
-  "question": "Does the text state purpose limitation for personal data?",
+  "question": "Does the text state purpose limitation as a general duty on a Licensee’s own use of Subscriber Information?",
   "nodes": [
    "C",
    "PP"
@@ -83,54 +123,84 @@
   "terms": [
    "purpose limitation",
    "purpose-limitation",
-   "compatible purpose",
-   "only for the purpose"
+   "compatible purpose"
   ],
-  "query": "data relevance purpose use minimum intrusion"
+  "scope": [
+   "law",
+   "cpr",
+   "uec",
+   "strategy",
+   "charter",
+   "ethics",
+   "guideline"
+  ],
+  "query": "Does the text state purpose limitation as a general duty on a Licensee’s own use of Subscriber Information?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p60-c5",
+   "quote": "the third-parties are \nrequired to take all reasonable and appropriate measures to protect the \nconfidentiality and security of the Subscriber Information and to use it only as \nrequired for the purposes of providing the telecommunication service."
+  }
  },
  {
   "id": "G-06",
   "class": "personal_data_exposure",
-  "question": "Does the text set rules for handing subscriber or personal data to an external vendor for training?",
+  "question": "Does the telecom text address using Subscriber Information to train an ML model?",
   "nodes": [
    "C",
    "M"
   ],
   "dimension_id": 1,
   "terms": [
-   "subscriber",
-   "data processor",
-   "third-party processor",
-   "transfer of personal data",
-   "cross-border"
+   "training data",
+   "model training",
+   "train a model",
+   "train the model",
+   "machine learning"
   ],
-  "query": "vendors historical data train models operator sharing"
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the telecom text address using Subscriber Information to train an ML model?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p60-c2",
+   "quote": "Licensees must obtain a Subscriber’s prior consent 35 before sharing any \nSubscriber Information with its affiliates and/or other third parties not directly \ninvolved in the provision of the telecommunications services ordered by the \nSubscriber."
+  }
  },
  {
   "id": "G-07",
   "class": "personal_data_exposure",
-  "question": "Does the text name a body outside the organization to which a privacy case is referred?",
+  "question": "Does the text name a route for a Licensee to refer a privacy case to a body outside the organization?",
   "nodes": [
    "P"
   ],
   "dimension_id": 10,
   "terms": [
    "refer the case",
-   "referral",
    "supervisory authority",
    "data protection authority",
-   "ombudsman"
+   "ombudsman",
+   "data office"
   ],
-  "query": "oversight council committee external governance data protection",
+  "scope": [
+   "law",
+   "cpr",
+   "uec",
+   "strategy",
+   "charter",
+   "ethics",
+   "guideline"
+  ],
+  "query": "Does the text name a route for a Licensee to refer a privacy case to a body outside the organization?",
   "nearest_pin": {
-   "chunk_id": "strategy-p22-c2",
-   "quote": "the Council will ultimately \noversee the implementation of the AI \nStrategy in the UAE."
+   "chunk_id": "law-p10-c2",
+   "quote": "The Authority is the competent body to oversee the telecommunications sector in the State and all Licensees"
   }
  },
  {
   "id": "G-08",
   "class": "automated_network_action",
-  "question": "Does the text address automated traffic management in a telecom network?",
+  "question": "Does the telecom text address automated traffic management?",
   "nodes": [
    "P",
    "D",
@@ -138,18 +208,27 @@
   ],
   "dimension_id": 12,
   "terms": [
-   "network traffic",
    "throttl",
-   "quality of service",
+   "traffic shaping",
+   "traffic management",
    "net neutrality",
-   "traffic shaping"
+   "automated decision"
   ],
-  "query": "automated decisions groups different treatment"
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the telecom text address automated traffic management?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p22-c2",
+   "quote": "details of any limitations or restrictions on the use of the service \nincluding, but not limited to, any limits on the volume of usage, any \nrestrictions on the speed of data transfer"
+  }
  },
  {
   "id": "G-09",
   "class": "model_change",
-  "question": "Does the text call for an ML sandbox on a simulated network before a model affects a live network?",
+  "question": "Does any UAE text call for an ML sandbox before a model affects a live network?",
   "nodes": [
    "M",
    "Sandbox"
@@ -160,24 +239,46 @@
    "simulated underlay",
    "simulated network"
   ],
-  "query": "development testing production environments deployment"
+  "scope": [
+   "law",
+   "cpr",
+   "uec",
+   "strategy",
+   "charter",
+   "ethics",
+   "guideline"
+  ],
+  "query": "Does any UAE text call for an ML sandbox before a model affects a live network?",
+  "nearest_pin": {
+   "chunk_id": "y3172-p21-c3",
+   "quote": "An ML sandbox is an isolated domain which allows the hosting of separate ML pipelines to train, test \nand evaluate them before deploying them in a live network."
+  }
  },
  {
   "id": "G-10",
   "class": "emergency_critical",
-  "question": "Does the text protect emergency calls or critical numbers from automated network action?",
+  "question": "Does the telecom text protect emergency traffic from automated network action?",
   "nodes": [
    "D",
    "SINK"
   ],
   "dimension_id": 13,
   "terms": [
+   "emergency traffic",
    "emergency call",
-   "emergency number",
-   "emergency service",
-   "emergency"
+   "priority for emergency",
+   "critical traffic"
   ],
-  "query": "critical infrastructure safety wellbeing harm"
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the telecom text protect emergency traffic from automated network action?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p58-c4",
+   "quote": "Licensees shall provide Subscribers with continued accessibility to emergency \nnumbers during the phases of the dunning process preceding final service \ndisconnection."
+  }
  },
  {
   "id": "G-11",
@@ -190,27 +291,178 @@
   "terms": [
    "telecom"
   ],
-  "query": "current priority sectors",
+  "scope": [
+   "strategy"
+  ],
+  "query": "Is telecom a listed priority sector in the national strategy?",
   "nearest_pin": {
    "chunk_id": "strategy-p06-c1",
-   "quote": "The UAE has set priority sectors – these \nwill be the focus of initial activities."
+   "quote": "This does not mean that the UAE will \nstop working on AI solutions in other \nsectors where AI can deliver other \nbenefits"
   }
  },
  {
-  "id": "A-01",
+  "id": "G-12",
   "class": "service_complaint",
-  "question": "Does the text give affected people a way to challenge an automated decision?",
+  "question": "Does the telecom text give a subscriber a way to challenge an automated decision as such?",
   "nodes": [
    "SINK"
   ],
   "dimension_id": 6,
   "terms": [
-   "challenge a specific decision"
+   "automated",
+   "algorithmic",
+   "ai system"
   ],
-  "query": "challenge specific decision procedures"
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the telecom text give a subscriber a way to challenge an automated decision as such?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p64-c8",
+   "quote": "Licensees shall establish and maintain effective procedures to investigate and \nresolve Consumer Complaints properly and promptly"
+  }
+ },
+ {
+  "id": "G-13",
+  "class": "external_audit",
+  "question": "Does the telecom text address audit of an ML or AI system?",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 10,
+  "terms": [
+   "model audit",
+   "audit of algorithm",
+   "audit of ai",
+   "algorithmic audit",
+   "ai system"
+  ],
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the telecom text address audit of an ML or AI system?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p67-c3",
+   "quote": "The Licensees shall audit their respective billing systems"
+  }
+ },
+ {
+  "id": "A-01",
+  "class": "service_complaint",
+  "question": "Does the text set a complaint route for a Licensee’s consumers?",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 6,
+  "terms": [
+   "consumer complaint"
+  ],
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the text set a complaint route for a Licensee’s consumers?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p64-c8",
+   "quote": "Licensees shall establish and maintain effective procedures to investigate and \nresolve Consumer Complaints properly and promptly"
+  }
  },
  {
   "id": "A-02",
+  "class": "personal_data_exposure",
+  "question": "Does the text address consent before sharing Subscriber Information?",
+  "nodes": [
+   "SRC",
+   "P"
+  ],
+  "dimension_id": 10,
+  "terms": [
+   "prior consent"
+  ],
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the text address consent before sharing Subscriber Information?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p60-c2",
+   "quote": "Licensees must obtain a Subscriber’s prior consent 35 before sharing any \nSubscriber Information with its affiliates and/or other third parties not directly \ninvolved in the provision of the telecommunications services ordered by the \nSubscriber."
+  }
+ },
+ {
+  "id": "A-03",
+  "class": "regulator_request",
+  "question": "Does the text address records and information for the regulator?",
+  "nodes": [
+   "SINK",
+   "P"
+  ],
+  "dimension_id": 10,
+  "terms": [
+   "on demand"
+  ],
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the text address records and information for the regulator?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p11-c4",
+   "quote": "Licensees shall maintain records and shall provide copies of such records to \nthe TDRA on demand."
+  }
+ },
+ {
+  "id": "A-04",
+  "class": "interception_access",
+  "question": "Does the text address interception of call content?",
+  "nodes": [
+   "SRC",
+   "P"
+  ],
+  "dimension_id": 10,
+  "terms": [
+   "intercepts the contents"
+  ],
+  "scope": [
+   "law"
+  ],
+  "query": "Does the text address interception of call content?",
+  "nearest_pin": {
+   "chunk_id": "law-p28-c3",
+   "quote": "intercepts the contents of telephone calls without prior permission by the competent judicial authorities;"
+  }
+ },
+ {
+  "id": "A-05",
+  "class": "complaint_automation",
+  "question": "Does the text address non-human agents in complaint handling?",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 6,
+  "terms": [
+   "non-human agents"
+  ],
+  "scope": [
+   "law",
+   "cpr",
+   "uec"
+  ],
+  "query": "Does the text address non-human agents in complaint handling?",
+  "nearest_pin": {
+   "chunk_id": "cpr-p65-c5",
+   "quote": "preclude the use of non-human agents by Licensees in \nconversations with Consumers regarding Consumer Complaints."
+  }
+ },
+ {
+  "id": "A-06",
   "class": "service_complaint",
   "question": "Does the text call for human override of an AI system?",
   "nodes": [
@@ -221,24 +473,17 @@
    "overridden",
    "overturn"
   ],
-  "query": "overridden decisions reversed designated individuals"
+  "scope": [
+   "ethics"
+  ],
+  "query": "Does the text call for human override of an AI system?",
+  "nearest_pin": {
+   "chunk_id": "ethics-p17-c2",
+   "quote": "Such systems should be able to be overridden or their decisions reversed by designated \nindividuals."
+  }
  },
  {
-  "id": "A-03",
-  "class": "personal_data_exposure",
-  "question": "Does the text address consent logging or revocation?",
-  "nodes": [
-   "SRC",
-   "P"
-  ],
-  "dimension_id": 10,
-  "terms": [
-   "consent logging"
-  ],
-  "query": "consent logging revoke permission"
- },
- {
-  "id": "A-04",
+  "id": "A-07",
   "class": "model_change",
   "question": "Does the text call for a fall back plan?",
   "nodes": [
@@ -249,6 +494,13 @@
   "terms": [
    "fall back plan"
   ],
-  "query": "fall back plan readiness unexpected"
+  "scope": [
+   "ethics"
+  ],
+  "query": "Does the text call for a fall back plan?",
+  "nearest_pin": {
+   "chunk_id": "ethics-p17-c1",
+   "quote": "AI operators should define a suitable fall back plan and test it to maintain readiness in \nunexpected situations and in high safety risks level"
+  }
  }
 ]

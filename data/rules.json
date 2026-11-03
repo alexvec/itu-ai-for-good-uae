@@ -1,13 +1,15 @@
 [
  {
-  "id": "PR-01",
-  "title": "Is the telecom an \"AI operator\" under the Ethics document?",
+  "id": "TL-01",
+  "title": "The regulator is the competent body",
   "classes": [
-   "automated_network_action"
+   "automated_network_action",
+   "regulator_request",
+   "licensing_authorization"
   ],
-  "priority": 10,
+  "priority": 1,
   "group": "applicability",
-  "action": "Treat the operator as an AI operator organization for this assessment, because it uses the model to provide a service.",
+  "action": "Record that the operator is a Licensee and the Authority is named as the body overseeing Licensees. This law text does not mention machine learning.",
   "nodes": [
    "P"
   ],
@@ -15,22 +17,138 @@
   "modal": null,
   "analogy": false,
   "citation": {
-   "chunk_id": "ethics-p06-c1",
-   "doc_id": "ethics",
-   "page": 6,
-   "section": "2.2 AI operator organization",
-   "quote": "uses an AI system to provide a service to an AI subject;"
+   "chunk_id": "law-p10-c2",
+   "doc_id": "law",
+   "page": 10,
+   "section": "Article (12), Telecom Law",
+   "article": "Article (12)",
+   "quote": "The Authority is the competent body to oversee the telecommunications sector in the State and all Licensees"
+  },
+  "strength_check": {
+   "text_modal": "descriptive",
+   "action_verb": "Record",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-02",
+  "title": "Disclose speed restrictions before contract",
+  "classes": [
+   "automated_network_action"
+  ],
+  "priority": 2,
+  "group": "applicability",
+  "action": "Check the plan terms. A Licensee shall advise the Consumer, at the pre-contract stage, of any restrictions on the speed of data transfer. Record whether the throttle is disclosed.",
+  "nodes": [
+   "D",
+   "SINK"
+  ],
+  "dimension_id": 12,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p22-c2",
+   "doc_id": "cpr",
+   "page": 22,
+   "section": "Sub-article 5.5 of Article 5",
+   "article": "5.5",
+   "quote": "Specifically, Licensees shall advise \nthe Consumer of the following (where applicable):"
+  },
+  "supporting": [
+   {
+    "chunk_id": "cpr-p22-c2",
+    "doc_id": "cpr",
+    "page": 22,
+    "section": "Sub-article 5.5.6 of Article 5",
+    "article": "5.5.6",
+    "quote": "details of any limitations or restrictions on the use of the service \nincluding, but not limited to, any limits on the volume of usage, any \nrestrictions on the speed of data transfer"
+   }
+  ],
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Check",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-03",
+  "title": "Usage records are Subscriber Information",
+  "classes": [
+   "data_collection",
+   "personal_data_exposure"
+  ],
+  "priority": 3,
+  "group": "applicability",
+  "action": "Check which records the collectors pull. The definition covers service usage details, call records and information derived from a Subscriber’s use of telecommunications services. Whether per-subscriber predictions count as derived is for a person to confirm.",
+  "nodes": [
+   "SRC",
+   "C"
+  ],
+  "dimension_id": 1,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p09-c1",
+   "doc_id": "cpr",
+   "page": 9,
+   "section": "Sub-article 2.1.31 of Article 2",
+   "article": "2.1.31",
+   "quote": "“Subscriber Information” means - any personal data relating to a \nspecific Subscriber"
+  },
+  "supporting": [
+   {
+    "chunk_id": "cpr-p09-c1",
+    "doc_id": "cpr",
+    "page": 9,
+    "section": "Sub-article 2.1.31 of Article 2",
+    "article": "2.1.31",
+    "quote": "service \nusage details, call records, message records, any information \nderived from a Subscriber’s use of telecommunications services"
+   }
+  ],
+  "strength_check": {
+   "text_modal": "descriptive",
+   "action_verb": "Check",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "FR-01",
+  "title": "Y.3172: operator rules at the policy node",
+  "classes": [
+   "automated_network_action"
+  ],
+  "priority": 4,
+  "group": "applicability",
+  "action": "Consider writing the operator’s own rules at the P node, as Y.3172 describes. Y.3172 is a voluntary framework document.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "can",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "y3172-p21-c1",
+   "doc_id": "y3172",
+   "page": 21,
+   "section": "Clause 8.1, NOTE 5",
+   "article": null,
+   "quote": "Specific rules can be put in place by a network \noperator to safeguard the sanity of the network"
+  },
+  "strength_check": {
+   "text_modal": "can",
+   "action_verb": "Consider",
+   "result": "pass"
   }
  },
  {
   "id": "PR-02",
-  "title": "Scope gate: significant decisions",
+  "title": "Scope gate of the Ethics guidelines",
   "classes": [
    "automated_network_action"
   ],
-  "priority": 11,
+  "priority": 10,
   "group": "applicability",
-  "action": "Record the scope test: the Ethics document only applies if the throttle makes or informs significant decisions. A human confirms the answer.",
+  "action": "Record the scope test: the Ethics document applies only if the throttle makes or informs significant decisions. A person confirms the answer.",
   "nodes": [
    "P"
   ],
@@ -42,18 +160,24 @@
    "doc_id": "ethics",
    "page": 4,
    "section": "1.2 Scope",
+   "article": null,
    "quote": "This document is applicable only to those AI systems which make or inform \n‘significant decisions’"
+  },
+  "strength_check": {
+   "text_modal": "descriptive",
+   "action_verb": "Record",
+   "result": "pass"
   }
  },
  {
   "id": "PR-03",
-  "title": "Popularity changes the classification",
+  "title": "Popularity may change the classification",
   "classes": [
    "adoption_at_scale"
   ],
   "priority": 12,
   "group": "applicability",
-  "action": "Reclassify the network-wide throttle as a candidate set of significant-at-scale decisions and apply the Ethics guidelines from this step on. The source example is a website, so this is a reading by analogy for a human to confirm.",
+  "action": "Note that a popular system may be making significant-at-scale decisions. The source example is a website, so a person confirms this reading for a network. No telecom text in the KB speaks to popularity.",
   "nodes": [
    "D",
    "SINK"
@@ -67,18 +191,271 @@
    "doc_id": "ethics",
    "page": 8,
    "section": "2.10 Set of significant-at-scale decisions, example",
+   "article": null,
    "quote": "if the website is popular then the AI \nsystem may be making a set of significant-at-scale decisions, because any biases in the \nsystem will affect a large number of users."
+  },
+  "strength_check": {
+   "text_modal": "may be",
+   "action_verb": "Note",
+   "result": "pass"
   }
  },
  {
-  "id": "PR-04",
-  "title": "Complaints trigger an investigation",
+  "id": "TL-04",
+  "title": "Complaints go through the licensee procedure",
   "classes": [
    "service_complaint"
   ],
   "priority": 20,
   "group": "controversy",
-  "action": "Open an investigation into the fairness and accuracy of the throttling process as a whole.",
+  "action": "Shall investigate and resolve these complaints through effective procedures, properly and promptly.",
+  "nodes": [
+   "SINK",
+   "MLFO"
+  ],
+  "dimension_id": 6,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p64-c8",
+   "doc_id": "cpr",
+   "page": 64,
+   "section": "Sub-article 26.2 of Article 26",
+   "article": "26.2",
+   "quote": "Licensees shall establish and maintain effective procedures to investigate and \nresolve Consumer Complaints properly and promptly"
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Shall",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-05",
+  "title": "Reference number and time-frame",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 21,
+  "group": "controversy",
+  "action": "Shall acknowledge each complaint with a reference number and an indicative time-frame.",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 6,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p66-c3",
+   "doc_id": "cpr",
+   "page": 66,
+   "section": "Sub-article 26.13 of Article 26",
+   "article": "26.13",
+   "quote": "Licensees shall:"
+  },
+  "supporting": [
+   {
+    "chunk_id": "cpr-p66-c3",
+    "doc_id": "cpr",
+    "page": 66,
+    "section": "Sub-article 26.13.2 of Article 26",
+    "article": "26.13.2",
+    "quote": "acknowledge the receipt of each Consumer Complaint by providing \nthe complainant with a reference number for the complaint and the \nindicative time-frame required for the Licensee to investigate and \nresolve the complaint."
+   }
+  ],
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Shall",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-06",
+  "title": "Twenty business days, generally",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 22,
+  "group": "controversy",
+  "action": "Shall generally conclude each complaint within twenty business days of receipt or as soon as practical.",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 6,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p66-c4",
+   "doc_id": "cpr",
+   "page": 66,
+   "section": "Sub-article 26.14.2 of Article 26",
+   "article": "26.14.2",
+   "quote": "Generally, Licensees shall conclude Consumer Complaints within \ntwenty (20) business days after receipt or as soon as practical in all \ncircumstances."
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Shall",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-07",
+  "title": "Escalation to the regulator is a Consumer Dispute",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 23,
+  "group": "controversy",
+  "action": "Check for disputes. If the TDRA submits one, the Licensee shall resolve it and respond within three business days. The TDRA’s procedures are in CPR Annex 1, which is not in this KB.",
+  "nodes": [
+   "SINK",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p67-c2",
+   "doc_id": "cpr",
+   "page": 67,
+   "section": "Sub-article 26.16.1 of Article 26",
+   "article": "26.16.1",
+   "quote": "The TDRA shall advise the Licensee of a Consumer Dispute and the \nLicensee shall resolve the Dispute and respond to the TDRA within \nthree (3) business days"
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Check",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-08",
+  "title": "Non-discrimination across plans",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 24,
+  "group": "controversy",
+  "action": "Check the throttle against the duty to ensure non-discrimination when providing services. The law text does not define the term or address ML. A person with legal training reads it against the plan-level effect.",
+  "nodes": [
+   "P",
+   "D"
+  ],
+  "dimension_id": 10,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "law-p15-c4",
+   "doc_id": "law",
+   "page": 15,
+   "section": "Article (30), Telecom Law",
+   "article": "Article (30)",
+   "quote": "All Licensees shall take into account the special needs and requirements regarding the type of service and Telecommunication Apparatus and ensure non-discrimination when providing such services and apparatus."
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Check",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-09",
+  "title": "If this is sold as fair use",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 25,
+  "group": "controversy",
+  "action": "Check whether the throttle is presented as a fair use policy. If it is, the text says it must affect only atypical Subscribers, and a whole plan is not obviously that. A person decides.",
+  "nodes": [
+   "P",
+   "D"
+  ],
+  "dimension_id": 12,
+  "modal": "must",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p57-c3",
+   "doc_id": "cpr",
+   "page": 57,
+   "section": "Sub-article 21.2 of Article 21",
+   "article": "21.2",
+   "quote": "For the FUP to be fair and reasonable it must affect only atypical Subscribers, \nthat is to say- excessively heavy users that form a small minority of the customer \nbase for the particular service."
+  },
+  "strength_check": {
+   "text_modal": "must",
+   "action_verb": "Check",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-10",
+  "title": "Transparency and fairness with consumers",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 26,
+  "group": "controversy",
+  "action": "Shall act with transparency and fairness in what subscribers are told about the throttle.",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 6,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p10-c4",
+   "doc_id": "cpr",
+   "page": 10,
+   "section": "Sub-article 3.3 of Article 3",
+   "article": "3.3",
+   "quote": "Licensees shall act with transparency and fairness in all dealings with \nConsumers"
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Shall",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-11",
+  "title": "No non-human agents in complaint conversations",
+  "classes": [
+   "complaint_automation"
+  ],
+  "priority": 27,
+  "group": "controversy",
+  "action": "Do not use an AI chatbot in conversations with consumers about these complaints. The text says the staffing provisions preclude non-human agents there. It does not address bots elsewhere in care.",
+  "nodes": [
+   "SINK",
+   "P"
+  ],
+  "dimension_id": 6,
+  "modal": "preclude",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p65-c5",
+   "doc_id": "cpr",
+   "page": 65,
+   "section": "Sub-article 26.7.2 of Article 26",
+   "article": "26.7.2",
+   "quote": "preclude the use of non-human agents by Licensees in \nconversations with Consumers regarding Consumer Complaints."
+  },
+  "strength_check": {
+   "text_modal": "preclude",
+   "action_verb": "Do not",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "PR-04",
+  "title": "Crowd challenge (supporting)",
+  "classes": [
+   "service_complaint"
+  ],
+  "priority": 30,
+  "group": "controversy",
+  "action": "Consider treating the complaint volume as a trigger for an investigation into the fairness and accuracy of the throttling process.",
   "nodes": [
    "P",
    "MLFO"
@@ -86,138 +463,179 @@
   "dimension_id": 8,
   "modal": "could consider",
   "analogy": false,
+  "supports": "TL-04",
   "citation": {
    "chunk_id": "ethics-p13-c1",
    "doc_id": "ethics",
    "page": 13,
    "section": "3.2.2.4",
+   "article": null,
    "quote": "AI operators could consider “crowd challenge” mechanisms whereby a critical number of \ncomplaints triggers an investigation into the fairness and/or accuracy of a decision-making \nprocess as a whole."
+  },
+  "strength_check": {
+   "text_modal": "could consider",
+   "action_verb": "Consider",
+   "result": "pass"
   }
  },
  {
   "id": "PR-05",
-  "title": "Fair-treatment test across plans",
+  "title": "Equal treatment test (supporting)",
   "classes": [
    "service_complaint"
   ],
-  "priority": 21,
+  "priority": 31,
   "group": "controversy",
-  "action": "Test whether subscribers in the same circumstances get equal treatment across plans, and record the result.",
+  "action": "Consider whether subscribers in the same circumstances get equal treatment across plans, and record the result.",
   "nodes": [
    "D"
   ],
   "dimension_id": 12,
   "modal": "should consider",
   "analogy": false,
+  "supports": "TL-08",
   "citation": {
    "chunk_id": "ethics-p10-c2",
    "doc_id": "ethics",
    "page": 10,
    "section": "3.1.2.3",
+   "article": null,
    "quote": "When evaluating the fairness of an AI system, AI developers and AI operators should \nconsider whether AI subjects in the same circumstances receive equal treatment."
+  },
+  "strength_check": {
+   "text_modal": "should consider",
+   "action_verb": "Consider",
+   "result": "pass"
   }
  },
  {
   "id": "PR-06",
-  "title": "Give subscribers a way to challenge",
+  "title": "A way to challenge a specific decision (supporting)",
   "classes": [
    "service_complaint"
   ],
-  "priority": 22,
+  "priority": 32,
   "group": "controversy",
-  "action": "Provide a procedure by which an affected subscriber can challenge a specific throttling decision.",
+  "action": "Should provide a procedure by which an affected subscriber can challenge a specific throttling decision, if the throttle informs significant decisions.",
   "nodes": [
    "SINK"
   ],
   "dimension_id": 6,
-  "modal": "should provide",
+  "modal": "should",
   "analogy": false,
+  "supports": "TL-04",
   "citation": {
    "chunk_id": "ethics-p12-c1",
    "doc_id": "ethics",
    "page": 12,
    "section": "3.2.2.4",
+   "article": null,
    "quote": "AI operators using AI systems to inform significant decisions should provide procedures by \nwhich affected AI subjects can challenge a specific decision concerning them."
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Should",
+   "result": "pass"
   }
  },
  {
   "id": "PR-07",
-  "title": "Human review of challenges",
+  "title": "Human case evaluators (supporting)",
   "classes": [
    "service_complaint"
   ],
-  "priority": 23,
+  "priority": 33,
   "group": "controversy",
-  "action": "Assign human case evaluators who can overturn a challenged decision.",
+  "action": "Consider human case evaluators who can overturn a challenged decision.",
   "nodes": [
    "P"
   ],
   "dimension_id": 8,
   "modal": "should consider",
   "analogy": false,
+  "supports": "TL-11",
   "citation": {
    "chunk_id": "ethics-p12-c1",
    "doc_id": "ethics",
    "page": 12,
    "section": "3.2.2.4",
+   "article": null,
    "quote": "AI operators should consider employing human case evaluators to review any such \nchallenges and, when appropriate, overturn the challenged decision."
+  },
+  "strength_check": {
+   "text_modal": "should consider",
+   "action_verb": "Consider",
+   "result": "pass"
   }
  },
  {
   "id": "PR-08",
-  "title": "Tell subscribers an AI system decided",
+  "title": "Tell subscribers an AI system decided (supporting)",
   "classes": [
    "service_complaint"
   ],
-  "priority": 24,
+  "priority": 34,
   "group": "controversy",
-  "action": "Tell affected subscribers that an AI system made the decision affecting them.",
+  "action": "Should inform affected subscribers when a significant decision affecting them has been made by an AI system.",
   "nodes": [
    "SINK"
   ],
   "dimension_id": 6,
-  "modal": "should inform",
+  "modal": "should",
   "analogy": false,
+  "supports": "TL-10",
   "citation": {
    "chunk_id": "ethics-p15-c1",
    "doc_id": "ethics",
    "page": 15,
    "section": "3.3.2.2",
+   "article": null,
    "quote": "AI operators should inform AI subjects when a significant decision affecting them has been \nmade by an AI system."
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Should",
+   "result": "pass"
   }
  },
  {
   "id": "PR-09",
-  "title": "Designated people can override",
+  "title": "Designated people can override (supporting)",
   "classes": [
    "service_complaint"
   ],
-  "priority": 25,
+  "priority": 35,
   "group": "controversy",
-  "action": "Name the individuals who can override the throttle or reverse its decisions while the investigation runs.",
+  "action": "Should be able to override the throttle or reverse its decisions through designated individuals. Name them.",
   "nodes": [
    "P"
   ],
   "dimension_id": 8,
-  "modal": "should be able",
+  "modal": "should",
   "analogy": false,
   "citation": {
    "chunk_id": "ethics-p17-c2",
    "doc_id": "ethics",
    "page": 17,
    "section": "3.5.2.4",
+   "article": null,
    "quote": "Such systems should be able to be overridden or their decisions reversed by designated \nindividuals."
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Should",
+   "result": "pass"
   }
  },
  {
   "id": "PR-10",
-  "title": "Human oversight corrects errors and bias",
+  "title": "Human oversight in the Charter (supporting)",
   "classes": [
    "service_complaint"
   ],
-  "priority": 26,
+  "priority": 36,
   "group": "controversy",
-  "action": "Keep human oversight on the policy node so errors or bias can be corrected.",
+  "action": "Note the Charter’s emphasis on human oversight to correct errors or biases. It is a guiding framework and sets no procedure.",
   "nodes": [
    "P"
   ],
@@ -229,196 +647,600 @@
    "doc_id": "charter",
    "page": 4,
    "section": "6. Human Oversight",
-   "quote": "Charter emphasizes the irreplaceable value of human judgment and human \noversight over AI, aligning with ethical values and social standards to correct \nany errors or biases that may arise."
+   "article": null,
+   "quote": "the irreplaceable value of human judgment and human \noversight over AI, aligning with ethical values and social standards to correct \nany errors or biases that may arise."
+  },
+  "strength_check": {
+   "text_modal": "descriptive",
+   "action_verb": "Note",
+   "result": "pass"
   }
  },
  {
-  "id": "PR-11",
-  "title": "Avoid models that expose personal data",
+  "id": "PR-32",
+  "title": "External audit (supporting)",
   "classes": [
-   "personal_data_exposure"
+   "external_audit"
   ],
-  "priority": 30,
-  "group": "privacy",
-  "action": "Stop per-subscriber predictions reaching the marketing dashboard. The text's exceptions are public interest with government-service outcomes, or consent in line with national regulations; neither is shown here.",
+  "priority": 37,
+  "group": "controversy",
+  "action": "Should use external auditing if the decisions are critical in the Ethics document’s sense. A person confirms that. The data the auditor receives is decided by C-02.",
   "nodes": [
-   "SINK"
+   "P",
+   "MLFO"
   ],
-  "dimension_id": 6,
-  "modal": "should avoid",
-  "analogy": true,
-  "analogy_note": "This guideline is about government services and this track is telecom. Applied by analogy.",
-  "citation": {
-   "chunk_id": "guideline-p48-c1",
-   "doc_id": "guideline",
-   "page": 48,
-   "section": "AI Risk Management, Privacy",
-   "quote": "any \nentity should avoid AI models that are exposing personal data \nunless there is a matter of public interest and targeted government \nservices outcomes or consent in line with national regulations."
-  }
- },
- {
-  "id": "PR-12",
-  "title": "Do not deploy beyond accepted privacy standards",
-  "classes": [
-   "personal_data_exposure"
-  ],
-  "priority": 31,
-  "group": "privacy",
-  "action": "Do not extend the model to the marketing use while it is unassessed against accepted privacy standards.",
-  "nodes": [
-   "P"
-  ],
-  "dimension_id": 10,
-  "modal": "should not be deployed",
+  "dimension_id": 7,
+  "modal": "should",
   "analogy": false,
   "citation": {
-   "chunk_id": "ethics-p21-c1",
+   "chunk_id": "ethics-p12-c2",
    "doc_id": "ethics",
-   "page": 21,
-   "section": "3.8.1 Principle",
-   "quote": "Surveillance or other AI-driven technologies should not be deployed to the extent \nof violating internationally and/or UAE’s accepted standards of privacy and human \ndignity and people rights."
+   "page": 12,
+   "section": "3.2.2.2",
+   "article": null,
+   "quote": "When AI systems are used for critical decisions, external auditing of the AI systems in \nquestion should be used as a means to ensure meaningful standards of transparency and \naccountability are upheld."
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Should",
+   "result": "pass"
   }
  },
  {
-  "id": "PR-13",
-  "title": "Minimum intrusion",
+  "id": "TL-12",
+  "title": "Prior consent before sharing with third parties",
   "classes": [
    "personal_data_exposure"
   ],
-  "priority": 32,
+  "priority": 40,
   "group": "privacy",
-  "action": "Cut the data used back to the minimum intrusion necessary for congestion prediction.",
-  "nodes": [
-   "SRC",
-   "C"
-  ],
-  "dimension_id": 13,
-  "modal": "should respect",
-  "analogy": false,
-  "citation": {
-   "chunk_id": "ethics-p21-c1",
-   "doc_id": "ethics",
-   "page": 21,
-   "section": "3.8.1 Principle",
-   "quote": "AI systems should respect privacy and use the minimum intrusion necessary."
-  }
- },
- {
-  "id": "PR-14",
-  "title": "Review consent logging and revocation",
-  "classes": [
-   "personal_data_exposure"
-  ],
-  "priority": 33,
-  "group": "privacy",
-  "action": "Review the system for proper consent logging and whether subscribers can revoke permission.",
-  "nodes": [
-   "SRC",
-   "P"
-  ],
-  "dimension_id": 10,
-  "modal": "should review",
-  "analogy": false,
-  "citation": {
-   "chunk_id": "ethics-p21-c1",
-   "doc_id": "ethics",
-   "page": 21,
-   "section": "3.8.2.1",
-   "quote": "AI Operators should review the system for proper consent logging, ability of users to revoke \npermission whenever applicable."
-  }
- },
- {
-  "id": "PR-15",
-  "title": "Take the case to an internal oversight mechanism",
-  "classes": [
-   "personal_data_exposure"
-  ],
-  "priority": 34,
-  "group": "privacy",
-  "action": "Put the case before the organization's oversight mechanism for data collection, storage, processing and use. Create one if none exists.",
+  "action": "Must have the Subscriber’s prior consent before sharing Subscriber Information with third parties not directly involved in providing the ordered service. Check whether consent exists for the vendor export. A person decides whether the vendor is directly involved.",
   "nodes": [
    "C",
-   "P"
+   "SRC"
   ],
-  "dimension_id": 8,
-  "modal": null,
+  "dimension_id": 1,
+  "modal": "must",
   "analogy": false,
   "citation": {
-   "chunk_id": "ethics-p21-c1",
-   "doc_id": "ethics",
-   "page": 21,
-   "section": "3.8.2.2",
-   "quote": "Establish an oversight mechanism for data collection, storage and processing and use across \nyour organization"
+   "chunk_id": "cpr-p60-c2",
+   "doc_id": "cpr",
+   "page": 60,
+   "section": "Sub-article 24.6 of Article 24",
+   "article": "24.6",
+   "quote": "Licensees must obtain a Subscriber’s prior consent 35 before sharing any \nSubscriber Information with its affiliates and/or other third parties not directly \ninvolved in the provision of the telecommunications services ordered by the \nSubscriber."
+  },
+  "supporting": [
+   {
+    "chunk_id": "cpr-p60-c7",
+    "doc_id": "cpr",
+    "page": 60,
+    "section": "Footnote 35 to sub-article 24.6",
+    "article": "24.6, footnote 35",
+    "quote": "Which consent may be provided contractually at the point in time at which the Subscriber Contract is \nformed provided always that a mechanism exists whereby the Subscriber may withdraw that consent,"
+   }
+  ],
+  "strength_check": {
+   "text_modal": "must",
+   "action_verb": "Must",
+   "result": "pass"
   }
  },
  {
-  "id": "PR-16",
-  "title": "Data Protection Officer role",
+  "id": "TL-13",
+  "title": "Purpose limit on third parties directly involved",
   "classes": [
    "personal_data_exposure"
   ],
-  "priority": 35,
+  "priority": 41,
   "group": "privacy",
-  "action": "Assign the Data Protection Officer responsibility for this case.",
+  "action": "Check the vendor contract if the vendor is treated as directly involved. Such third parties are required to use the information only as required for providing the telecommunication service. Whether model training fits is for a person to decide.",
   "nodes": [
-   "P"
+   "C",
+   "M"
   ],
-  "dimension_id": 8,
-  "modal": null,
+  "dimension_id": 1,
+  "modal": "are required",
   "analogy": false,
   "citation": {
-   "chunk_id": "ethics-p21-c1",
-   "doc_id": "ethics",
-   "page": 21,
-   "section": "3.8.2.2",
-   "quote": "Assign specific responsibilities and role for Data Protection Officers."
+   "chunk_id": "cpr-p60-c5",
+   "doc_id": "cpr",
+   "page": 60,
+   "section": "Sub-article 24.9 of Article 24",
+   "article": "24.9",
+   "quote": "the third-parties are \nrequired to take all reasonable and appropriate measures to protect the \nconfidentiality and security of the Subscriber Information and to use it only as \nrequired for the purposes of providing the telecommunication service."
+  },
+  "strength_check": {
+   "text_modal": "are required",
+   "action_verb": "Check",
+   "result": "pass"
   }
  },
  {
-  "id": "PR-17",
-  "title": "Restrict access to those who need it",
+  "id": "TL-14",
+  "title": "Prevent unauthorised use and disclosure",
   "classes": [
    "personal_data_exposure"
   ],
-  "priority": 36,
+  "priority": 42,
   "group": "privacy",
-  "action": "Remove access for anyone without the competence and need, including marketing users and the vendor.",
+  "action": "Shall take all reasonable and appropriate measures to prevent unauthorised disclosure or use, including at the vendor export and the marketing dashboard.",
+  "nodes": [
+   "SINK",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p59-c3",
+   "doc_id": "cpr",
+   "page": 59,
+   "section": "Sub-article 24.2 of Article 24",
+   "article": "24.2",
+   "quote": "Licensees shall take all reasonable and appropriate measures to prevent the \nunauthorised disclosure or the un-authorised use of Subscriber Information."
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Shall",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-15",
+  "title": "Limit access to trained, authorised staff",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 43,
+  "group": "privacy",
+  "action": "Shall limit access to Subscriber Information to trained and authorised personnel bound in writing. Check who can see the marketing dashboard.",
   "nodes": [
    "C",
    "D"
   ],
   "dimension_id": 1,
-  "modal": "should be allowed",
+  "modal": "shall",
   "analogy": false,
   "citation": {
-   "chunk_id": "ethics-p21-c2",
-   "doc_id": "ethics",
-   "page": 21,
-   "section": "3.8.2.2",
-   "quote": "Only duly qualified personnel \nwith the competence and need to access individual’s data should be allowed to do so."
+   "chunk_id": "cpr-p59-c6",
+   "doc_id": "cpr",
+   "page": 59,
+   "section": "Sub-article 24.5 of Article 24",
+   "article": "24.5",
+   "quote": "Licensees shall limit access to Subscriber Information to its trained and \nauthorised personnel"
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Shall",
+   "result": "pass"
   }
  },
  {
-  "id": "PR-18",
-  "title": "The text defers to national privacy legislation",
+  "id": "TL-16",
+  "title": "Security of stored Subscriber Information",
   "classes": [
    "personal_data_exposure"
   ],
-  "priority": 37,
+  "priority": 44,
   "group": "privacy",
-  "action": "Send the question to human counsel: the Ethics document points to national privacy legislation, and that legislation is not in this KB.",
+  "action": "Shall use reliable security measures against leakage, inappropriate use and unauthorised disclosure in the data pipeline.",
+  "nodes": [
+   "PP"
+  ],
+  "dimension_id": 3,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p59-c5",
+   "doc_id": "cpr",
+   "page": 59,
+   "section": "Sub-article 24.4 of Article 24",
+   "article": "24.4",
+   "quote": "Licensees shall use reliable security measures against risks such as loss \nor unauthorised access, destruction, leakage, inappropriate use, modification \nand/or unauthorised disclosure."
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Shall",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-17",
+  "title": "Which disclosure ground applies",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 45,
+  "group": "privacy",
+  "action": "Record which ground in sub-article 24.3 applies, if any. The list opens with what a Licensee may do.",
   "nodes": [
    "P"
   ],
   "dimension_id": 10,
-  "modal": "should be put in place",
+  "modal": "may",
   "analogy": false,
   "citation": {
-   "chunk_id": "ethics-p21-c2",
+   "chunk_id": "cpr-p59-c4",
+   "doc_id": "cpr",
+   "page": 59,
+   "section": "Sub-article 24.3 of Article 24",
+   "article": "24.3",
+   "quote": "a \nLicensee may disclose Subscriber Information if such disclosure is:"
+  },
+  "supporting": [
+   {
+    "chunk_id": "cpr-p59-c4",
+    "doc_id": "cpr",
+    "page": 59,
+    "section": "Sub-article 24.3.2 of Article 24",
+    "article": "24.3.2",
+    "quote": "expressly permitted by the Subscriber in question;"
+   }
+  ],
+  "strength_check": {
+   "text_modal": "may",
+   "action_verb": "Record",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-18",
+  "title": "Interconnection data: the one strict prohibition",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 46,
+  "group": "privacy",
+  "action": "Check where the exported records came from. If from interconnection with another Licensee, using them for other purposes, including marketing, is strictly prohibited. The text states this only for interconnection data.",
+  "nodes": [
+   "SRC",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "strictly prohibited",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p60-c3",
+   "doc_id": "cpr",
+   "page": 60,
+   "section": "Sub-article 24.7 of Article 24",
+   "article": "24.7",
+   "quote": "Licensees who have access to Subscriber Information as a result of \ninterconnection with another Licensee are strictly prohibited from using that \nSubscriber Information for any purposes other than interconnection."
+  },
+  "supporting": [
+   {
+    "chunk_id": "cpr-p60-c3",
+    "doc_id": "cpr",
+    "page": 60,
+    "section": "Sub-article 24.7 of Article 24",
+    "article": "24.7",
+    "quote": "that data may not be used for any marketing purposes"
+   }
+  ],
+  "strength_check": {
+   "text_modal": "strictly prohibited",
+   "action_verb": "Check",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-19",
+  "title": "The Data Protection Law prevails, and is not in this KB",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 47,
+  "group": "privacy",
+  "action": "Ask counsel. Sub-article 24.1 says the Data Protection Law prevails over Article 24 on any inconsistency. That law returned HTTP 403 and is not in this KB, so every Article 24 answer here is subject to a text this product has not read.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p59-c2",
+   "doc_id": "cpr",
+   "page": 59,
+   "section": "Sub-article 24.1 of Article 24",
+   "article": "24.1",
+   "quote": "the provisions of the \nDPL shall prevail to the extent necessary to remove any such inconsistency."
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Ask",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-20",
+  "title": "Marketing messages need consent first",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 48,
+  "group": "privacy",
+  "action": "Check whether the dashboard fed any marketing messages. If so, the Licensee shall ensure consent was obtained before sending. The policy is dated 2009 and its current status was not checked.",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 6,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "uec-p07-c9",
+   "doc_id": "uec",
+   "page": 7,
+   "section": "Clause 5.5, The Policy",
+   "article": "5.5",
+   "quote": "The Licensees shall ensure that Consent is obtained from an intended \nRecipient before sending their own Marketing Electronic Communications to \nthat intended Recipient, unless specified otherwise in the Annexes."
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Check",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-21",
+  "title": "Consent records are kept for at least 5 years",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 49,
+  "group": "privacy",
+  "action": "Check the retained consent records. The table sets at least 5 years for records concerning Subscriber consent, so a missing record is itself a finding for a person to assess.",
+  "nodes": [
+   "SRC",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p12-c1",
+   "doc_id": "cpr",
+   "page": 12,
+   "section": "Sub-article 3.9 of Article 3",
+   "article": "3.9",
+   "quote": "Shall be retained for at least 5 \nyears"
+  },
+  "supporting": [
+   {
+    "chunk_id": "cpr-p12-c1",
+    "doc_id": "cpr",
+    "page": 12,
+    "section": "Sub-article 3.9 of Article 3",
+    "article": "3.9",
+    "quote": "Records concerning Subscriber \nconsent/agreement"
+   }
+  ],
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Check",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-22",
+  "title": "Content of communications",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 50,
+  "group": "privacy",
+  "action": "Ask counsel whether any exported record holds the content of a communication. The article punishes a person who copies, discloses or spreads such content without the right to do so. The text does not say whether call-detail records are content.",
+  "nodes": [
+   "C",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "shall be punished",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "law-p28-c3",
+   "doc_id": "law",
+   "page": 28,
+   "section": "Article (72), Telecom Law",
+   "article": "Article (72)",
+   "quote": "copies, discloses, or spreads the content of any communication through a Public Telecommunication Network without having the right to do so;"
+  },
+  "supporting": [
+   {
+    "chunk_id": "law-p28-c3",
+    "doc_id": "law",
+    "page": 28,
+    "section": "Article (72), Telecom Law",
+    "article": "Article (72)",
+    "quote": "A person shall be punished with imprisonment of not more than one year and a fine of not less than Dirhams 50,000 and not more than Dirhams 200,000 or either of these punishments if he:"
+   }
+  ],
+  "strength_check": {
+   "text_modal": "shall be punished",
+   "action_verb": "Ask",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-23",
+  "title": "Who to take the case to",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 51,
+  "group": "privacy",
+  "action": "Ask counsel whether to approach the Authority. The law names it the competent body. No duty on a Licensee to report a privacy breach was found in the ingested text, and the Data Protection Law was not read.",
+  "nodes": [
+   "P",
+   "MLFO"
+  ],
+  "dimension_id": 10,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "law-p10-c2",
+   "doc_id": "law",
+   "page": 10,
+   "section": "Article (12), Telecom Law",
+   "article": "Article (12)",
+   "quote": "The Authority is the competent body to oversee the telecommunications sector in the State and all Licensees"
+  },
+  "strength_check": {
+   "text_modal": "descriptive",
+   "action_verb": "Ask",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "PR-11",
+  "title": "Avoid models exposing personal data (analogy, supporting)",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 60,
+  "group": "privacy",
+  "action": "Consider it alongside TL-12: avoid exposing personal data through the model, or record which of the text’s exceptions applies. The Guideline is about government services.",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 6,
+  "modal": "should",
+  "analogy": true,
+  "supports": "TL-12",
+  "citation": {
+   "chunk_id": "guideline-p48-c1",
+   "doc_id": "guideline",
+   "page": 48,
+   "section": "AI Risk Management, Privacy",
+   "article": null,
+   "quote": "any \nentity should avoid AI models that are exposing personal data \nunless there is a matter of public interest and targeted government \nservices outcomes or consent in line with national regulations."
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Consider",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "PR-13",
+  "title": "Minimum intrusion (supporting)",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 61,
+  "group": "privacy",
+  "action": "Should respect privacy and use the minimum intrusion necessary for congestion prediction.",
+  "nodes": [
+   "SRC",
+   "C"
+  ],
+  "dimension_id": 13,
+  "modal": "should",
+  "analogy": false,
+  "supports": "TL-14",
+  "citation": {
+   "chunk_id": "ethics-p21-c1",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.1 Principle",
+   "article": null,
+   "quote": "AI systems should respect privacy and use the minimum intrusion necessary."
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Should",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "PR-14",
+  "title": "Consent logging and revocation (supporting)",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 62,
+  "group": "privacy",
+  "action": "Should review the system for proper consent logging and whether subscribers can revoke permission.",
+  "nodes": [
+   "SRC",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "should",
+  "analogy": false,
+  "supports": "TL-12",
+  "citation": {
+   "chunk_id": "ethics-p21-c1",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.2.1",
+   "article": null,
+   "quote": "AI Operators should review the system for proper consent logging, ability of users to revoke \npermission whenever applicable."
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Should",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "PR-15",
+  "title": "Internal oversight mechanism (supporting)",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 63,
+  "group": "privacy",
+  "action": "Check that an internal oversight mechanism for data collection, storage, processing and use exists, as the Ethics guideline says to establish one, and put the case before it.",
+  "nodes": [
+   "C",
+   "P"
+  ],
+  "dimension_id": 8,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p21-c1",
    "doc_id": "ethics",
    "page": 21,
    "section": "3.8.2.2",
-   "quote": "data protocols governing data access should be put in place in line with \nnational privacy legislation (be these universal or sector-specific)."
+   "article": null,
+   "quote": "Establish an oversight mechanism for data collection, storage and processing and use across \nyour organization"
+  },
+  "strength_check": {
+   "text_modal": "imperative",
+   "action_verb": "Check",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "PR-16",
+  "title": "Data Protection Officer (supporting)",
+  "classes": [
+   "personal_data_exposure"
+  ],
+  "priority": 64,
+  "group": "privacy",
+  "action": "Check that specific responsibilities are assigned for a Data Protection Officer role, as the Ethics guideline says.",
+  "nodes": [
+   "P"
+  ],
+  "dimension_id": 8,
+  "modal": null,
+  "analogy": false,
+  "citation": {
+   "chunk_id": "ethics-p21-c1",
+   "doc_id": "ethics",
+   "page": 21,
+   "section": "3.8.2.2",
+   "article": null,
+   "quote": "Assign specific responsibilities and role for Data Protection Officers."
+  },
+  "strength_check": {
+   "text_modal": "imperative",
+   "action_verb": "Check",
+   "result": "pass"
   }
  },
  {
@@ -427,9 +1249,9 @@
   "classes": [
    "personal_data_exposure"
   ],
-  "priority": 38,
+  "priority": 65,
   "group": "privacy",
-  "action": "Run a privacy impact assessment before any further use of this data.",
+  "action": "Check that an adequate privacy impact assessment exists, or record that it does not.",
   "nodes": [
    "P",
    "PP"
@@ -442,111 +1264,242 @@
    "doc_id": "ethics",
    "page": 22,
    "section": "3.8.2.2",
+   "article": null,
    "quote": "Algorithmic systems require adequate privacy impact assessments"
+  },
+  "strength_check": {
+   "text_modal": "require",
+   "action_verb": "Check",
+   "result": "pass"
   }
  },
  {
   "id": "PR-20",
-  "title": "Retrain with minimal personal data",
+  "title": "Train with minimal personal data (supporting)",
   "classes": [
    "personal_data_exposure"
   ],
-  "priority": 39,
+  "priority": 66,
   "group": "privacy",
-  "action": "Retrain without identifiers where possible.",
+  "action": "Consider training without, or with minimal use of, personal data.",
   "nodes": [
    "M"
   ],
   "dimension_id": 9,
-  "modal": "Consider",
+  "modal": "consider",
   "analogy": false,
   "citation": {
    "chunk_id": "ethics-p21-c1",
    "doc_id": "ethics",
    "page": 21,
    "section": "3.8.2.1",
+   "article": null,
    "quote": "Consider training AI model without or with minimal user of potentially sensitive or personal \ndata."
+  },
+  "strength_check": {
+   "text_modal": "consider",
+   "action_verb": "Consider",
+   "result": "pass"
   }
  },
  {
   "id": "PR-21",
-  "title": "Privacy-enhancing measures in pre-processing",
+  "title": "Privacy-enhancing measures (supporting)",
   "classes": [
    "personal_data_exposure"
   ],
-  "priority": 40,
+  "priority": 67,
   "group": "privacy",
-  "action": "Apply encryption, anonymization or aggregation at the pre-processor before any data leaves it.",
+  "action": "Check whether the pre-processor applies encryption, anonymization or aggregation, as the Ethics guideline says to use.",
   "nodes": [
    "PP"
   ],
   "dimension_id": 3,
-  "modal": "Use",
+  "modal": null,
   "analogy": false,
   "citation": {
    "chunk_id": "ethics-p21-c1",
    "doc_id": "ethics",
    "page": 21,
    "section": "3.8.2.1",
+   "article": null,
    "quote": "Use measures to enhance privacy such as encryption, anonymization and aggregation."
+  },
+  "strength_check": {
+   "text_modal": "imperative",
+   "action_verb": "Check",
+   "result": "pass"
   }
  },
  {
   "id": "PR-22",
-  "title": "Investigate and redress harm",
+  "title": "Investigate and redress (supporting)",
   "classes": [
    "personal_data_exposure"
   ],
-  "priority": 41,
+  "priority": 68,
   "group": "privacy",
-  "action": "Investigate the harm to affected subscribers and provide redress.",
+  "action": "Should ensure harm to affected subscribers is investigated and redressed.",
   "nodes": [
    "SINK",
    "MLFO"
   ],
   "dimension_id": 8,
-  "modal": "should ensure",
+  "modal": "should",
   "analogy": false,
   "citation": {
    "chunk_id": "ethics-p14-c1",
    "doc_id": "ethics",
    "page": 14,
    "section": "3.3.2.1",
+   "article": null,
    "quote": "Organizations should ensure that harms caused through AI systems are investigated and \nredressed,"
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Should",
+   "result": "pass"
   }
  },
  {
-  "id": "PR-23",
-  "title": "Privacy is a stated priority of the Charter",
+  "id": "TL-24",
+  "title": "Records to the TDRA on demand",
   "classes": [
-   "personal_data_exposure"
+   "regulator_request"
   ],
-  "priority": 42,
-  "group": "privacy",
-  "action": "Put subscriber privacy ahead of the model's data appetite when the two conflict.",
+  "priority": 70,
+  "group": "records",
+  "action": "Shall maintain records and provide copies to the TDRA on demand. Gather the complaint, consent and decision records.",
   "nodes": [
-   "P"
+   "SINK",
+   "MLFO"
   ],
-  "dimension_id": 7,
-  "modal": null,
+  "dimension_id": 5,
+  "modal": "shall",
   "analogy": false,
   "citation": {
-   "chunk_id": "charter-p03-c1",
-   "doc_id": "charter",
-   "page": 3,
-   "section": "4. Data Privacy",
-   "quote": "while data is essential for AI \ndevelopment, supporting and promoting innovation in AI, the privacy of \ncommunity members remains a top priority."
+   "chunk_id": "cpr-p11-c4",
+   "doc_id": "cpr",
+   "page": 11,
+   "section": "Sub-article 3.9 of Article 3",
+   "article": "3.9",
+   "quote": "Licensees shall maintain records and shall provide copies of such records to \nthe TDRA on demand."
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Shall",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-25",
+  "title": "Subscriber Information requested by the TDRA",
+  "classes": [
+   "regulator_request"
+  ],
+  "priority": 71,
+  "group": "records",
+  "action": "Shall take all reasonable measures to supply Subscriber Information requested in writing by the TDRA, as directed. Check that the request is in writing.",
+  "nodes": [
+   "SINK",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p60-c7",
+   "doc_id": "cpr",
+   "page": 60,
+   "section": "Sub-article 24.11 of Article 24",
+   "article": "24.11",
+   "quote": "the Licensee to which the request is \naddressed shall take all reasonable measures to supply the requested \nSubscriber Information as directed by the TDRA."
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Shall",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-26",
+  "title": "Do not alter or suppress what the regulator requires",
+  "classes": [
+   "regulator_request"
+  ],
+  "priority": 72,
+  "group": "records",
+  "action": "Do not alter, destroy or suppress a document or information the Authority requires. The article punishes doing so intentionally.",
+  "nodes": [
+   "P",
+   "MLFO"
+  ],
+  "dimension_id": 10,
+  "modal": "shall be punished",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "law-p28-c2",
+   "doc_id": "law",
+   "page": 28,
+   "section": "Article (71), Telecom Law",
+   "article": "Article (71)",
+   "quote": "he intentionally alters, destroys or otherwise suppresses a document or information required by the Supreme Committee or the Authority pursuant to this Federal Law by Decree;"
+  },
+  "supporting": [
+   {
+    "chunk_id": "law-p28-c2",
+    "doc_id": "law",
+    "page": 28,
+    "section": "Article (71), Telecom Law",
+    "article": "Article (71)",
+    "quote": "A person shall be punished with imprisonment of not more than two years"
+   }
+  ],
+  "strength_check": {
+   "text_modal": "shall be punished",
+   "action_verb": "Do not",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-27",
+  "title": "Assist on Consumer Disputes",
+  "classes": [
+   "regulator_request"
+  ],
+  "priority": 73,
+  "group": "records",
+  "action": "Shall provide information in a timely manner if the request concerns a Consumer Dispute under TDRA investigation.",
+  "nodes": [
+   "SINK",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p65-c1",
+   "doc_id": "cpr",
+   "page": 65,
+   "section": "Sub-article 26.3 of Article 26",
+   "article": "26.3",
+   "quote": "Licensees shall establish and maintain effective procedures to assist the TDRA \nand to provide such information in a timely manner as the TDRA may require"
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Shall",
+   "result": "pass"
   }
  },
  {
   "id": "PR-24",
-  "title": "Keep traceable records",
+  "title": "Traceability (supporting)",
   "classes": [
    "regulator_request"
   ],
-  "priority": 50,
+  "priority": 74,
   "group": "records",
-  "action": "Preserve the decision logs and this audit trail so the response can show what the system did.",
+  "action": "Check that decision logs and this audit trail are kept, as the Ethics guideline says to facilitate traceability and auditability.",
   "nodes": [
    "P",
    "MLFO"
@@ -554,48 +1507,61 @@
   "dimension_id": 10,
   "modal": null,
   "analogy": false,
+  "supports": "TL-24",
   "citation": {
    "chunk_id": "ethics-p12-c2",
    "doc_id": "ethics",
    "page": 12,
    "section": "3.2.2.3",
+   "article": null,
    "quote": "Facilitate traceability and auditability of AI systems, particularly in critical contexts or \nsituations."
+  },
+  "strength_check": {
+   "text_modal": "imperative",
+   "action_verb": "Check",
+   "result": "pass"
   }
  },
  {
-  "id": "PR-25",
-  "title": "Binding law sits outside this KB",
+  "id": "FR-02",
+  "title": "Y.3172: what a sandbox is for",
   "classes": [
-   "regulator_request",
-   "interception_access",
-   "licensing_authorization"
+   "model_change"
   ],
-  "priority": 51,
-  "group": "records",
-  "action": "Refer the question to human legal counsel. The Charter points to treaties and local laws, and no such law is in this KB.",
+  "priority": 80,
+  "group": "change",
+  "action": "Check whether the retrained model went through a sandbox as Y.3172 describes. Y.3172 is voluntary, and no UAE text in the KB requires a sandbox.",
   "nodes": [
-   "P"
+   "M",
+   "Sandbox",
+   "MLFO"
   ],
   "dimension_id": 10,
   "modal": null,
   "analogy": false,
   "citation": {
-   "chunk_id": "charter-p05-c1",
-   "doc_id": "charter",
-   "page": 5,
-   "section": "12. Commitment to Treaties and Applicable Laws",
-   "quote": "emphasizes the importance of complying with international treaties \nand local laws in the development and use of AI."
+   "chunk_id": "y3172-p21-c3",
+   "doc_id": "y3172",
+   "page": 21,
+   "section": "Clause 8.1, ML sandbox",
+   "article": null,
+   "quote": "An ML sandbox is an isolated domain which allows the hosting of separate ML pipelines to train, test \nand evaluate them before deploying them in a live network."
+  },
+  "strength_check": {
+   "text_modal": "descriptive",
+   "action_verb": "Check",
+   "result": "pass"
   }
  },
  {
   "id": "PR-26",
-  "title": "Evaluate before deploying",
+  "title": "Acceptance criteria (analogy)",
   "classes": [
    "model_change"
   ],
-  "priority": 60,
+  "priority": 81,
   "group": "change",
-  "action": "Hold the push to production until the retrained model has been evaluated against acceptance criteria.",
+  "action": "Check that evaluation against acceptance criteria is recorded before deployment, as the guideline describes the sequence. The guideline is about government services.",
   "nodes": [
    "M",
    "MLFO"
@@ -603,13 +1569,19 @@
   "dimension_id": 5,
   "modal": null,
   "analogy": true,
-  "analogy_note": "This guideline is about government services and this track is telecom. Applied by analogy.",
+  "analogy_note": "Government-services guidance. No telecom text in the KB covers ML change control.",
   "citation": {
    "chunk_id": "guideline-p40-c1",
    "doc_id": "guideline",
    "page": 40,
    "section": "Execution",
+   "article": null,
    "quote": "Once your model is ready for testing, you evaluate against acceptance criteria to confirm \nreadiness for model deployment."
+  },
+  "strength_check": {
+   "text_modal": "descriptive",
+   "action_verb": "Check",
+   "result": "pass"
   }
  },
  {
@@ -618,21 +1590,27 @@
   "classes": [
    "model_change"
   ],
-  "priority": 61,
+  "priority": 82,
   "group": "change",
-  "action": "Apply quality checks at least as stringent as a human decision-maker would face.",
+  "action": "Should apply quality checks at least as stringent as a human decision-maker would face, if the system informs significant decisions.",
   "nodes": [
    "M"
   ],
   "dimension_id": 9,
-  "modal": "should subject",
+  "modal": "should",
   "analogy": false,
   "citation": {
    "chunk_id": "ethics-p12-c2",
    "doc_id": "ethics",
    "page": 12,
    "section": "3.2.2.2",
+   "article": null,
    "quote": "AI Operators should subject AI systems informing significant decisions to quality checks \nat least as stringent as those that would be required of a human being taking the same \ndecision."
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Should",
+   "result": "pass"
   }
  },
  {
@@ -641,33 +1619,99 @@
   "classes": [
    "model_change"
   ],
-  "priority": 62,
+  "priority": 83,
   "group": "change",
-  "action": "Define and test a fall back plan before the new model goes live.",
+  "action": "Should define a suitable fall back plan and test it.",
   "nodes": [
    "P",
    "MLFO"
   ],
   "dimension_id": 7,
-  "modal": "should define",
+  "modal": "should",
   "analogy": false,
   "citation": {
    "chunk_id": "ethics-p17-c1",
    "doc_id": "ethics",
    "page": 17,
    "section": "3.5.2.2",
+   "article": null,
    "quote": "AI operators should define a suitable fall back plan and test it to maintain readiness in \nunexpected situations and in high safety risks level"
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Should",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-28",
+  "title": "Emergency numbers: the only duty found is in dunning",
+  "classes": [
+   "emergency_critical"
+  ],
+  "priority": 90,
+  "group": "safety",
+  "action": "Note that the one duty on emergency access found in the telecom text is scoped to the dunning process before disconnection. It does not speak to ML throttling. A person decides what follows from it.",
+  "nodes": [
+   "D",
+   "SINK"
+  ],
+  "dimension_id": 13,
+  "modal": "shall",
+  "analogy": true,
+  "analogy_note": "Telecom text, but its scope is non-payment. Read here by analogy only.",
+  "citation": {
+   "chunk_id": "cpr-p58-c4",
+   "doc_id": "cpr",
+   "page": 58,
+   "section": "Sub-article 22.4 of Article 22",
+   "article": "22.4",
+   "quote": "Licensees shall provide Subscribers with continued accessibility to emergency \nnumbers during the phases of the dunning process preceding final service \ndisconnection."
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Note",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-29",
+  "title": "If this is a network fault",
+  "classes": [
+   "emergency_critical"
+  ],
+  "priority": 91,
+  "group": "safety",
+  "action": "Check whether the degradation counts as a network fault. If a person decides it does, the Licensee shall take all reasonable steps to repair it and restore service as quickly as possible.",
+  "nodes": [
+   "SINK"
+  ],
+  "dimension_id": 13,
+  "modal": "shall",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p58-c6",
+   "doc_id": "cpr",
+   "page": 58,
+   "section": "Sub-article 23.1 of Article 23",
+   "article": "23.1",
+   "quote": "In the event of service being interrupted or impaired due to a network fault, \nLicensees shall take all reasonable steps to repair the fault and restore service \nas quickly as possible."
+  },
+  "strength_check": {
+   "text_modal": "shall",
+   "action_verb": "Check",
+   "result": "pass"
   }
  },
  {
   "id": "PR-29",
-  "title": "Modify or remove systems that pose risks",
+  "title": "Modifying or removing systems that pose risks (supporting)",
   "classes": [
    "emergency_critical"
   ],
-  "priority": 70,
+  "priority": 92,
   "group": "safety",
-  "action": "Modify the throttle so it cannot touch this traffic, or remove it from service.",
+  "action": "Consider modifying the throttle so it cannot touch this traffic, or removing it. The Charter encourages this and sets no duty.",
   "nodes": [
    "P",
    "D"
@@ -680,30 +1724,42 @@
    "doc_id": "charter",
    "page": 3,
    "section": "2. Safety",
-   "quote": "country encourages modifying or \nremoving systems that pose risks."
+   "article": null,
+   "quote": "encourages modifying or \nremoving systems that pose risks."
+  },
+  "strength_check": {
+   "text_modal": "encourages",
+   "action_verb": "Consider",
+   "result": "pass"
   }
  },
  {
   "id": "PR-30",
-  "title": "Shut-down must be possible",
+  "title": "A shut-down path",
   "classes": [
    "emergency_critical"
   ],
-  "priority": 71,
+  "priority": 93,
   "group": "safety",
-  "action": "Shut the throttle down now if it cannot be limited at once.",
+  "action": "Confirm a shut-down path exists and who can use it. The text says this should always be possible in the most extreme cases. It does not say to shut this system down.",
   "nodes": [
    "SINK"
   ],
   "dimension_id": 13,
-  "modal": "should always be possible",
+  "modal": "should",
   "analogy": false,
   "citation": {
    "chunk_id": "ethics-p19-c1",
    "doc_id": "ethics",
    "page": 19,
    "section": "3.6.2.3",
+   "article": null,
    "quote": "In the most extreme cases it should always be possible to shut down harmful AI system."
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Confirm",
+   "result": "pass"
   }
  },
  {
@@ -712,21 +1768,167 @@
   "classes": [
    "emergency_critical"
   ],
-  "priority": 72,
+  "priority": 94,
   "group": "safety",
-  "action": "Require human verification for any automated action that could touch this traffic. Whether this is a life and death decision in the text's sense is a human call.",
+  "action": "Should support life and death decisions with validation via a human operator. Whether this is one is a person’s call.",
   "nodes": [
    "P"
   ],
   "dimension_id": 8,
-  "modal": "should be supported",
+  "modal": "should",
   "analogy": false,
   "citation": {
    "chunk_id": "ethics-p12-c2",
    "doc_id": "ethics",
    "page": 12,
    "section": "3.2.2.3",
+   "article": null,
    "quote": "In the case that critical decision are life and death decisions, these decisions should be \nsupported by further validation and verification via a human operator."
+  },
+  "strength_check": {
+   "text_modal": "should",
+   "action_verb": "Should",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-30",
+  "title": "Interception offence",
+  "classes": [
+   "interception_access"
+  ],
+  "priority": 100,
+  "group": "access",
+  "action": "Ask counsel. The article punishes intercepting the contents of telephone calls without prior permission by the competent judicial authorities. Call content only; it does not address metadata in an ML pipeline.",
+  "nodes": [
+   "SRC",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "shall be punished",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "law-p28-c3",
+   "doc_id": "law",
+   "page": 28,
+   "section": "Article (72), Telecom Law",
+   "article": "Article (72)",
+   "quote": "intercepts the contents of telephone calls without prior permission by the competent judicial authorities;"
+  },
+  "supporting": [
+   {
+    "chunk_id": "law-p28-c3",
+    "doc_id": "law",
+    "page": 28,
+    "section": "Article (72), Telecom Law",
+    "article": "Article (72)",
+    "quote": "A person shall be punished with imprisonment of not more than one year and a fine of not less than Dirhams 50,000 and not more than Dirhams 200,000 or either of these punishments if he:"
+   }
+  ],
+  "strength_check": {
+   "text_modal": "shall be punished",
+   "action_verb": "Ask",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-31",
+  "title": "Disclosure to law enforcement",
+  "classes": [
+   "interception_access"
+  ],
+  "priority": 101,
+  "group": "access",
+  "action": "Record the basis if disclosing. A Licensee may disclose Subscriber Information in response to a lawful request by law enforcement agencies to assist in investigating criminal activity.",
+  "nodes": [
+   "SINK",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "may",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "cpr-p59-c4",
+   "doc_id": "cpr",
+   "page": 59,
+   "section": "Sub-article 24.3.5 of Article 24",
+   "article": "24.3.5",
+   "quote": "made in response to a lawful request by law enforcement agencies \nto assist in the investigation of criminal activity;"
+  },
+  "supporting": [
+   {
+    "chunk_id": "cpr-p59-c4",
+    "doc_id": "cpr",
+    "page": 59,
+    "section": "Sub-article 24.3 of Article 24",
+    "article": "24.3",
+    "quote": "a \nLicensee may disclose Subscriber Information if such disclosure is:"
+   }
+  ],
+  "strength_check": {
+   "text_modal": "may",
+   "action_verb": "Record",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-32",
+  "title": "Licensee surveillance needs prior approval",
+  "classes": [
+   "interception_access"
+  ],
+  "priority": 102,
+  "group": "access",
+  "action": "May place an apparatus under surveillance only after prior approval from the Authority, on reasonable justification of an Article (72) offence. Ask counsel before relying on it.",
+  "nodes": [
+   "SRC",
+   "P"
+  ],
+  "dimension_id": 10,
+  "modal": "may",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "law-p29-c3",
+   "doc_id": "law",
+   "page": 29,
+   "section": "Article (75), Telecom Law",
+   "article": "Article (75)",
+   "quote": "A Licensee may, after obtaining prior approval from the Authority, place an apparatus or any other medium under surveillance if such Licensee had reasonable justifications to lead such Licensee to believe that the apparatus is being used in performing any of the offences prescribed in Article 72"
+  },
+  "strength_check": {
+   "text_modal": "may",
+   "action_verb": "May",
+   "result": "pass"
+  }
+ },
+ {
+  "id": "TL-33",
+  "title": "Regulated Activity needs a Licence",
+  "classes": [
+   "licensing_authorization"
+  ],
+  "priority": 110,
+  "group": "licensing",
+  "action": "Check the licence position. The article does not permit a Regulated Activity unless authorised by a Licence or exempted. It does not mention ML functions, and licence conditions are not in this KB.",
+  "nodes": [
+   "P",
+   "MLFO"
+  ],
+  "dimension_id": 10,
+  "modal": "not permitted",
+  "analogy": false,
+  "citation": {
+   "chunk_id": "law-p15-c5",
+   "doc_id": "law",
+   "page": 15,
+   "section": "Article (31), Telecom Law",
+   "article": "Article (31)",
+   "quote": "It is not permitted to conduct any Regulated Activity unless authorised by a Licence or exempted in accordance with the provision of this Federal Law by Decree or its Executive Order."
+  },
+  "strength_check": {
+   "text_modal": "not permitted",
+   "action_verb": "Check",
+   "result": "pass"
   }
  }
 ]

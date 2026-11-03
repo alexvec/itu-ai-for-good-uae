@@ -7,24 +7,26 @@
    "dimension_id": 13,
    "why_dimension": "Devices and connectivity that generate the data.",
    "citation": {
-    "chunk_id": "ethics-p21-c2",
-    "doc_id": "ethics",
-    "page": 21,
-    "section": "3.8.2.2",
-    "quote": "This includes the information initially provided by the user, as well as the \ninformation generated about the user over the course of their interaction with the system"
+    "chunk_id": "cpr-p09-c1",
+    "doc_id": "cpr",
+    "page": 9,
+    "section": "Sub-article 2.1.31 of Article 2",
+    "article": "2.1.31",
+    "quote": "“Subscriber Information” means - any personal data relating to a \nspecific Subscriber"
    }
   },
   {
    "node": "C",
    "use_case": "Collectors pull those records, including call-detail data, and set their granularity.",
    "dimension_id": 1,
-   "why_dimension": "Whether and how data is shared with vendors and others.",
+   "why_dimension": "Whether and how data is exchanged with vendors and partners.",
    "citation": {
-    "chunk_id": "ethics-p21-c1",
-    "doc_id": "ethics",
-    "page": 21,
-    "section": "3.8.2.2",
-    "quote": "Establish an oversight mechanism for data collection, storage and processing and use across \nyour organization"
+    "chunk_id": "cpr-p60-c2",
+    "doc_id": "cpr",
+    "page": 60,
+    "section": "Sub-article 24.6 of Article 24",
+    "article": "24.6",
+    "quote": "Licensees must obtain a Subscriber’s prior consent 35 before sharing any \nSubscriber Information with its affiliates and/or other third parties not directly \ninvolved in the provision of the telecommunications services ordered by the \nSubscriber."
    }
   },
   {
@@ -33,92 +35,101 @@
    "dimension_id": 3,
    "why_dimension": "Correlating data across domains.",
    "citation": {
-    "chunk_id": "ethics-p21-c1",
-    "doc_id": "ethics",
-    "page": 21,
-    "section": "3.8.2.1",
-    "quote": "Use measures to enhance privacy such as encryption, anonymization and aggregation."
+    "chunk_id": "cpr-p59-c5",
+    "doc_id": "cpr",
+    "page": 59,
+    "section": "Sub-article 24.4 of Article 24",
+    "article": "24.4",
+    "quote": "Licensees shall use reliable security measures against risks such as loss \nor unauthorised access, destruction, leakage, inappropriate use, modification \nand/or unauthorised disclosure."
    }
   },
   {
    "node": "M",
    "use_case": "The model predicts congestion and is retrained, partly with a vendor.",
    "dimension_id": 9,
-   "why_dimension": "Humans who train, tune and adopt the model.",
+   "why_dimension": "People who train, tune and answer for the model.",
    "citation": {
     "chunk_id": "ethics-p12-c2",
     "doc_id": "ethics",
     "page": 12,
     "section": "3.2.2.2",
+    "article": null,
     "quote": "AI Operators should subject AI systems informing significant decisions to quality checks \nat least as stringent as those that would be required of a human being taking the same \ndecision."
-   }
+   },
+   "no_telecom_text": "No retrieved telecom text speaks to model training or testing, so this row keeps an AI document."
   },
   {
    "node": "P",
    "use_case": "The policy node turns predictions into throttling decisions, with human override.",
-   "dimension_id": 8,
-   "why_dimension": "Collaboration between AI and a human.",
+   "dimension_id": 10,
+   "why_dimension": "Policies for nodes in AI pipelines.",
    "citation": {
-    "chunk_id": "charter-p04-c1",
-    "doc_id": "charter",
-    "page": 4,
-    "section": "6. Human Oversight",
-    "quote": "Charter emphasizes the irreplaceable value of human judgment and human \noversight over AI, aligning with ethical values and social standards to correct \nany errors or biases that may arise."
+    "chunk_id": "law-p15-c4",
+    "doc_id": "law",
+    "page": 15,
+    "section": "Article (30), Telecom Law",
+    "article": "Article (30)",
+    "quote": "All Licensees shall take into account the special needs and requirements regarding the type of service and Telecommunication Apparatus and ensure non-discrimination when providing such services and apparatus."
    }
   },
   {
    "node": "D",
    "use_case": "The distributor sends the decision to the right service classes and regions.",
    "dimension_id": 12,
-   "why_dimension": "Adapting AI outcomes to subsets of users.",
+   "why_dimension": "Which users and regions the output reaches.",
    "citation": {
-    "chunk_id": "ethics-p10-c2",
-    "doc_id": "ethics",
-    "page": 10,
-    "section": "3.1.2.3",
-    "quote": "When evaluating the fairness of an AI system, AI developers and AI operators should \nconsider whether AI subjects in the same circumstances receive equal treatment."
+    "chunk_id": "cpr-p22-c2",
+    "doc_id": "cpr",
+    "page": 22,
+    "section": "Sub-article 5.5.6 of Article 5",
+    "article": "5.5.6",
+    "quote": "details of any limitations or restrictions on the use of the service \nincluding, but not limited to, any limits on the volume of usage, any \nrestrictions on the speed of data transfer"
    }
   },
   {
    "node": "SINK",
    "use_case": "Network functions apply the throttle. Subscribers and staff see the effect.",
    "dimension_id": 6,
-   "why_dimension": "How people meet and interact with the outcome.",
+   "why_dimension": "How people reach and contest the system.",
    "citation": {
-    "chunk_id": "ethics-p15-c1",
-    "doc_id": "ethics",
-    "page": 15,
-    "section": "3.3.2.2",
-    "quote": "AI operators should inform AI subjects when a significant decision affecting them has been \nmade by an AI system."
+    "chunk_id": "cpr-p65-c5",
+    "doc_id": "cpr",
+    "page": 65,
+    "section": "Sub-article 26.7.2 of Article 26",
+    "article": "26.7.2",
+    "quote": "preclude the use of non-human agents by Licensees in \nconversations with Consumers regarding Consumer Complaints."
    }
   }
  ],
  "supporting": [
   {
    "node": "MLFO",
-   "use_case": "The orchestrator manages the pipeline from the operator's ML intent.",
-   "dimension_id": 7,
-   "why_dimension": "Coordination across the pipeline against strategy.",
+   "use_case": "The orchestrator manages the pipeline from the operator’s ML intent and holds its records.",
+   "dimension_id": 5,
+   "why_dimension": "How the ML function sits in the operator’s workflow.",
    "citation": {
-    "chunk_id": "strategy-p22-c2",
-    "doc_id": "strategy",
-    "page": 22,
-    "section": "Objective 8, National Governance Review",
-    "quote": "the Council will ultimately \noversee the implementation of the AI \nStrategy in the UAE."
+    "chunk_id": "cpr-p11-c4",
+    "doc_id": "cpr",
+    "page": 11,
+    "section": "Sub-article 3.9 of Article 3",
+    "article": "3.9",
+    "quote": "Licensees shall maintain records and shall provide copies of such records to \nthe TDRA on demand."
    }
   },
   {
    "node": "Sandbox",
-   "use_case": "Retrained models would be validated on a simulated underlay before going live.",
+   "use_case": "Retrained models would be trained, tested and evaluated before deployment.",
    "dimension_id": 10,
-   "why_dimension": "Policy experimentation and readiness.",
+   "why_dimension": "Sandbox testing of models and policies.",
    "citation": {
-    "chunk_id": "strategy-p06-c1",
-    "doc_id": "strategy",
-    "page": 6,
-    "section": "Where the UAE has opportunities to lead",
-    "quote": "Governance frameworks will \nbe evaluated by testing them in the \nUAE’s industry pilots."
-   }
+    "chunk_id": "y3172-p21-c3",
+    "doc_id": "y3172",
+    "page": 21,
+    "section": "Clause 8.1, ML sandbox",
+    "article": null,
+    "quote": "An ML sandbox is an isolated domain which allows the hosting of separate ML pipelines to train, test \nand evaluate them before deploying them in a live network."
+   },
+   "no_telecom_text": "Weak row. No UAE text in the KB mentions a sandbox. This quote is the voluntary framework document, not policy."
   }
  ],
  "non_data": [
@@ -126,26 +137,28 @@
    "item": "Strategy alignment",
    "node": "MLFO",
    "dimension_id": 7,
-   "note": "Telecom is not among the strategy's listed priority sectors, so alignment rests on this general statement.",
+   "note": "The word telecom does not occur in the strategy, so alignment rests on this general statement.",
    "citation": {
     "chunk_id": "strategy-p06-c1",
     "doc_id": "strategy",
     "page": 6,
-    "section": "1. Industry Assets & Emerging Sectors",
-    "quote": "This does not mean that the UAE will \nstop working on AI solutions in other \nsectors where AI can deliver other \nbenefits to society."
+    "section": "Priority sectors",
+    "article": null,
+    "quote": "This does not mean that the UAE will \nstop working on AI solutions in other \nsectors where AI can deliver other \nbenefits"
    }
   },
   {
    "item": "Interface design",
    "node": "SINK",
    "dimension_id": 6,
-   "note": "Applied to the operator's care and governance screens.",
+   "note": "Applied to the complaint route subscribers use and the governance screens.",
    "citation": {
-    "chunk_id": "guideline-p40-c1",
-    "doc_id": "guideline",
-    "page": 40,
-    "section": "Execution",
-    "quote": "Designing the UX and UI for the AI use case is also a key step throughout execution to ensure \nthat it gets easily adopted by target users."
+    "chunk_id": "cpr-p64-c8",
+    "doc_id": "cpr",
+    "page": 64,
+    "section": "Sub-article 26.2 of Article 26",
+    "article": "26.2",
+    "quote": "The Licensee’s procedures shall be user-friendly"
    }
   },
   {
@@ -158,6 +171,7 @@
     "doc_id": "ethics",
     "page": 19,
     "section": "3.6.2.3",
+    "article": null,
     "quote": "Humanity should retain the power to govern itself and make the final decision, with AI in an \nassisting role."
    }
   }
