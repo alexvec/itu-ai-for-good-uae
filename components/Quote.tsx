@@ -17,7 +17,7 @@ export function Quote(p: { quote: string; chunkId: string; where: string; short:
       <blockquote className="quote" data-testid="quote" data-chunk={p.chunkId}>{p.quote}</blockquote>
       <figcaption className="cite">
         {p.short}, {p.where}
-        {p.heading && !p.where.includes(p.heading) ? `, ${p.heading}` : ""} <span className="mono">{p.chunkId}</span>
+        {p.heading && !/^(sub-article|Article) /.test(p.where) ? `, ${p.heading}` : ""} <span className="mono">{p.chunkId}</span>
         {p.ocr && <span className="tag ocr" style={{ marginLeft: 4 }}>OCR-derived</span>}{" "}
         <button type="button" className="linklike" onClick={verify} data-testid="quote-verify">verify</button>
         {state && <span data-testid="quote-verify-result" className={ok ? "pass" : ""}> {state}</span>}
