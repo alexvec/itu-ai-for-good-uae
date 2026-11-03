@@ -32,3 +32,20 @@ export function strengthProblem(action: string, quote: string, sc: StrengthCheck
   if (t < 3 && /\bshould\b/i.test(action)) return "action says should on a text weaker than that";
   return sc.result === "pass" ? null : "strength_check result is not pass";
 }
+
+const STOP = new Set("about after against their there which while where these those shall should must would could under other within without being before following".split(" "));
+const contentWords = (t: string) => new Set((t.toLowerCase().match(/[a-z]{5,}/g) ?? []).filter((w) => !STOP.has(w)).map((w) => w.slice(0, 5)));
+
+/**
+ * A rule's main quote must itself carry the duty its action states. A list stem ("Licensees shall:") shows a modal and nothing else.
+ * Returns the reason a quote is a stub, or null. A stem may still be shown as a supporting quote beside the item.
+ */
+export function stubProblem(action: string, quote: string): string | null {
+  const q = quote.replace(/\s+/g, " ").trim();
+  if (/:$/.test(q)) return "quote ends in a colon, so it is a list stem";
+  if (q.split(" ").length < 6) return "quote has fewer than 6 words";
+  if (/^(shall|must|should|may)\b/i.test(q)) return "quote starts at the modal, so it has no subject";
+  const a = contentWords(action);
+  if ([...contentWords(q)].filter((w) => a.has(w)).length < 2) return "quote shares fewer than 2 content words with the action";
+  return null;
+}

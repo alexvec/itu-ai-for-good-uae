@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { chunkById, docById } from "../lib/data.ts";
 import { allConflicts, applyPrecedence, conflicts, controls, dimensions, nodeMapping, precedence, readiness, resolveCitation, rules, templateOutcomes, eventClasses, y3172Nodes } from "../lib/engine.ts";
-import { strengthProblem } from "../lib/strength.ts";
+import { strengthProblem, stubProblem } from "../lib/strength.ts";
+import labelChecks from "../data/label-checks.json" with { type: "json" };
+import { conflicts as conflictList } from "../lib/engine.ts";
 import { nonDataRows, pipelineRows, supportingRows } from "../lib/evidence.ts";
 
 const norm = (s: string) => s.replace(/\s+/g, " ");
@@ -33,6 +35,29 @@ describe("pre-agreed rules", () => {
       expect(r.strength_check, r.id).toBeDefined();
       expect(strengthProblem(r.action, shownWith(r), r.strength_check), r.id).toBeNull();
     }
+  });
+
+  it("no rule's main quote is a stub: each carries the duty its action states", () => {
+    for (const r of rules) expect(stubProblem(r.action, r.citation.quote), r.id).toBeNull();
+    for (const c of conflicts) for (const q of [c.a.quote, c.b.quote]) expect(/:\s*$/.test(q), c.id).toBe(false);
+  });
+
+  it("the stub check catches the stems it was written for", () => {
+    const act = "Shall acknowledge each complaint with a reference number and an indicative time-frame.";
+    expect(stubProblem(act, "Licensees shall:")).toMatch(/colon/);
+    expect(stubProblem("Check the plan terms for restrictions on speed.", "Specifically, Licensees shall advise the Consumer of the following (where applicable):")).toMatch(/colon/);
+    expect(stubProblem("Check the retained consent records for 5 years.", "Shall be retained for at least 5 \nyears")).toMatch(/modal/);
+    expect(stubProblem(act, "It applies.")).toMatch(/fewer than 6/);
+    expect(stubProblem(act, "Licensees shall pay the regular invoices promptly every month")).toMatch(/content words/);
+    expect(stubProblem(act, "acknowledge the receipt of each Consumer Complaint by providing the complainant with a reference number")).toBeNull();
+  });
+
+  it("every Ethics section label is one confirmed on the rendered page", () => {
+    const seen = new Set(labelChecks.rendered.filter((p) => p.doc === "ethics").flatMap((p) => Object.values(p.labels).map((l) => l.split(/[;,]/)[0].trim())));
+    const cites = [...rules.flatMap((r) => [r.citation, ...(r.supporting ?? [])]), ...conflictList.flatMap((c) => [c.a, c.b]), ...[...pipelineRows, ...supportingRows, ...nonDataRows].flatMap((r) => (r.citation ? [r.citation] : []))];
+    for (const c of cites) if (c.doc_id === "ethics") expect(seen.has(c.section.split(/[;,]/)[0].trim()), `${c.chunk_id} ${c.section}`).toBe(true);
+    expect(rules.find((r) => r.id === "PR-32")!.citation.section).toBe("3.2.2.3(a)");
+    expect(conflictList.find((c) => c.id === "C-02")!.a.section).toBe("3.2.2.3(a)");
   });
 
   it("the modal-force check catches overreach", () => {

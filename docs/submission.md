@@ -89,7 +89,7 @@ Retrieval and rules are keyed by node. Telecom text leads; the M row keeps an Et
 | SRC | Elements and devices produce usage records. | D13 Digital Infrastructure | CPR 2.1.31, `cpr-p09-c1`: "“Subscriber Information” means - any personal data" |
 | C | Collectors pull the records. | D1 Data/Model Marketplace | CPR 24.6, `cpr-p60-c2`: "Licensees must obtain a Subscriber’s prior consent" |
 | PP | Records are joined into features. | D3 Cross-Domain Correlation Analysis | CPR 24.4, `cpr-p59-c5`: "Licensees shall use reliable security measures" |
-| M | The model predicts congestion; a vendor retrains it. | D9 Impacts of Humans in AI Integration | Ethics 3.2.2.2, `ethics-p12-c2`: "should subject AI systems informing significant decisions to quality checks" |
+| M | The model predicts congestion; a vendor retrains it. | D9 Impacts of Humans in AI Integration | Ethics 3.2.2.2(i), `ethics-p12-c2`: "should subject AI systems informing significant decisions to quality checks" |
 | P | Predictions become throttling, with human override. | D10 AI & Policies | Telecom Law Art. (30), `law-p15-c4`: "ensure non-discrimination when providing such services" |
 | D | Decisions go to service classes and regions. | D12 Granular Priorities | CPR 5.5.6, `cpr-p22-c2`: "restrictions on the speed of data transfer" |
 | SINK | The throttle is applied; subscribers see it. | D6 Human Interface | CPR 26.7.2, `cpr-p65-c5`: "preclude the use of non-human agents" |

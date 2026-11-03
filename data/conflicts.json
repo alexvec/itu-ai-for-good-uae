@@ -20,7 +20,7 @@
    "page": 65,
    "section": "Sub-article 26.7.2 of Article 26",
    "article": "26.7.2",
-   "quote": "preclude the use of non-human agents by Licensees in \nconversations with Consumers regarding Consumer Complaints."
+   "quote": "The provisions of sub-article 26.6: \n26.7.1. \napply in all cases regardless of which Mandatory Channel is used; \nand \n26.7.2. \npreclude the use of non-human agents by Licensees in \nconversations with Consumers regarding Consumer Complaints."
   },
   "outcome": "Do not use an AI chatbot in conversations with consumers about these complaints. AI elsewhere in customer service is not decided by this conflict.",
   "honesty": "The closest real tension is general against specific. The strategy objective does not mention complaints, and its discussion is largely about government."
@@ -36,7 +36,7 @@
    "chunk_id": "ethics-p12-c2",
    "doc_id": "ethics",
    "page": 12,
-   "section": "3.2.2.2",
+   "section": "3.2.2.3(a)",
    "article": null,
    "quote": "When AI systems are used for critical decisions, external auditing of the AI systems in \nquestion should be used as a means to ensure meaningful standards of transparency and \naccountability are upheld."
   },

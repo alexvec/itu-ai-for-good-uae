@@ -1,0 +1,179 @@
+{
+ "note": "Section labels checked against the source. \"rendered\" means the page image was looked at. \"text position\" means the last clause number printed before the quote in the page text was compared by script.",
+ "date": "2026-11-03",
+ "rendered": [
+  {
+   "doc": "ethics",
+   "pdf_page": 4,
+   "labels": {
+    "PR-02": "1.2 Scope"
+   }
+  },
+  {
+   "doc": "ethics",
+   "pdf_page": 8,
+   "labels": {
+    "PR-03": "2.10 Set of significant-at-scale decisions, example"
+   }
+  },
+  {
+   "doc": "ethics",
+   "pdf_page": 10,
+   "labels": {
+    "PR-05": "3.1.2.3(b)"
+   }
+  },
+  {
+   "doc": "ethics",
+   "pdf_page": 12,
+   "labels": {
+    "PR-06": "3.2.2.4(a)",
+    "PR-07": "3.2.2.4(d)",
+    "PR-27": "3.2.2.2(i); the list starts under 3.2.2.2 on PDF p. 11",
+    "PR-32": "3.2.2.3(a)",
+    "C-02": "3.2.2.3(a)",
+    "PR-31": "3.2.2.3(c)",
+    "PR-24": "3.2.2.3(d)",
+    "M row": "3.2.2.2(i)"
+   }
+  },
+  {
+   "doc": "ethics",
+   "pdf_page": 13,
+   "labels": {
+    "PR-04": "3.2.2.4(f)"
+   }
+  },
+  {
+   "doc": "ethics",
+   "pdf_page": 14,
+   "labels": {
+    "PR-22": "3.3.2.1(b)"
+   }
+  },
+  {
+   "doc": "ethics",
+   "pdf_page": 15,
+   "labels": {
+    "PR-08": "3.3.2.2(a)"
+   }
+  },
+  {
+   "doc": "ethics",
+   "pdf_page": 17,
+   "labels": {
+    "PR-28": "3.5.2.2, heading",
+    "PR-09": "3.5.2.4(e)"
+   }
+  },
+  {
+   "doc": "ethics",
+   "pdf_page": 19,
+   "labels": {
+    "PR-30": "3.6.2.3(b)",
+    "Collaboration row": "3.6.2.3, heading"
+   }
+  },
+  {
+   "doc": "ethics",
+   "pdf_page": 21,
+   "labels": {
+    "PR-13": "3.8.1 Principle",
+    "PR-14": "3.8.2.1(a)",
+    "PR-20": "3.8.2.1(b)",
+    "PR-21": "3.8.2.1(c)",
+    "PR-15": "3.8.2.2, heading",
+    "PR-16": "3.8.2.2(b)"
+   }
+  },
+  {
+   "doc": "ethics",
+   "pdf_page": 22,
+   "labels": {
+    "PR-19": "3.8.2.2(f); the list starts on PDF p. 21"
+   }
+  },
+  {
+   "doc": "cpr",
+   "pdf_page": 12,
+   "labels": {
+    "TL-21": "3.9 table, continued from PDF p. 11"
+   }
+  },
+  {
+   "doc": "cpr",
+   "pdf_page": 22,
+   "labels": {
+    "TL-02": "5.5 and 5.5.6"
+   }
+  },
+  {
+   "doc": "cpr",
+   "pdf_page": 60,
+   "labels": {
+    "TL-12": "24.6 and footnote 35",
+    "TL-13": "24.9",
+    "TL-18": "24.7",
+    "TL-25": "24.11"
+   }
+  },
+  {
+   "doc": "cpr",
+   "pdf_page": 65,
+   "labels": {
+    "TL-27": "26.3",
+    "TL-11": "26.7.2"
+   }
+  },
+  {
+   "doc": "cpr",
+   "pdf_page": 66,
+   "labels": {
+    "TL-05": "26.13.2",
+    "TL-06": "26.14.2"
+   }
+  },
+  {
+   "doc": "strategy",
+   "pdf_page": 6,
+   "labels": {
+    "Strategy alignment row": "1. Industry Assets & Emerging Sectors"
+   }
+  },
+  {
+   "doc": "guideline",
+   "pdf_page": 48,
+   "labels": {
+    "PR-11": "AI Risk Management, Privacy"
+   }
+  },
+  {
+   "doc": "guideline",
+   "pdf_page": 40,
+   "labels": {
+    "PR-26": "Execution"
+   }
+  },
+  {
+   "doc": "charter",
+   "pdf_page": 3,
+   "labels": {
+    "PR-29": "2. Safety"
+   }
+  },
+  {
+   "doc": "charter",
+   "pdf_page": 4,
+   "labels": {
+    "PR-10": "6. Human Oversight"
+   }
+  }
+ ],
+ "text_position": "All CPR citations on rules, conflicts and evidence rows, by script.",
+ "text_only": [
+  "Strategy Objective 4 heading (PDF p. 16)",
+  "Y.3172 clause 8.1 (PDF pp. 20 and 21)",
+  "Telecom Law article numbers",
+  "Policy clause 5.5 (PDF p. 7)"
+ ]
+}

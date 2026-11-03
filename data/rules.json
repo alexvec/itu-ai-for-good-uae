@@ -50,18 +50,18 @@
    "chunk_id": "cpr-p22-c2",
    "doc_id": "cpr",
    "page": 22,
-   "section": "Sub-article 5.5 of Article 5",
-   "article": "5.5",
-   "quote": "Specifically, Licensees shall advise \nthe Consumer of the following (where applicable):"
+   "section": "Sub-article 5.5.6 of Article 5",
+   "article": "5.5.6",
+   "quote": "details of any limitations or restrictions on the use of the service \nincluding, but not limited to, any limits on the volume of usage, any \nrestrictions on the speed of data transfer"
   },
   "supporting": [
    {
     "chunk_id": "cpr-p22-c2",
     "doc_id": "cpr",
     "page": 22,
-    "section": "Sub-article 5.5.6 of Article 5",
-    "article": "5.5.6",
-    "quote": "details of any limitations or restrictions on the use of the service \nincluding, but not limited to, any limits on the volume of usage, any \nrestrictions on the speed of data transfer"
+    "section": "Sub-article 5.5 of Article 5",
+    "article": "5.5",
+    "quote": "Specifically, Licensees shall advise \nthe Consumer of the following (where applicable):"
    }
   ],
   "strength_check": {
@@ -93,18 +93,8 @@
    "page": 9,
    "section": "Sub-article 2.1.31 of Article 2",
    "article": "2.1.31",
-   "quote": "“Subscriber Information” means - any personal data relating to a \nspecific Subscriber"
+   "quote": "“Subscriber Information” means - any personal data relating to a \nspecific Subscriber and includes, but is not limited to, that Person’s: \nname, address, bank account details, credit card details, service \nusage details, call records, message records, any information \nderived from a Subscriber’s use of telecommunications services, \naccount status, payment history, and credit rating;"
   },
-  "supporting": [
-   {
-    "chunk_id": "cpr-p09-c1",
-    "doc_id": "cpr",
-    "page": 9,
-    "section": "Sub-article 2.1.31 of Article 2",
-    "article": "2.1.31",
-    "quote": "service \nusage details, call records, message records, any information \nderived from a Subscriber’s use of telecommunications services"
-   }
-  ],
   "strength_check": {
    "text_modal": "descriptive",
    "action_verb": "Check",
@@ -251,18 +241,8 @@
    "page": 66,
    "section": "Sub-article 26.13 of Article 26",
    "article": "26.13",
-   "quote": "Licensees shall:"
+   "quote": "Licensees shall: \n26.13.1. \nreasonably assist any Consumer, so requesting such assistance, to \nformulate and to lodge a Consumer Complaint with the Licensee; \nand \n26.13.2. \nacknowledge the receipt of each Consumer Complaint by providing \nthe complainant with a reference number for the complaint and the \nindicative time-frame required for the Licensee to investigate and \nresolve the complaint."
   },
-  "supporting": [
-   {
-    "chunk_id": "cpr-p66-c3",
-    "doc_id": "cpr",
-    "page": 66,
-    "section": "Sub-article 26.13.2 of Article 26",
-    "article": "26.13.2",
-    "quote": "acknowledge the receipt of each Consumer Complaint by providing \nthe complainant with a reference number for the complaint and the \nindicative time-frame required for the Licensee to investigate and \nresolve the complaint."
-   }
-  ],
   "strength_check": {
    "text_modal": "shall",
    "action_verb": "Shall",
@@ -326,7 +306,17 @@
    "text_modal": "shall",
    "action_verb": "Check",
    "result": "pass"
-  }
+  },
+  "supporting": [
+   {
+    "chunk_id": "cpr-p67-c2",
+    "doc_id": "cpr",
+    "page": 67,
+    "section": "Sub-article 26.16.4 of Article 26",
+    "article": "26.16.4",
+    "quote": "The TDRA’s Consumer Dispute procedures are set out in Annex 1 \nto these Regulations."
+   }
+  ]
  },
  {
   "id": "TL-08",
@@ -439,7 +429,7 @@
    "page": 65,
    "section": "Sub-article 26.7.2 of Article 26",
    "article": "26.7.2",
-   "quote": "preclude the use of non-human agents by Licensees in \nconversations with Consumers regarding Consumer Complaints."
+   "quote": "The provisions of sub-article 26.6: \n26.7.1. \napply in all cases regardless of which Mandatory Channel is used; \nand \n26.7.2. \npreclude the use of non-human agents by Licensees in \nconversations with Consumers regarding Consumer Complaints."
   },
   "strength_check": {
    "text_modal": "preclude",
@@ -468,7 +458,7 @@
    "chunk_id": "ethics-p13-c1",
    "doc_id": "ethics",
    "page": 13,
-   "section": "3.2.2.4",
+   "section": "3.2.2.4(f)",
    "article": null,
    "quote": "AI operators could consider “crowd challenge” mechanisms whereby a critical number of \ncomplaints triggers an investigation into the fairness and/or accuracy of a decision-making \nprocess as a whole."
   },
@@ -498,7 +488,7 @@
    "chunk_id": "ethics-p10-c2",
    "doc_id": "ethics",
    "page": 10,
-   "section": "3.1.2.3",
+   "section": "3.1.2.3(b)",
    "article": null,
    "quote": "When evaluating the fairness of an AI system, AI developers and AI operators should \nconsider whether AI subjects in the same circumstances receive equal treatment."
   },
@@ -528,7 +518,7 @@
    "chunk_id": "ethics-p12-c1",
    "doc_id": "ethics",
    "page": 12,
-   "section": "3.2.2.4",
+   "section": "3.2.2.4(a)",
    "article": null,
    "quote": "AI operators using AI systems to inform significant decisions should provide procedures by \nwhich affected AI subjects can challenge a specific decision concerning them."
   },
@@ -558,7 +548,7 @@
    "chunk_id": "ethics-p12-c1",
    "doc_id": "ethics",
    "page": 12,
-   "section": "3.2.2.4",
+   "section": "3.2.2.4(d)",
    "article": null,
    "quote": "AI operators should consider employing human case evaluators to review any such \nchallenges and, when appropriate, overturn the challenged decision."
   },
@@ -588,7 +578,7 @@
    "chunk_id": "ethics-p15-c1",
    "doc_id": "ethics",
    "page": 15,
-   "section": "3.3.2.2",
+   "section": "3.3.2.2(a)",
    "article": null,
    "quote": "AI operators should inform AI subjects when a significant decision affecting them has been \nmade by an AI system."
   },
@@ -606,7 +596,7 @@
   ],
   "priority": 35,
   "group": "controversy",
-  "action": "Should be able to override the throttle or reverse its decisions through designated individuals. Name them.",
+  "action": "Should be able to override the throttle or reverse its decisions through designated individuals. Record who they are.",
   "nodes": [
    "P"
   ],
@@ -617,7 +607,7 @@
    "chunk_id": "ethics-p17-c2",
    "doc_id": "ethics",
    "page": 17,
-   "section": "3.5.2.4",
+   "section": "3.5.2.4(e)",
    "article": null,
    "quote": "Such systems should be able to be overridden or their decisions reversed by designated \nindividuals."
   },
@@ -676,7 +666,7 @@
    "chunk_id": "ethics-p12-c2",
    "doc_id": "ethics",
    "page": 12,
-   "section": "3.2.2.2",
+   "section": "3.2.2.3(a)",
    "article": null,
    "quote": "When AI systems are used for critical decisions, external auditing of the AI systems in \nquestion should be used as a means to ensure meaningful standards of transparency and \naccountability are upheld."
   },
@@ -694,7 +684,7 @@
   ],
   "priority": 40,
   "group": "privacy",
-  "action": "Must have the Subscriber’s prior consent before sharing Subscriber Information with third parties not directly involved in providing the ordered service. Check whether consent exists for the vendor export. A person decides whether the vendor is directly involved.",
+  "action": "Must have the Subscriber’s prior consent before sharing Subscriber Information with third parties not directly involved in providing the ordered service. Check whether consent exists for the vendor export. A person decides whether the vendor is directly involved. The footnote allows consent given contractually when the contract is formed, if the Subscriber has a way to withdraw it.",
   "nodes": [
    "C",
    "SRC"
@@ -808,7 +798,7 @@
    "page": 59,
    "section": "Sub-article 24.5 of Article 24",
    "article": "24.5",
-   "quote": "Licensees shall limit access to Subscriber Information to its trained and \nauthorised personnel"
+   "quote": "Licensees shall limit access to Subscriber Information to its trained and \nauthorised personnel who will include the Licensee’s employees, directors, \nindependent contractors and consultants, who are bound to protect the \nLicensees confidential information (which includes Subscriber Information) from \nun-authorised use and disclosure under the terms of a written agreement."
   },
   "strength_check": {
    "text_modal": "shall",
@@ -853,7 +843,7 @@
   ],
   "priority": 45,
   "group": "privacy",
-  "action": "Record which ground in sub-article 24.3 applies, if any. The list opens with what a Licensee may do.",
+  "action": "Record which ground in sub-article 24.3 permits disclosing the Subscriber Information, if any. The list opens with what a Licensee may do, and it runs to 24.3.7.",
   "nodes": [
    "P"
   ],
@@ -866,18 +856,8 @@
    "page": 59,
    "section": "Sub-article 24.3 of Article 24",
    "article": "24.3",
-   "quote": "a \nLicensee may disclose Subscriber Information if such disclosure is:"
+   "quote": "a \nLicensee may disclose Subscriber Information if such disclosure is: \n24.3.1. \npermitted by law; \n24.3.2. \nexpressly permitted by the Subscriber in question;"
   },
-  "supporting": [
-   {
-    "chunk_id": "cpr-p59-c4",
-    "doc_id": "cpr",
-    "page": 59,
-    "section": "Sub-article 24.3.2 of Article 24",
-    "article": "24.3.2",
-    "quote": "expressly permitted by the Subscriber in question;"
-   }
-  ],
   "strength_check": {
    "text_modal": "may",
    "action_verb": "Record",
@@ -945,7 +925,7 @@
    "page": 59,
    "section": "Sub-article 24.1 of Article 24",
    "article": "24.1",
-   "quote": "the provisions of the \nDPL shall prevail to the extent necessary to remove any such inconsistency."
+   "quote": "In the event of any inconsistency between any of the provisions of this Article \n24 and any of the provisions of the Data Protection Law the provisions of the \nDPL shall prevail to the extent necessary to remove any such inconsistency."
   },
   "strength_check": {
    "text_modal": "shall",
@@ -1004,18 +984,8 @@
    "page": 12,
    "section": "Sub-article 3.9 of Article 3",
    "article": "3.9",
-   "quote": "Shall be retained for at least 5 \nyears"
+   "quote": "Records concerning Subscriber \nconsent/agreement including without \nlimitation: all matters concerning credit \nlimits; all matters concerning Hard-Caps on \nMobile Data, etc; and anything involving \nthe use of 2FA. \n \nShall be retained for at least 5 \nyears"
   },
-  "supporting": [
-   {
-    "chunk_id": "cpr-p12-c1",
-    "doc_id": "cpr",
-    "page": 12,
-    "section": "Sub-article 3.9 of Article 3",
-    "article": "3.9",
-    "quote": "Records concerning Subscriber \nconsent/agreement"
-   }
-  ],
   "strength_check": {
    "text_modal": "shall",
    "action_verb": "Check",
@@ -1174,7 +1144,7 @@
    "chunk_id": "ethics-p21-c1",
    "doc_id": "ethics",
    "page": 21,
-   "section": "3.8.2.1",
+   "section": "3.8.2.1(a)",
    "article": null,
    "quote": "AI Operators should review the system for proper consent logging, ability of users to revoke \npermission whenever applicable."
   },
@@ -1233,7 +1203,7 @@
    "chunk_id": "ethics-p21-c1",
    "doc_id": "ethics",
    "page": 21,
-   "section": "3.8.2.2",
+   "section": "3.8.2.2(b)",
    "article": null,
    "quote": "Assign specific responsibilities and role for Data Protection Officers."
   },
@@ -1263,7 +1233,7 @@
    "chunk_id": "ethics-p22-c1",
    "doc_id": "ethics",
    "page": 22,
-   "section": "3.8.2.2",
+   "section": "3.8.2.2(f)",
    "article": null,
    "quote": "Algorithmic systems require adequate privacy impact assessments"
   },
@@ -1292,7 +1262,7 @@
    "chunk_id": "ethics-p21-c1",
    "doc_id": "ethics",
    "page": 21,
-   "section": "3.8.2.1",
+   "section": "3.8.2.1(b)",
    "article": null,
    "quote": "Consider training AI model without or with minimal user of potentially sensitive or personal \ndata."
   },
@@ -1321,7 +1291,7 @@
    "chunk_id": "ethics-p21-c1",
    "doc_id": "ethics",
    "page": 21,
-   "section": "3.8.2.1",
+   "section": "3.8.2.1(c)",
    "article": null,
    "quote": "Use measures to enhance privacy such as encryption, anonymization and aggregation."
   },
@@ -1351,7 +1321,7 @@
    "chunk_id": "ethics-p14-c1",
    "doc_id": "ethics",
    "page": 14,
-   "section": "3.3.2.1",
+   "section": "3.3.2.1(b)",
    "article": null,
    "quote": "Organizations should ensure that harms caused through AI systems are investigated and \nredressed,"
   },
@@ -1413,7 +1383,7 @@
    "page": 60,
    "section": "Sub-article 24.11 of Article 24",
    "article": "24.11",
-   "quote": "the Licensee to which the request is \naddressed shall take all reasonable measures to supply the requested \nSubscriber Information as directed by the TDRA."
+   "quote": "The TDRA may request any Licensee to provide the TDRA with any Subscriber \nInformation that is essential to enable the TDRA to fulfil its duties.  Any such \nrequest shall be made in writing and the Licensee to which the request is \naddressed shall take all reasonable measures to supply the requested \nSubscriber Information as directed by the TDRA."
   },
   "strength_check": {
    "text_modal": "shall",
@@ -1452,7 +1422,7 @@
     "page": 28,
     "section": "Article (71), Telecom Law",
     "article": "Article (71)",
-    "quote": "A person shall be punished with imprisonment of not more than two years"
+    "quote": "A person shall be punished with imprisonment of not more than two years and a fine of not less than Dirhams 50,000 and not more than Dirhams 200,000, or either of these punishments if:"
    }
   ],
   "strength_check": {
@@ -1483,7 +1453,7 @@
    "page": 65,
    "section": "Sub-article 26.3 of Article 26",
    "article": "26.3",
-   "quote": "Licensees shall establish and maintain effective procedures to assist the TDRA \nand to provide such information in a timely manner as the TDRA may require"
+   "quote": "Licensees shall establish and maintain effective procedures to assist the TDRA \nand to provide such information in a timely manner as the TDRA may require \nwhilst the TDRA is investigating any given Consumer Dispute."
   },
   "strength_check": {
    "text_modal": "shall",
@@ -1512,7 +1482,7 @@
    "chunk_id": "ethics-p12-c2",
    "doc_id": "ethics",
    "page": 12,
-   "section": "3.2.2.3",
+   "section": "3.2.2.3(d)",
    "article": null,
    "quote": "Facilitate traceability and auditability of AI systems, particularly in critical contexts or \nsituations."
   },
@@ -1530,7 +1500,7 @@
   ],
   "priority": 80,
   "group": "change",
-  "action": "Check whether the retrained model went through a sandbox as Y.3172 describes. Y.3172 is voluntary, and no UAE text in the KB requires a sandbox.",
+  "action": "Check whether the retrained model went through a sandbox to train, test and evaluate it before deploying it, as Y.3172 describes. Y.3172 is voluntary, and no UAE text in the KB requires a sandbox.",
   "nodes": [
    "M",
    "Sandbox",
@@ -1603,7 +1573,7 @@
    "chunk_id": "ethics-p12-c2",
    "doc_id": "ethics",
    "page": 12,
-   "section": "3.2.2.2",
+   "section": "3.2.2.2(i)",
    "article": null,
    "quote": "AI Operators should subject AI systems informing significant decisions to quality checks \nat least as stringent as those that would be required of a human being taking the same \ndecision."
   },
@@ -1752,7 +1722,7 @@
    "chunk_id": "ethics-p19-c1",
    "doc_id": "ethics",
    "page": 19,
-   "section": "3.6.2.3",
+   "section": "3.6.2.3(b)",
    "article": null,
    "quote": "In the most extreme cases it should always be possible to shut down harmful AI system."
   },
@@ -1781,7 +1751,7 @@
    "chunk_id": "ethics-p12-c2",
    "doc_id": "ethics",
    "page": 12,
-   "section": "3.2.2.3",
+   "section": "3.2.2.3(c)",
    "article": null,
    "quote": "In the case that critical decision are life and death decisions, these decisions should be \nsupported by further validation and verification via a human operator."
   },

@@ -78,7 +78,7 @@ One row per node, from `data/evidence-map.json`:
 | SRC | D13 Digital Infrastructure | CPR 2.1.31 |
 | C | D1 Data/Model Marketplace | CPR 24.6 |
 | PP | D3 Cross-Domain Correlation Analysis | CPR 24.4 |
-| M | D9 Impacts of Humans in AI Integration | Ethics 3.2.2.2 |
+| M | D9 Impacts of Humans in AI Integration | Ethics 3.2.2.2(i) |
 | P | D10 AI & Policies | Telecom Law Art. (30) |
 | D | D12 Granular Priorities | CPR 5.5.6 |
 | SINK | D6 Human Interface | CPR 26.7.2 |

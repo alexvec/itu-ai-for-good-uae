@@ -258,7 +258,7 @@
   "reading_notes": [
    "Published under CC BY 4.0 per its section 1.5: credit to the UAE AI and Blockchain Council as owner, and no suggestion of endorsement by the Minister of State office.",
    "Each PDF page is a two-page spread, so one PDF page carries two printed page numbers. Citations use the PDF page index.",
-   "The text layer often separates headings and list letters from their paragraphs. Section labels on rule citations were confirmed against the rendered page. Page-level headings on other chunks only say which headings occur on that page.",
+   "The text layer often separates headings and list letters from their paragraphs, and a page-sliced chunk can span sections. Every Ethics section label on a rule, conflict or evidence row was confirmed on the rendered page; the list is in data/label-checks.json. Page-level headings on other chunks only say which headings occur on that page.",
    "Pages 23 and 24 (bibliography) and the table of contents are stored but excluded from retrieval, because a bibliography entry is not a provision."
   ],
   "chunker": "page",
